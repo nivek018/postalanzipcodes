@@ -42,12 +42,12 @@ class SearchController extends Controller
         
         /*  */
         $page_title    = sprintf('%s', $search_q);
-        $page_info     = sprintf('Search results for %s', $search_q);
+        $page_info     = sprintf('Search results for "%s"', $search_q);
 
         /*  */
         if ( count($results) > 0 ) {
             
-            $page_info     = sprintf('Search results for %s found %s zip codes.', $search_q, count($results));
+            $page_info     = sprintf('Search results for "%s" found %s zip codes.', $search_q, count($results));
             
             /*  */
             foreach ($results as $key => $value) {
