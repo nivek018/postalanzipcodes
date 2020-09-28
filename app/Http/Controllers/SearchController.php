@@ -39,7 +39,7 @@ class SearchController extends Controller
         
         /*  */
         $results = Zipcode::search($search_q)->get();
-        
+        dd($results);
         /*  */
         $page_title    = sprintf('%s', $search_q);
         $page_info     = sprintf('Search results for "%s"', $search_q);

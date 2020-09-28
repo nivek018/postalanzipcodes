@@ -19,7 +19,13 @@ class Zipcode extends Model
     /*  */
     public function toSearchableArray()
     {
-        return 'postal_codes';
+        $array = $this->toArray();
+
+        // Customize array...
+
+        return $array;
+        
+        //return 'postal_codes';
     }
 
 }
