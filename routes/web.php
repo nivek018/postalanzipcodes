@@ -8,12 +8,13 @@ use App\Http\Controllers\BarangayController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ZipcodeController;
+use App\Http\Controllers\SitemapController;
 
 /* index page */
-// Route::get('/', function () {
-//     return view('pages.index');
-// });
 Route::get('/', [IndexController::class, 'index'])->name('index');
+
+/* sitemap */
+Route::get('/sitemap', [SitemapController::class, 'sitemap'])->name('sitemap');
 
 /* terms of service page */
 Route::get('/terms-of-service', function () {
@@ -74,6 +75,11 @@ Route::get('/zipcode/{code}', [ZipcodeController::class, 'search_zipcode']);
 Route::get('/zipcode/{code}', [ZipcodeController::class, 'search_zipcode'])->name('url_zipcode');
 Route::get('/postalcode/{code}', [ZipcodeController::class, 'search_zipcode']);
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> mnoquiao
 /*      */
 /* POST */
 /*      */
