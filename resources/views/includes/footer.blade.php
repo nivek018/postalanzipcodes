@@ -43,6 +43,7 @@
                   <ul class="footer-list-menu">
                     <li><a href="/terms-of-service" target="" title="Terms of Service">Terms of Service</a></li>
                     <li><a href="/privacy-policy" target="" title="Privacy Policy">Privacy Policy</a></li>
+                    <li><a href="/sitemap" target="" title="Sitemap">Sitemap</a></li>
                   </ul>
                 </div>
               </div>

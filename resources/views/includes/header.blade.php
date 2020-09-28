@@ -26,6 +26,8 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/how-it-works">How it works?</a>
           <a class="dropdown-item" href="/about-us">About</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/sitemap">Sitemap</a>
         </div>
       </li>
     </ul>
