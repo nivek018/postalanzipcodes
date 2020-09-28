@@ -75,11 +75,6 @@ Route::get('/zipcode/{code}', [ZipcodeController::class, 'search_zipcode']);
 Route::get('/zipcode/{code}', [ZipcodeController::class, 'search_zipcode'])->name('url_zipcode');
 Route::get('/postalcode/{code}', [ZipcodeController::class, 'search_zipcode']);
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> mnoquiao
 /*      */
 /* POST */
 /*      */
