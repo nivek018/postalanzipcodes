@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>@yield('title') — postalandzipcodes.ph</title>
+        <title>@yield('title')</title>
         <meta name="description" content="{{ $description ?? '' }}">
         <link rel="canonical" href="{{ $canonical ?? '' }}" />
         <meta name="robots" content="index, follow">

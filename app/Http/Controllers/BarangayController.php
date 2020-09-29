@@ -71,14 +71,14 @@ class BarangayController extends Controller
             ->get();
 
       /*  */
-      $page_title    = sprintf('%s zip code', ucwords($formatted_barangay));
-      $page_info     = sprintf('%s zip code is not yet in our database.', $formatted_barangay);
+      $page_title    = sprintf('%s Zip Code', ucwords($formatted_barangay));
+      $page_info     = sprintf('%s Zip Code is not yet in our database.', $formatted_barangay);
       
       if ( count($sql) > 0 ) {
 
          /* change title and info if results were found */
-         $page_title    = sprintf('%s, %s zip code', ucwords($formatted_barangay), ucwords($formatted_city));
-         $page_info     = sprintf('%s, %s zip code.', ucwords($formatted_barangay), ucwords($formatted_city));
+         $page_title    = sprintf('%s, %s Zip Code', ucwords($formatted_barangay), ucwords($formatted_city));
+         $page_info     = sprintf('%s, %s Zip Code.', ucwords($formatted_barangay), ucwords($formatted_city));
 
          /*  */
          foreach ($sql as $key => $value) {

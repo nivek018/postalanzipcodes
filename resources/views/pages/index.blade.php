@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Home')
+@section('title', 'postalandzipcodes.ph | Philippine Zip Codes')
 
 
 
@@ -12,7 +12,28 @@
 
 
 @section('content')
-<div class="s130">
+
+@php
+    $bg_arr = [
+        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104613/postalandzipcodes.ph/pexels-marfil-graganza-aquino-2604843.jpg",
+        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104615/postalandzipcodes.ph/pexels-jeff-guab-2407636.jpg",
+        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104614/postalandzipcodes.ph/pexels-leon-macapagal-2467670.jpg",
+        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104613/postalandzipcodes.ph/pexels-roiland-hernandez-2406376.jpg",
+        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104613/postalandzipcodes.ph/pexels-meo-fernando-3214989.jpg",
+        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104613/postalandzipcodes.ph/pexels-marfil-graganza-aquino-2604843.jpg",
+        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104610/postalandzipcodes.ph/pexels-christian-paul-del-rosario-1098322.jpg",
+        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104608/postalandzipcodes.ph/pexels-nice-guys-757450.jpg",
+        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601350997/postalandzipcodes.ph/8f82a63ef0e32770e63eff87ce0913eb.jpg",
+    ];
+@endphp
+<div class="s130"
+    style="
+        background: linear-gradient(360deg, rgb(31, 30, 30) 0%, rgba(255,255,255,0.35) 90%), url('{{ $bg_arr[array_rand($bg_arr,1)] }}');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    "
+>
     <form name="index-search-form" autocomplete="off">
         
         @csrf

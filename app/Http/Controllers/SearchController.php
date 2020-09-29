@@ -39,7 +39,7 @@ class SearchController extends Controller
         
         /*  */
         $results = Zipcode::search($search_q)->get();
-        dd($results);
+        
         /*  */
         $page_title    = sprintf('%s', $search_q);
         $page_info     = sprintf('Search results for "%s"', $search_q);
@@ -47,7 +47,7 @@ class SearchController extends Controller
         /*  */
         if ( count($results) > 0 ) {
             
-            $page_info     = sprintf('Search results for "%s" found %s zip codes.', $search_q, count($results));
+            $page_info     = sprintf('Your search results for "%s" found %s Zip %s.', $search_q, count($results), (count($results) == 1 ? 'Code' : 'Codes'));
             
             /*  */
             foreach ($results as $key => $value) {

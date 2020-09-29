@@ -10,7 +10,7 @@ class IndexController extends Controller
     public function index()
     {
 
-        /*  */
+        // 
         $data    = array(
                     'page_title'    => 'Postal and Zip Codes directory of the Philippines',
                     'canonical'     => route('index'),
@@ -20,4 +20,5 @@ class IndexController extends Controller
         return view('pages.index', $data);
 
     }
+
 }

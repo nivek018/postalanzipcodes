@@ -12,12 +12,12 @@
             <div class="col-lg-6 col-md-7 col-sm-8">
                 <div class="number-count-part d-flex">
                     <div class="number-count-item">
-                        <span class="number">33 🌱</span>
+                        <span class="number">{{ session('sess_contributors') ?? 0 }} 🌱</span>
                         <p>contributed zip codes</p>
                     </div>
 
                     <div class="number-count-item">
-                        <span class="number">875 🧑‍🤝‍🧑</span>
+                        <span class="number">{{ session('sess_contributed_zip_codes') ?? 0 }} 🧑‍🤝‍🧑</span>
                         <p>total contributors</p>
                     </div>
                 </div>

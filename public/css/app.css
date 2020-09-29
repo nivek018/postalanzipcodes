@@ -54,12 +54,9 @@ table a:hover {
   -ms-flex-pack: center;
       justify-content: center;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(360deg, rgb(31, 30, 30) 0%, rgba(255,255,255,0.35) 90%), url('https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1601104613/postalandzipcodes.ph/pexels-marfil-graganza-aquino-2604843.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   padding: 15px;
   /* 
+  https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1601104613/postalandzipcodes.ph/pexels-marfil-graganza-aquino-2604843.jpg
   https://res.cloudinary.com/mnoquiao/image/upload/v1601104615/postalandzipcodes.ph/pexels-jeff-guab-2407636.jpg
   https://res.cloudinary.com/mnoquiao/image/upload/v1601104614/postalandzipcodes.ph/pexels-leon-macapagal-2467670.jpg
   https://res.cloudinary.com/mnoquiao/image/upload/v1601104613/postalandzipcodes.ph/pexels-roiland-hernandez-2406376.jpg

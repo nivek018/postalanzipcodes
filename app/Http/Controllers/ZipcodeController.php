@@ -27,17 +27,17 @@ class ZipcodeController extends Controller
             ->get();
         
         /*  */
-        $page_title    = sprintf('%s zip code', $code);
-        $page_info     = sprintf('%s zip code is not yet in our database.', $code);
+        $page_title    = sprintf('%s Zip Code', $code);
+        $page_info     = sprintf('%s Zip Code is not yet in our database.', $code);
         
         if ( count($sql) > 0 ) {
 
-            /* zip code is belong to more than 1 barangay */
+            /* Zip Code is belong to more than 1 barangay */
             if ( count($sql) > 1 ) {
-                $page_info     = sprintf('%s zip code is within %s and belongs to %s barangays.', $code, $sql[0]->city, count($sql));
+                $page_info     = sprintf('%s Zip Code is within %s and belongs to %s barangays.', $code, $sql[0]->city, count($sql));
             }
             else {
-                $page_info     = sprintf('%s is zip code of %s, %s.', $code, $sql[0]->barangay, $sql[0]->city);
+                $page_info     = sprintf('%s is Zip Code of %s, %s.', $code, $sql[0]->barangay, $sql[0]->city);
             }
 
             /*  */

@@ -59,14 +59,14 @@ class CityController extends Controller
             ->get();
 
       /*  */
-      $page_title    = sprintf('%s zip code', ucwords($formatted_city));
-      $page_info     = sprintf('%s zip code is not yet in our database.', $formatted_city);
+      $page_title    = sprintf('%s Zip Code', ucwords($formatted_city));
+      $page_info     = sprintf('%s Zip Code is not yet in our database.', $formatted_city);
 
       if ( count($sql) > 0 ) {
 
          /* modify page title, info/description */
-         $page_title    = sprintf('%s zip codes', $sql[0]->city);
-         $page_info     = sprintf('%s is within %s and composed of %s barangays with zip codes.', $sql[0]->city, $sql[0]->region, count($sql));
+         $page_title    = sprintf('%s Zip Codes', $sql[0]->city);
+         $page_info     = sprintf('%s is within %s and composed of %s barangays with Zip Codes.', $sql[0]->city, $sql[0]->region, count($sql));
       
 
          /*  */

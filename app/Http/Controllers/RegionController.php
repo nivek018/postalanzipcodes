@@ -33,14 +33,14 @@ class RegionController extends Controller
             ->get();
         
         /*  */
-        $page_title    = sprintf('%s zip code', ucwords($formatted_region));
-        $page_info     = sprintf('%s zip code is not yet in our database.', $formatted_region);
+        $page_title    = sprintf('%s Zip Code', ucwords($formatted_region));
+        $page_info     = sprintf('%s Zip Code is not yet in our database.', $formatted_region);
 
         if ( count($sql) > 0 ) {
 
             /* modify page title, info/description */
-            $page_title    = sprintf('%s zip codes', $sql[0]->region);
-            $page_info     = sprintf('%s is composed of %s barangays with zip codes.', $sql[0]->region, count($sql), count($sql));
+            $page_title    = sprintf('%s Zip Codes', $sql[0]->region);
+            $page_info     = sprintf('%s is composed of %s barangays with Zip Codes.', $sql[0]->region, count($sql), count($sql));
 
             /*  */
             foreach ($sql as $key => $value) {
