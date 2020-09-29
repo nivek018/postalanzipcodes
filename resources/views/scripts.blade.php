@@ -40,7 +40,7 @@ if ( null !== localStorage.getItem(`searches`) ) {
     })
 
     /*  */
-    user_search_container.innerHTML = searches_holder;
+    if ( null !== user_search_container) { user_search_container.innerHTML = searches_holder; }
 
 }
 

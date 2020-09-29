@@ -19,6 +19,7 @@ class Zipcode extends Model
     /*  */
     public function toSearchableArray()
     {
+        
         $array = $this->toArray();
 
         // Customize array...
