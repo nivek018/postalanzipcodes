@@ -17,6 +17,7 @@
             </script>
 
             <span class="text-muted font-weight-bolder">Ad</span>
+            
         </div>
     </div>
 </div>
