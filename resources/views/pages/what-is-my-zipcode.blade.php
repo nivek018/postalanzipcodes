@@ -66,16 +66,23 @@
             </div> <!-- [ .col-xl-12 ] END -->
 
             <div class="col-xl-12"> 
-                <div id="map" style="height=: 100%;"></div>
+                <div id="map" style="height:100%;"></div>
             </div>
+             
+        </div> <!-- [ .row ] END -->
 
+        <!-- ads -->
+        @include('ads.google-ads-responsive-horizontal')
+        <!--  -->
+        <!--  -->
+
+        <div class="row">
             <div class="col-xl-12">  
                 <div class="alert alert-warning alert-dismissible" role="alert">
                     <strong>Note:</strong> 
                     The method <code>Geolocation.getCurrentPosition()</code> is more accurate on a mobile device.
                 </div>
             </div> <!-- [ .col-xl-12 ] END -->
-             
         </div> <!-- [ .row ] END -->
 
     </div>

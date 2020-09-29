@@ -110,14 +110,10 @@
     @endif
 
 
-    <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-            <div class="cardads text-right">
-                <a href="#"><img class="img-fluid" width="500px" src="https://sg-test-11.slatic.net/other/lzd-ad/ec1b853e95ca4b1b7150753f1bbb4f8a.jpeg" alt="" srcset="" /></a>
-                <span class="text-muted font-weight-bolder">Ad</span>
-            </div>
-        </div>
-    </div>
+    <!-- ads -->
+    @include('ads.google-ads-responsive-horizontal')
+    <!--  -->
+    <!--  -->
 
 </div> <!-- [ .container ] END -->
 @endsection
