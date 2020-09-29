@@ -4,10 +4,10 @@
 	// $date = date('m-d-Y h:i A');
 
 	/* google cloud sql */	
-	$servername = env('DB_HOST');
-	$username 	= env('DB_USERNAME');
-	$password 	= env('DB_PASSWORD');
-	$database 	= env('DB_DATABASE');
+	$servername = env('35.187.255.212');
+	$username 	= env('root');
+	$password 	= env('44/66.72+4466272');
+	$database 	= env('postalcodecomph');
 
 	/* Create connection */
 	$conn = new mysqli($servername, $username, $password, $database);
