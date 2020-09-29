@@ -8,7 +8,8 @@
         <title>@yield('title')</title>
         <meta name="description" content="{{ $description ?? '' }}">
         <link rel="canonical" href="{{ $canonical ?? '' }}" />
-        <meta name="robots" content="index, follow">
+        <meta name="robots" content="noindex">
+        <meta name="googlebot" content="noindex">
 
         <!-- global css -->
         @include('head')
