@@ -60,7 +60,7 @@
         <span class="info">e.g. Barangay, City, Region, and Zip Code</span>
 
         <!-- ads -->
-        @include('ads.google-ads-responsive-horizontal');
+        @include('ads.google-ads-responsive-horizontal')
         <!--  -->
         <!--  -->
         

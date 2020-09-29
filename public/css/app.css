@@ -234,6 +234,7 @@ table a:hover {
 .cardads {
   position: static;
   display: block;
+  min-width: 200px;
   max-width: 400px;
   padding: 10px;
   margin: 2rem 0;

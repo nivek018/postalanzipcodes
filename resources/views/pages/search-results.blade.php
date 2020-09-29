@@ -107,7 +107,7 @@
     @endif
 
     <!-- ads -->
-    @include('ads.google-ads-responsive-horizontal');
+    @include('ads.google-ads-responsive-horizontal')
     <!--  -->
     <!--  -->
 
