@@ -7,7 +7,7 @@
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- 2020.responsive.horizontal.ads -->
             <ins class="adsbygoogle"
-                style="display:block"
+                style="display:inline-block;min-width:400px;max-width:970px;width:100%;height:90px"
                 data-ad-client="ca-pub-4218246550818096"
                 data-ad-slot="5265746921"
                 data-ad-format="auto"
@@ -17,7 +17,7 @@
             </script>
 
             <span class="text-muted font-weight-bolder">Ad</span>
-            
+
         </div>
     </div>
 </div>
