@@ -59,17 +59,11 @@
 
         <span class="info">e.g. Barangay, City, Region, and Zip Code</span>
 
-
-
-        <div class="row">
-            <div class="col-lg-12 d-flex justify-content-center">
-                <div class="cardads text-right">
-                    <a href="#"><img class="img-fluid" width="500px" src="https://sg-test-11.slatic.net/other/lzd-ad/629f69c5e0ede3c68d9727cc2cbfc61c.jpeg" alt="" srcset="" /></a>
-                    <span class="text-muted font-weight-bolder">Ad</span>
-                </div>
-            </div>
-        </div>
-
+        <!-- ads -->
+        @include('ads.google-ads-responsive-horizontal');
+        <!--  -->
+        <!--  -->
+        
     </form>    
 </div>
 @endsection
