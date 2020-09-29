@@ -20,13 +20,13 @@ class Zipcode extends Model
     public function toSearchableArray()
     {
         
-        $array = $this->toArray();
+        // $array = $this->toArray();
 
         // Customize array...
 
-        return $array;
+        // return $array;
         
-        //return 'postal_codes';
+        return 'postal_codes';
     }
 
 }
