@@ -66,7 +66,7 @@
             </div> <!-- [ .col-xl-12 ] END -->
 
             <div class="col-xl-12"> 
-                <div id="map"></div>
+                <div id="map" style="height=: 100%;"></div>
             </div>
 
             <div class="col-xl-12">  
