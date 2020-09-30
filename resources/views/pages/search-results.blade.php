@@ -112,7 +112,7 @@
     @endif
 
     <!-- ads -->
-    @include('ads.ads1')
+    @include('ads.ads2')
     <!--  -->
     <!--  -->
 
