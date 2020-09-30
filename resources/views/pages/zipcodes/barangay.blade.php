@@ -15,6 +15,11 @@
 @section('content')
 <div class="container mt-5">
 
+    <!-- ads -->
+    @include('ads.google-ads-responsive-horizontal')
+    <!--  -->
+    <!--  -->
+    
     <div class="s120">
         <form name="search-form" autocomplete="off">
 
