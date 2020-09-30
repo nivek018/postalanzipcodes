@@ -770,12 +770,16 @@ body.index-class {
     }
 
     
-    #footer-container .submit-zipcode-form {
+    #footer-container .widget-subscribe {
         display: flexbox;
         justify-content: center;
         align-items: center;
         margin-top: 3rem;
         margin-bottom: 0;
+    }
+
+    #footer-container .footer-top-second {
+        margin-top: 0;
     }
 
 }
