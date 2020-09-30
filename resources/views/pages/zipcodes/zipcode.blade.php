@@ -16,7 +16,7 @@
 <div class="container mt-5">
 
     <!-- ads -->
-    @include('ads.google-ads-responsive-horizontal')
+    @include('ads.ads1')
     <!--  -->
     <!--  -->
     
@@ -116,7 +116,7 @@
 
 
     <!-- ads -->
-    @include('ads.google-ads-responsive-horizontal')
+    @include('ads.ads2')
     <!--  -->
     <!--  -->
 

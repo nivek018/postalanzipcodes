@@ -2,9 +2,9 @@
     <div class="col-lg-12 d-flex justify-content-center">
         <div class="cardads desktop-ads text-right">
             
-            <!-- Ezoic - top_of_page 117 - top_of_page -->
-            <div id="ezoic-pub-ad-placeholder-117">
-
+            <!-- Ezoic - bottom_of_page 119 (desktop,tablet) - bottom_of_page -->
+            <div id="ezoic-pub-ad-placeholder-119"> 
+            
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- 2020.responsive.horizontal.ads -->
             <ins class="adsbygoogle"
@@ -18,7 +18,7 @@
             </script>
 
             </div>
-            <!-- End Ezoic - top_of_page 117 - top_of_page -->
+            <!-- End Ezoic - bottom_of_page 119 (desktop,tablet) - bottom_of_page -->
 
         </div> <!-- [ .cardads ] END -->
 
@@ -26,9 +26,9 @@
 
         <div class="cardads mobile-ads">
             
-            <!-- Ezoic - top_of_page (mobile) - top_of_page -->
-            <div id="ezoic-pub-ad-placeholder-118">
-            
+            <!-- Ezoic - top_of_page 120 (mobile) - bottom_of_page -->
+            <div id="ezoic-pub-ad-placeholder-120">
+
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- 2020.mobile.horizontal.ads -->
             <ins class="adsbygoogle"
@@ -40,7 +40,7 @@
             </script>
 
             </div>
-            <!-- End Ezoic - top_of_page (mobile) - top_of_page -->
+            <!-- End Ezoic - top_of_page 120 (mobile) - bottom_of_page -->
 
         </div> <!-- [ .cardads ] END -->
 

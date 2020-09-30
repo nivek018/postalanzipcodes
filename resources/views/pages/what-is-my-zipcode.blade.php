@@ -72,7 +72,7 @@
         </div> <!-- [ .row ] END -->
 
         <!-- ads -->
-        @include('ads.google-ads-responsive-horizontal')
+        @include('ads.ads1')
         <!--  -->
         <!--  -->
 
