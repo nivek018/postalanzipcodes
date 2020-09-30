@@ -150,10 +150,10 @@ function final_request(latitude, longitude, accuracy) {
             let json = JSON.parse(data);
             
             // json.address.*
-            document.getElementById(`visitors-zipcode`).innerHTML   = json.address.postcode;
-            document.getElementById(`lat`).innerHTML                = latitude;
-            document.getElementById(`lon`).innerHTML                = longitude;
-            document.getElementById(`accuracy`).innerHTML           = `More or less ${accuracy} meters`;
+            $(`#visitors-zipcode`).html(json.address.postcode);
+            $(`#lat`).html(latitude);
+            $(`#lon`).html(longitude);
+            $(`#accuracy`).html(`More or less ${accuracy} meters`);
 
         }
 
