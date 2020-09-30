@@ -2,6 +2,9 @@
     <div class="col-lg-12 d-flex justify-content-center">
         <div class="cardads desktop-ads text-right">
             
+            <!-- Ezoic - top_of_page 117 - top_of_page -->
+            <div id="ezoic-pub-ad-placeholder-117">
+
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- 2020.responsive.horizontal.ads -->
             <ins class="adsbygoogle"
@@ -14,11 +17,17 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
 
+            </div>
+            <!-- End Ezoic - top_of_page 117 - top_of_page -->
+
         </div> <!-- [ .cardads ] END -->
 
 
 
         <div class="cardads mobile-ads">
+            
+            <!-- Ezoic - top_of_page (mobile) - top_of_page -->
+            <div id="ezoic-pub-ad-placeholder-118">
             
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- 2020.mobile.horizontal.ads -->
@@ -29,6 +38,9 @@
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
+
+            </div>
+            <!-- End Ezoic - top_of_page (mobile) - top_of_page -->
 
         </div> <!-- [ .cardads ] END -->
 

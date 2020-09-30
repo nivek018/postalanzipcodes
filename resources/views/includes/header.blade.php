@@ -13,7 +13,7 @@
       </li>
       <li class="nav-item @if(\Request::is('what-is-my-zip-code'))active @endif">
         <a class="nav-link" href="/what-is-my-zip-code" title="Get your current location's zip code information.">
-            MY ZIPCODE
+            MY ZIP CODE
         </a>
       </li>
       <li class="nav-item dropdown">
