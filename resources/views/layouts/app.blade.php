@@ -8,8 +8,8 @@
         <title>@yield('title')</title>
         <meta name="description" content="{{ $description ?? '' }}">
         <link rel="canonical" href="{{ $canonical ?? '' }}" />
-        <meta name="robots" content="noindex">
-        <meta name="googlebot" content="noindex">
+        <meta name="robots" content="index">
+        <meta name="googlebot" content="index">
 
         <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('image/favicon/apple-icon-57x57.png') }}">
         <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('image/favicon/apple-icon-60x60.png') }}">
