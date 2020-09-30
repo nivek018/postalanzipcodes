@@ -256,6 +256,12 @@ table a:hover {
 
 /* #### Mobile Phones Portrait #### */
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
+
+  /* index search bar from 30px to 15px (for mobile) */
+  .s130 form .inner-form {
+    margin-bottom: 15px;
+  }
+
   .mobile-ads {
     background-color: rgba(0, 0, 0, 0);
     display: block;
