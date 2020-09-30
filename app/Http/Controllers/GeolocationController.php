@@ -55,7 +55,7 @@ class GeolocationController extends Controller
         } else {
 
             /* return results */
-            return json_encode( $json );
+            return $json;
         
         }
     }
