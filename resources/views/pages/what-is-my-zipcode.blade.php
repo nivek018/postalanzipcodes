@@ -124,11 +124,11 @@ function final_request(latitude, longitude, accuracy) {
         success: function(data) {
 
             let json = JSON.parse(data);
-            
+                        
             // json.address.*
-            $(`#visitors-zipcode`).html(json.address.postcode);
-            $(`#lat`).html(latitude);
-            $(`#lon`).html(longitude);
+            $(`#visitors-zipcode`).html(`${json.address.postcode}`);
+            $(`#lat`).html(`${latitude}`);
+            $(`#lon`).html(`${longitude}`);
             $(`#accuracy`).html(`More or less ${accuracy} meters`);
 
         }
@@ -176,59 +176,47 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-var map, infoWindow;
+// var map, infoWindow;
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 6
-    });
-    infoWindow = new google.maps.InfoWindow;
+// function initMap() {
+//     map = new google.maps.Map(document.getElementById('map'), {
+//     center: {lat: -34.397, lng: 150.644},
+//     zoom: 6
+//     });
+//     infoWindow = new google.maps.InfoWindow;
 
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
+//     // Try HTML5 geolocation.
+//     if (navigator.geolocation) {
 
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-            };
+//         navigator.geolocation.getCurrentPosition(function(position) {
+//             var pos = {
+//             lat: position.coords.latitude,
+//             lng: position.coords.longitude
+//             };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-        }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
+//             infoWindow.setPosition(pos);
+//             infoWindow.setContent('Location found.');
+//             infoWindow.open(map);
+//             map.setCenter(pos);
+//         }, function() {
+//             handleLocationError(true, infoWindow, map.getCenter());
+//         });
 
-    } else {
+//     } else {
 
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
+//         // Browser doesn't support Geolocation
+//         handleLocationError(false, infoWindow, map.getCenter());
         
-    }
-}
+//     }
+// }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
-}
+// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+//     infoWindow.setPosition(pos);
+//     infoWindow.setContent(browserHasGeolocation ?
+//                         'Error: The Geolocation service failed.' :
+//                         'Error: Your browser doesn\'t support geolocation.');
+//     infoWindow.open(map);
+// }
 </script>
-
-
-
-<script>
-$(function() {
-
- 
-
-});
-</script>
-<script defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPzaoRrNUi7glDasKUeYAS3RQ1RZp5v4U&callback=initMap">
-</script>
+<!-- <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPzaoRrNUi7glDasKUeYAS3RQ1RZp5v4U&callback=initMap"></script> -->
 @endsection
