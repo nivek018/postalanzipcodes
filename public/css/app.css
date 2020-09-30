@@ -249,6 +249,22 @@ table a:hover {
   display: block;
 }
 
+.mobile-ads {
+  display: none;
+  background-color: rgb(3, 3, 3);
+}
+
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+  .mobile-ads {
+    display: block;
+  }
+  .desktop-ads {
+    display: none;
+  }
+}
+
+
 @media screen and (min-width: 576px) {
   .cardads {
       max-width: 330px;
