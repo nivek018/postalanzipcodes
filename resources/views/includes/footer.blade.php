@@ -32,6 +32,7 @@
                 <div class="footer-widget widget-about">
                   <h3 class="widget-title">Useful</h3>
                   <ul class="footer-list-menu">
+                    <li><a href="/what-is-my-zip-code" title="Get your current location's zip code information.">How it Works</a></li>
                     <li><a href="/how-it-works" title="How it works?">How it Works</a></li>
                     <li><a href="/about-us" title="About us">About us</a></li>
                   </ul>
