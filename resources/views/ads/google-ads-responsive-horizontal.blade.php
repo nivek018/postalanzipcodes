@@ -14,8 +14,6 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
 
-            <span class="text-muted font-weight-bolder">Ad</span>
-
         </div> <!-- [ .cardads ] END -->
 
 
