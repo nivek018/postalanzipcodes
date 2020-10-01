@@ -85,6 +85,7 @@ class GeolocationController extends Controller
 
             $data = [
                 'zip_code'      => $json_data->address->postcode,
+                'zip_code_url'  => route( 'url_zipcode', ['code' => $json_data->address->postcode, ]),
                 'display_addr'  => $json_data->display_name,
             ];
 

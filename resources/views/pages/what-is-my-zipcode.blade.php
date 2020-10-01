@@ -129,7 +129,7 @@ function final_request(latitude, longitude, accuracy) {
 
         success: function(data) {
                         
-            $(`#visitors-zipcode`).html(`${data.zip_code}`);
+            $(`#visitors-zipcode`).html(`<a href="${data.zip_code_url}" title="Zip Code Search">${data.zip_code}</a>`);
 
             $(`#lat`).html(`${latitude}`);
             $(`#lon`).html(`${longitude}`);

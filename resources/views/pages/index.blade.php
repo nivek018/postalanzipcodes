@@ -52,7 +52,7 @@
                 </div>
                 <input id="search" name="q" type="text" placeholder="Search zip code" value="" autocomplete="off" />
             </div>
-            <div class="input-field second-wrap">
+            <div class="input-field second-wrap" hidden>
                 <button class="btn-search" type="submit">SEARCH</button>
             </div>
         </div>

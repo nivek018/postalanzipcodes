@@ -57,16 +57,6 @@ table a:hover {
       justify-content: center;
   font-family: 'Poppins', sans-serif;
   padding: 15px;
-  /* 
-  https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1601104613/postalandzipcodes.ph/pexels-marfil-graganza-aquino-2604843.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104615/postalandzipcodes.ph/pexels-jeff-guab-2407636.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104614/postalandzipcodes.ph/pexels-leon-macapagal-2467670.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104613/postalandzipcodes.ph/pexels-roiland-hernandez-2406376.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104613/postalandzipcodes.ph/pexels-meo-fernando-3214989.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104613/postalandzipcodes.ph/pexels-marfil-graganza-aquino-2604843.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104610/postalandzipcodes.ph/pexels-christian-paul-del-rosario-1098322.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104608/postalandzipcodes.ph/pexels-nice-guys-757450.jpg
-   */
 }
 
 .s130 form {
@@ -99,7 +89,7 @@ table a:hover {
   border: 0;
   display: block;
   width: 100%;
-  padding: 10px 0;
+  padding: 10px;
   font-size: 16px;
   color: #000;
 }
@@ -170,7 +160,6 @@ table a:hover {
   cursor: pointer;
   position: relative;
   z-index: 0;
-  /* background: #3a687c; */
   background: #00ad5f;
   transition: all .2s ease-out, color .2s ease-out;
   font-weight: 300;
@@ -308,15 +297,6 @@ table a:hover {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 15px;
-  /* 
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104615/postalandzipcodes.ph/pexels-jeff-guab-2407636.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104614/postalandzipcodes.ph/pexels-leon-macapagal-2467670.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104613/postalandzipcodes.ph/pexels-roiland-hernandez-2406376.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104613/postalandzipcodes.ph/pexels-meo-fernando-3214989.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104613/postalandzipcodes.ph/pexels-marfil-graganza-aquino-2604843.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104610/postalandzipcodes.ph/pexels-christian-paul-del-rosario-1098322.jpg
-  https://res.cloudinary.com/mnoquiao/image/upload/v1601104608/postalandzipcodes.ph/pexels-nice-guys-757450.jpg
-   */
 }
 
 .s120 form {
@@ -421,7 +401,6 @@ table a:hover {
   cursor: pointer;
   position: relative;
   z-index: 0;
-  /* background: #3a687c; */
   background: #00ad5f;
   transition: all .2s ease-out, color .2s ease-out;
   font-weight: 300;
@@ -554,15 +533,12 @@ table a:hover {
 new footer style section
  */
 #footer-container {    
-    background: url(https://res.cloudinary.com/mnoquiao/image/upload/v1567809027/where-am-i.today/bermuda-searching.png) center left no-repeat;
     background-size: contain;
-    /* border-top: solid 1px #d2d2d2; */
     background-color: #fff;
     color: #4c4949;
     line-height: 1;
     padding: 4rem 0;
     font-size: 120%;
-    /* box-shadow: 0 -1px 2px 0 rgba(60, 64, 67, 0.07), 0 -2px 6px 2px rgba(60, 64, 67, 0.07); */
     margin-top: 5.5rem;
 }
 
