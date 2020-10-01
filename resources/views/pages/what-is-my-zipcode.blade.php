@@ -53,6 +53,13 @@
 
             </div> <!-- [ .col-xl-12 ] END -->
 
+            <div class="col-xl-12">  
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <strong>Note:</strong> 
+                    The method <code>Geolocation.getCurrentPosition()</code> is more accurate on a mobile device.
+                </div>
+            </div> <!-- [ .col-xl-12 ] END -->
+
             <div class="col-xl-12">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
@@ -80,15 +87,6 @@
         @include('ads.ads1')
         <!--  -->
         <!--  -->
-
-        <div class="row">
-            <div class="col-xl-12">  
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                    <strong>Note:</strong> 
-                    The method <code>Geolocation.getCurrentPosition()</code> is more accurate on a mobile device.
-                </div>
-            </div> <!-- [ .col-xl-12 ] END -->
-        </div> <!-- [ .row ] END -->
 
     </div>
 </div>
