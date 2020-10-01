@@ -98,13 +98,20 @@
 
                             <div class="form-row mb-4">
                                 <div class="form-group col-sm-12">
-                                    <label for="inputZipcode">Display Name <sup class="text-muted">(optional)</sup></label>
+                                    <label for="inputZipcode">
+                                        Display Name
+                                        <br><small class="text-muted float-right mt-1 pr-2">This will be displayed on the Hall of Contributors.</small>
+                                    </label>
+                                    <small class="text-muted float-right">Optional</small>
                                     <input type="input" class="form-control form-control-lg" name="contributor" id="inputZipcode" placeholder="Your Name or Alias?" autocomplete="off">
-                                    <small class="text-muted pl-3">This will be displayed in the Hall of Contributors.</small>
                                 </div>
                             </div>  
 
                             <hr />
+                            
+                            <div id="return-msg">
+                            <!--  -->
+                            </div>
                             
                             <button type="submit" class="btn btn-lg btn-success">Submit</button>
 
@@ -158,12 +165,35 @@ $(function() {
             },
 
             success: function(data) {
-
-                window.location.replace(data.url);
                 
-                setTimeout(() => {
-                    $(this_btn).text(`Submit`);    
-                }, 5000);
+                /* clear errors wrapper */
+                let msg_wrapper = $(`#return-msg`).html(``);                
+                
+                if (data.success === false) {
+
+                    if ( data.errors.region ) msg_wrapper.append(`<div class="alert alert-warning" role="alert">` + data.errors.region + `</div>`);
+                    if ( data.errors.address ) msg_wrapper.append(`<div class="alert alert-warning" role="alert">` + data.errors.address + `</div>`);
+                    if ( data.errors.zipcode) msg_wrapper.append(`<div class="alert alert-warning" role="alert">` + data.errors.zipcode + `</div>`);
+                    if ( data.errors.contributor) msg_wrapper.append(`<div class="alert alert-warning" role="alert">` + data.errors.contributor + `</div>`);
+
+                }
+                
+                else if (data.success === true) {
+
+                    /* clear this form */
+                    /* & */
+                    /* display thank msg */
+                    $(`#submit-zip-code-form`).html(``).append(
+                                                        `<div id="return-msg" class="text-center">`+
+                                                            `<img class="img-fluid mb-4" width="350px" src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1601579449/postalandzipcodes.ph/arabica-1172.png" alt="Thank you message!" />`+
+                                                            `<h4 class="font-weight-light mt-3">` + data.msg + `</h4>`+
+                                                            `<small classs="small">We will just review your submission and once confirmed, Our visitors will be able to search for that zip code here.</small>`+
+                                                        `</div>`
+                                                        );
+
+                }
+
+                $(this_btn).text(`Submit`);    
                 
             }, 
 
