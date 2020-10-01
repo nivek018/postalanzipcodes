@@ -54,8 +54,42 @@ class GeolocationController extends Controller
 
         } else {
 
+            // {
+            //     "place_id": "26693344",
+            //     "licence": "© LocationIQ.com CC BY 4.0, Data © OpenStreetMap contributors, ODbL 1.0",
+            //     "osm_type": "node",
+            //     "osm_id": "2525193585",
+            //     "lat": "-37.870662",
+            //     "lon": "144.9803321",
+            //     "display_name": "Imbiss 25, Blessington Street, St Kilda, City of Port Phillip, Greater Melbourne, Victoria, 3182, Australia",
+            //     "address": {
+            //         "cafe": "Imbiss 25",
+            //         "road": "Blessington Street",
+            //         "suburb": "St Kilda",
+            //         "county": "City of Port Phillip",
+            //         "region": "Greater Melbourne",
+            //         "state": "Victoria",
+            //         "postcode": "3182",
+            //         "country": "Australia",
+            //         "country_code": "au"
+            //     },
+            //     "boundingbox": [
+            //         "-37.870762",
+            //         "-37.870562",
+            //         "144.9802321",
+            //         "144.9804321"
+            //     ]
+            // }
+
+            $json_data = json_decode($json);
+
+            $data = [
+                'zip_code'      => $json_data->address->postcode,
+                'display_addr'  => $json_data->display_name,
+            ];
+
             /* return results */
-            return $json;
+            return $data;
         
         }
     }

@@ -83,4 +83,4 @@ Route::get('/postalcode/{code}', [ZipcodeController::class, 'search_zipcode']);
 Route::post('/search', [SearchController::class, 'search_q'])->name('search_q');
 
 /* handles user geolocation extraction, Geolocation Controller | GeolocationController */
-Route::post('/get-geolocation', [SearchController::class, 'get_geolocation'])->name('geolocation');
+Route::post('/get-geolocation', [GeolocationController::class, 'get_geolocation'])->name('geolocation');
