@@ -8,6 +8,7 @@ use App\Http\Controllers\BarangayController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ZipcodeController;
+use App\Http\Controllers\CreateZipcodeController;
 use App\Http\Controllers\SitemapController;
 
 /* index page */
@@ -91,3 +92,6 @@ Route::post('/search', [SearchController::class, 'search_q'])->name('search_q');
 
 /* handles user geolocation extraction, Geolocation Controller | GeolocationController */
 Route::post('/get-geolocation', [GeolocationController::class, 'get_geolocation'])->name('geolocation');
+
+/* handles user submitted zip code,  */
+Route::post('/create-zipcode', [CreateZipcodeController::class, 'create_zip'])->name('create_zip');

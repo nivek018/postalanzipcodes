@@ -50,10 +50,12 @@
                     <div class="container">
 
                         <form id="submit-zip-code-form" autocomplete="off">
-
+                            
+                            @csrf()
+                            
                             <div class="form-group mb-4">
                                 <label for="selectRegion">Region <span class="text-danger">*</span></label>
-                                <select class="form-control" id="selectRegion" required>
+                                <select class="form-control" name="region" id="selectRegion" required>
                                     <option value="">Select Region</option>
                                     @php
                                         $select_opt = [
@@ -84,20 +86,20 @@
 
                             <div class="form-group mb-4">
                                 <label for="textareaAddress">Address <span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="textareaAddress" rows="3" placeholder="Street, Barangay, City/Town, or Province" autocomplete="off" required></textarea>
+                                <textarea class="form-control" name="address" id="textareaAddress" rows="3" placeholder="Street, Barangay, City/Town, or Province" autocomplete="off" required></textarea>
                             </div>
 
                             <div class="form-row mb-4">
                                 <div class="form-group col-sm-12 col-md-6">
                                     <label for="inputZipcode">Zip Code <span class="text-danger">*</span></label>
-                                    <input type="input" class="form-control form-control-lg" id="inputZipcode" placeholder="1234" autocomplete="off" required>
+                                    <input type="input" class="form-control form-control-lg" name="zipcode" id="inputZipcode" placeholder="1234" autocomplete="off" required>
                                 </div>
                             </div>
 
                             <div class="form-row mb-4">
                                 <div class="form-group col-sm-12">
                                     <label for="inputZipcode">Display Name <sup class="text-muted">(optional)</sup></label>
-                                    <input type="input" class="form-control form-control-lg" id="inputZipcode" placeholder="Your Name or Alias?" autocomplete="off">
+                                    <input type="input" class="form-control form-control-lg" name="contributor" id="inputZipcode" placeholder="Your Name or Alias?" autocomplete="off">
                                     <small class="text-muted pl-3">This will be displayed in the Hall of Contributors.</small>
                                 </div>
                             </div>  
@@ -122,18 +124,60 @@
 
 
 @section('page_scripts')
-<!-- jQuery Core 3.5.1 -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
-
 <script>
 $(function() {
 
-    $(`#submit-zip-code-form`).on('submit', function(e) {
+    $(`#submit-zip-code-form`).on(`submit`, function(e) {
 
         e.preventDefault();
 
-        console.log(`form is submitted`);
+        let this_btn = $(this).find(`button[type="submit"]`);
+
+        var formData = new FormData(this);
+
+        xhr = $.ajax({
+            url:            `{{ route('create_zip') }}`,
+            type:           `POST`,
+            dataType:       `JSON`,
+            data:           formData,
+            processData:    false,
+            contentType:    false,
+
+            beforeSend: function() {
+
+                /* create loading state of the submit button */
+                $(this_btn).html(`<div class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                                </div>`).addClass('cursor-progress');
+
+                /* abot on-going ajax request */
+                if (xhr != null) {
+                    xhr.abort();
+                }
+
+            },
+
+            success: function(data) {
+
+                window.location.replace(data.url);
+                
+                setTimeout(() => {
+                    $(this_btn).text(`Submit`);    
+                }, 5000);
+                
+            }, 
+
+            error: function() {
+
+                $(this_btn).text(`Submit`);
+
+                if (xhr != null) {
+                    xhr.abort();
+                }
+
+            }
+
+        });
 
     });
 
