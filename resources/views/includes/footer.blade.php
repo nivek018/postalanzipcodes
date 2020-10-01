@@ -58,7 +58,7 @@
                         Help us maintain an updated <u>DIRECTORY FOR ZIP CODES</u> by submitting your location's zip code information. So others will find it easily here with your help!
                     </p>
                     
-                    <a href="#" title="Submit and share zip code information.">Submit ZIP Code</a> 🥰
+                    <a href="{{ route('submit-zip-code') }}" title="Submit and share zip code information.">Submit ZIP Code</a> 🥰
                   </div>
                 </div>
               </div>
@@ -76,7 +76,7 @@
                 <address>
                     <strong>&copy; {{ date('Y') }} postalandzipcodes.ph</strong>
                     <br>
-                    <small title="Filled with love just for you my countrymen.">Pinuno ng <img loading="lazy" src="https://res.cloudinary.com/mnoquiao/image/upload/w_15,c_fill/v1558095370/lottopcso.ph/heart_gif_c9btz0.gif" alt="Planet Vibration Inc." /> para sa'yo Kabayan.</small>
+                    <small title="Filled with love just for you my countrymen.">Pinuno ng <img loading="lazy" src="https://res.cloudinary.com/mnoquiao/image/upload/w_15,c_fill/v1558095370/lottopcso.ph/heart_gif_c9btz0.gif" alt="Pagmamahal" /> para sa'yo Kabayan.</small>
                 </address>
             </div>
 

@@ -101,11 +101,8 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
   crossorigin=""></script>
+
 <script>
-var xhr = null;
-
-
-
 function final_request(latitude, longitude, accuracy) {
 
     /* send ajax request  to update user info */
@@ -180,10 +177,5 @@ function error(err) {
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options);
-
-
-
-
 </script>
-<!-- <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPzaoRrNUi7glDasKUeYAS3RQ1RZp5v4U&callback=initMap"></script> -->
 @endsection

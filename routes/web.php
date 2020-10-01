@@ -19,32 +19,37 @@ Route::get('/sitemap', [SitemapController::class, 'sitemap'])->name('sitemap');
 /* terms of service page */
 Route::get('/terms-of-service', function () {
     return view('pages.tos');
-});
+})->name('terms-of-service');
 
 /* privacy policy page */
 Route::get('/privacy-policy', function () {
     return view('pages.pp');
-});
+})->name('privacy-policy');
 
 /* how it works page */
 Route::get('/how-it-works', function () {
     return view('pages.hiw');
-});
+})->name('how-it-works');
 
 /* about page */
 Route::get('/about-us', function () {
     return view('pages.abt');
-});
+})->name('about-us');
 
 /* what is my postal code | accomodote all page url indexed by google */
 Route::get('/what-is-my-postal-code', function () {
     return view('pages.what-is-my-zipcode');
-});
+})->name('what-is-my-postal-code');
 
 /* what is my zip code */
 Route::get('/what-is-my-zip-code', function () {
     return view('pages.what-is-my-zipcode');
-});
+})->name('what-is-my-zip-code');
+
+/* submit zip code */
+Route::get('/submit-zip-code', function () {
+    return view('pages.submit-zip-code');
+})->name('submit-zip-code');
 
 
 
@@ -74,6 +79,8 @@ Route::get('/postal-code/{region}', [RegionController::class, 'search_region']);
 Route::get('/zipcode/{code}', [ZipcodeController::class, 'search_zipcode']);
 Route::get('/zipcode/{code}', [ZipcodeController::class, 'search_zipcode'])->name('url_zipcode');
 Route::get('/postalcode/{code}', [ZipcodeController::class, 'search_zipcode']);
+
+
 
 /*      */
 /* POST */
