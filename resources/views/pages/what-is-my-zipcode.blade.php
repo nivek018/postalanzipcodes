@@ -137,7 +137,11 @@ function final_request(latitude, longitude, accuracy) {
             $(`#lon`).html(`${longitude}`);
             $(`#accuracy`).html(`More or less ${accuracy} meters`);
 
-            var map = L.map('map').setView([`${latitude}`, `${longitude}`], 17);
+            var map = L.map('map', {
+                center: [`${latitude}`, `${longitude}`],
+                zoom: 15,
+                scrollWheelZoom: false,
+            });
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
