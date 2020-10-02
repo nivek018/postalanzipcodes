@@ -33,6 +33,17 @@ button {
 
 #user-searches { min-height: 25px; }
 
+.search-badge {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+.break-word {
+  word-wrap: break-word;
+}
+
 table a,
 table a:active,
 table a:visited {

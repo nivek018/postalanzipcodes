@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Iluunimate\Http\Input;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Zipcode;
 
 use Illuminate\Support\Facades\DB;
@@ -15,17 +16,34 @@ class SearchController extends Controller
 
     /*  */
     public function search_q(Request $request) {
-        
-        /*  */
-        $search_q = $request->q;
-        
-        /*  */
-        $data = [ 
-            'url'   => route('search-results', ['q' => $search_q]),
-        ];
+                
+        $validator = Validator::make($request->all(), [
+            'q' => 'required|max:255',
+        ]);
 
         /*  */
-        return $data;
+        $search_q = $request->q;
+
+        if ($validator->fails()) {
+
+            return Response::json(array(
+                'success' => false,
+                'errors' => $validator->getMessageBag()->toArray()
+
+            ), 200);
+
+        }
+        else {
+
+            /*  */
+            $data = [ 
+                'url'   => route('search-results', ['q' => $search_q]),
+            ];
+
+            /*  */
+            return $data;
+
+        }
 
     }
 
@@ -44,8 +62,8 @@ class SearchController extends Controller
         /* insert logs */
         DB::table('search_logs')
         ->insert([
-            'query'             => $search_q,
-            'no_of_results'     => $results_cnt,
+            'query'             => strlen($search_q) > 255 ?  substr($search_q, 0, 255) : $search_q,
+            'no_of_results'     => $results_cnt ?? 0,
         ]);
 
         /*  */

@@ -23,6 +23,7 @@ var xhr = null;
 /* this will hold an array of user's searches */
 var user_searches   = [];
 
+/* this will handle displaying of last searches of user */
 if ( null !== localStorage.getItem(`searches`) ) {
 
     /* retrieve existing user's searches */
@@ -40,7 +41,7 @@ if ( null !== localStorage.getItem(`searches`) ) {
     /*  */
     user_searches.forEach( function(item) {
         
-        searches_holder += `<span class="badge badge-primary mr-1"><a class="text-white p-1" href="/search-result?q=` + item + `">` + item + `</a></span>`;
+        searches_holder += `<span class="badge badge-primary search-badge mr-1"><a class="text-white p-1" href="/search-result?q=` + item + `" title="` + item + `">` + item + `</a></span>`;
         
     })
 

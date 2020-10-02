@@ -3,9 +3,9 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container text-center">
                 <h1 class="display-3 font-weight-bold">
-                    🙏 SORRY 😭
+                    S😭RRY 
                 </h1>
-                <p class="lead no-margin">No zip codes were found for<br><u class="font-weight-bold">{{ $search_q }}</u>.</p>
+                <p class="lead no-margin break-word">No zip codes were found for<br><u class="font-weight-bold">{{ $search_q }}</u>.</p>
                 
                 <img class="img-fluid" width="300" src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1601563783/postalandzipcodes.ph/clip-logistic-robot-1.png" />
 
