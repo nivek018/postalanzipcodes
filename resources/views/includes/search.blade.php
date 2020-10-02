@@ -73,9 +73,7 @@ $(function() {
 
                 window.location.replace(data.url);
                 
-                setTimeout(() => {
-                    $(this_btn).text(`SEARCH`);    
-                }, 5000);
+                $(this_btn).text(`SEARCH`);
                 
             }, 
 
