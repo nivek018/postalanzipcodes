@@ -78,7 +78,7 @@ class BarangayController extends Controller
 
          /* change title and info if results were found */
          $page_title    = sprintf('%s, %s Zip Code', ucwords($formatted_barangay), ucwords($formatted_city));
-         $page_info     = sprintf('%s, %s Zip Code.', ucwords($formatted_barangay), ucwords($formatted_city));
+         $page_info     = sprintf('%s, %s and Zip Code is {zipcodes}.', ucwords($formatted_barangay), ucwords($formatted_city));
 
          /*  */
          foreach ($sql as $key => $value) {
@@ -114,9 +114,17 @@ class BarangayController extends Controller
          $data    = array(
                      'page_title'      => $page_title,
                      'canonical'       => route('url_barangay', ['city' => $formatted_city, 'barangay' => $formatted_barangay]),
-                     'description'     => $page_info,
+                     'description'   => str_replace(
+                                                   '{zipcodes}', 
+                                                   sprintf('%s', $query_data[0]['postal']), 
+                                                   $page_info
+                                                   ),
 
-                     'page_info'       => $page_info,
+                     'page_info'     => str_replace(
+                                                   '{zipcodes}', 
+                                                   sprintf('%s', $query_data[0]['postal']), 
+                                                   $page_info
+                                                   ),
                      'results'         => json_decode(json_encode($query_data)), /* <- convert array into object */
                      'search_q'        => $formatted_barangay,
                   );

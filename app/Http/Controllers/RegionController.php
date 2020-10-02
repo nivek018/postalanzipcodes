@@ -39,8 +39,11 @@ class RegionController extends Controller
         if ( count($sql) > 0 ) {
 
             /* modify page title, info/description */
-            $page_title    = sprintf('%s Zip Codes', $sql[0]->region);
-            $page_info     = sprintf('%s is composed of %s barangays with Zip Codes.', $sql[0]->region, count($sql), count($sql));
+            $page_title      = sprintf('%s Zip Codes', $sql[0]->region);
+            $page_info       = sprintf('%s is composed of %s Barangays, having {zipcodes} Zip Code.', $sql[0]->region, count($sql), count($sql));
+
+            /*  */
+            $highest_postal  = 0;
 
             /*  */
             foreach ($sql as $key => $value) {
@@ -70,15 +73,26 @@ class RegionController extends Controller
                                         'phone_area_code' => $value->phone_area_code
                                     ];
 
+                /* getting the highest postal value */
+                $highest_postal = $value->postal > $highest_postal ? $value->postal: $highest_postal;
+
             }
 
             /*  */
             $data    = array(
                         'page_title'    => $page_title,
                         'canonical'     => route('url_region', ['region' => urlencode($formatted_region)]),
-                        'description'   => $page_info,
+                        'description'   => str_replace(
+                                                    '{zipcodes}', 
+                                                    sprintf('%s to %s', $query_data[0]['postal'], $highest_postal), 
+                                                    $page_info
+                                                    ),
 
-                        'page_info'     => $page_info,
+                        'page_info'     => str_replace(
+                                                    '{zipcodes}', 
+                                                    sprintf('%s to %s', $query_data[0]['postal'], $highest_postal), 
+                                                    $page_info
+                                                    ),
                         'results'       => json_decode(json_encode($query_data)), /* <- convert array into object */
                         'search_q'      => $formatted_region,
                     );

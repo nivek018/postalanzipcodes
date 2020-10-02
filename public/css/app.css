@@ -31,6 +31,19 @@ button {
   box-sizing: border-box;
 }
 
+.f-10 { font-size:10pt; }
+.f-12 { font-size:12pt; }
+.f-14 { font-size:14pt; }
+.f-16 { font-size:16pt; }
+.f-18 { font-size:18pt; }
+.f-20 { font-size:20pt; }
+.f-22 { font-size:22pt; }
+.f-24 { font-size:24pt; }
+.f-26 { font-size:26pt; }
+.f-28 { font-size:28pt; }
+.f-30 { font-size:30pt; }
+.f-32 { font-size:32pt; }
+
 #user-searches { min-height: 25px; }
 
 .search-badge {
