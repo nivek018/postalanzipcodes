@@ -18,7 +18,7 @@ class SearchController extends Controller
     public function search_q(Request $request) {
                 
         $validator = Validator::make($request->all(), [
-            'q' => 'required|max:255',
+            'q' => 'required',
         ]);
 
         /*  */
