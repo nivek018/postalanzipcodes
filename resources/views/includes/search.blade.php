@@ -72,9 +72,7 @@ $(function() {
             success: function(data) {
 
                 window.location.replace(data.url);
-                
-                $(this_btn).text(`SEARCH`);
-                
+                                
             }, 
 
             error: function() {

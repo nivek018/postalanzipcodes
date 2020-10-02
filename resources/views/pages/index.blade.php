@@ -117,11 +117,7 @@ $(function() {
             success: function(data) {
 
                 window.location.replace(data.url);
-                
-                setTimeout(() => {
-                    $(this_btn).text(`SEARCH`);    
-                }, 5000);
-                
+                                
             }, 
 
             error: function() {
