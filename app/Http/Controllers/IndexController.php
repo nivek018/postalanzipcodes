@@ -14,7 +14,7 @@ class IndexController extends Controller
         $data    = array(
                     'page_title'    => 'Postal and Zip Codes directory of the Philippines',
                     'canonical'     => route('index'),
-                    'description'   => 'Browse our always up-to-date zip codes directory of the Philippines, Easy search from Barangay, City, Town, or Regions.',
+                    'description'   => 'Looking for Zip Codes in the Philippines? Use our easy-search of Zip Code using your Street, Barangay, City, Town, or Regions.',
                 );
 
         return view('pages.index', $data);

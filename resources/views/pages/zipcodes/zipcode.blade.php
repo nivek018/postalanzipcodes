@@ -33,7 +33,7 @@
 
         <div class="row mb-2">
             <div class="col-xl-12">
-                <h4 class="font-weight-light">{{ $page_info }}</h4>
+                <h1 class="font-weight-light">{{ $page_info }}</h1>
             </div>
         </div>  
 
