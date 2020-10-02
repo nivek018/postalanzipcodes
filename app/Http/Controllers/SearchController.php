@@ -38,14 +38,22 @@ class SearchController extends Controller
         $search_q = $request->q;
         
         /*  */
-        $results = Zipcode::search($search_q)->get();
-        
+        $results        = Zipcode::search($search_q)->get();
+        $results_cnt    = count($results);
+
+        /* insert logs */
+        DB::table('search_logs')
+        ->insert([
+            'query'             => $search_q,
+            'no_of_results'     => $results_cnt,
+        ]);
+
         /*  */
         $page_title    = sprintf('%s - Zip Code Search', $search_q);
         $page_info     = sprintf('Search results for "%s"', $search_q);
 
         /*  */
-        if ( count($results) > 0 ) {
+        if ( $results_cnt > 0 ) {
             
             $page_info     = sprintf('Your search results for "%s" found %s Zip %s.', $search_q, count($results), (count($results) == 1 ? 'Code' : 'Codes'));
             
