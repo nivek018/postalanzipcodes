@@ -34,10 +34,10 @@ class ZipcodeController extends Controller
 
             /* Zip Code is belong to more than 1 barangay */
             if ( count($sql) > 1 ) {
-                $page_info     = sprintf('%s Zip Code is within %s and belongs to %s barangays.', $code, $sql[0]->city, count($sql));
+                $page_info     = sprintf('%s Zip Code is within %s and belongs to %s Barangays.', $code, $sql[0]->city, count($sql));
             }
             else {
-                $page_info     = sprintf('%s is Zip Code of %s, %s.', $code, $sql[0]->barangay, $sql[0]->city);
+                $page_info     = sprintf('%s is the Zip Code of %s, %s.', $code, $sql[0]->barangay, $sql[0]->city);
             }
 
             /*  */

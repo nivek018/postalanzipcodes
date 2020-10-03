@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PostalQuickInfo
+class ZipcodeQuickInfo
 {
     /**
      * Handle an incoming request.
@@ -17,6 +17,8 @@ class PostalQuickInfo
      */
     public function handle(Request $request, Closure $next)
     {
+
+        
 
         if ( null === session('sess_contributed_zip_codes') && null === session('sess_contributors') ) {
 
@@ -39,9 +41,10 @@ class PostalQuickInfo
                 ]);
                 
             }
-
+            
         }
-        
+        else { /* sessions are set */ }
+
         return $next($request);
 
     }

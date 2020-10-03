@@ -78,7 +78,7 @@ class BarangayController extends Controller
 
          /* change title and info if results were found */
          $page_title    = sprintf('%s, %s Zip Code', ucwords($formatted_barangay), ucwords($formatted_city));
-         $page_info     = sprintf('%s, %s and Zip Code is {zipcodes}.', ucwords($formatted_barangay), ucwords($formatted_city));
+         $page_info     = sprintf('The Zip Code of %s, %s is {zipcodes}.', ucwords($formatted_barangay), ucwords($formatted_city));
 
          /*  */
          foreach ($sql as $key => $value) {
