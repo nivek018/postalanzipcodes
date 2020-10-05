@@ -98,14 +98,25 @@
 
                             <div class="form-row mb-4">
                                 <div class="form-group col-sm-12">
-                                    <label for="inputZipcode">
+                                    <label for="inputName">
                                         Display Name <small class="text-muted">Optional</small>
                                         <br><small class="text-muted float-right mt-1 pr-2">This will be displayed on the Hall of Contributors.</small>
                                     </label>
                                     
-                                    <input type="input" class="form-control form-control-lg" name="contributor" id="inputZipcode" placeholder="Your Name or Alias?" autocomplete="off">
+                                    <input type="input" class="form-control form-control-lg" name="contributor" id="inputName" placeholder="Your Name or Alias?" autocomplete="off">
                                 </div>
                             </div>  
+
+                            <div class="form-row mb-4">
+                                <div class="form-group col-sm-12">
+                                    <label for="inputEmail">
+                                        Email Address <small class="text-muted">Optional</small>
+                                    </label>
+                                    
+                                    <input type="email" class="form-control form-control-lg" name="email" id="inputEmail" placeholder="Your Email?" autocomplete="off">
+                                </div>
+                            </div>  
+
 
                             <hr />
                             
