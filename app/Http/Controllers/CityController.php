@@ -120,7 +120,7 @@ class CityController extends Controller
                                                    $page_info
                                                 ),
                      'results'       => json_decode(json_encode($query_data)), /* <- convert array into object */
-                     'search_q'      => $formatted_city,
+                     'search_q'      => '',
                   );
 
       }
@@ -134,7 +134,7 @@ class CityController extends Controller
 
                      'page_info'     => $page_info,
                      'results'       => null,
-                     'search_q'      => $formatted_city,
+                     'search_q'      => '',
                   );
 
       }

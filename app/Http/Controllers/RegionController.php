@@ -94,7 +94,7 @@ class RegionController extends Controller
                                                     $page_info
                                                     ),
                         'results'       => json_decode(json_encode($query_data)), /* <- convert array into object */
-                        'search_q'      => $formatted_region,
+                        'search_q'      => '',
                     );
 
         }
@@ -108,7 +108,7 @@ class RegionController extends Controller
 
                         'page_info'     => $page_info,
                         'results'       => null,
-                        'search_q'      => $formatted_region,
+                        'search_q'      => '',
                     );
                   
         }

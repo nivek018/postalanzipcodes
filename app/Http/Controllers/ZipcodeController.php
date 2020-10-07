@@ -78,7 +78,7 @@ class ZipcodeController extends Controller
 
                         'page_info'     => $page_info,
                         'results'       => json_decode(json_encode($query_data)), /* <- convert array into object */
-                        'search_q'      => $code,
+                        'search_q'      => '',
                     );
 
         }
@@ -92,7 +92,7 @@ class ZipcodeController extends Controller
 
                         'page_info'     => $page_info,
                         'results'       => null,
-                        'search_q'      => $code,
+                        'search_q'      => '',
                     );
 
         }
