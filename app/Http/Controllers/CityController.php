@@ -68,7 +68,8 @@ class CityController extends Controller
          $page_title       = sprintf('%s Zip Codes', $sql[0]->city);
          $page_info        = sprintf('%s is composed of %s Barangays, having {zipcodes} Zip Code and within %s.', $sql[0]->city, count($sql), $sql[0]->region);
       
-         /*  */
+         /* default values of lowest and highest postal */
+         $lowest_postal    = $sql[0]->postal;
          $highest_postal   = 0;
 
          /*  */
@@ -100,7 +101,8 @@ class CityController extends Controller
                               ];
 
             /* getting the highest postal value */
-            $highest_postal = $value->postal > $highest_postal ? $value->postal: $highest_postal;
+            $lowest_postal    = $value->postal < $lowest_postal ? $value->postal: $lowest_postal;
+            $highest_postal   = $value->postal > $highest_postal ? $value->postal: $highest_postal;
 
          }
              
@@ -110,18 +112,18 @@ class CityController extends Controller
                      'canonical'     => route('url_city', ['city' => $formatted_city]),
                      'description'   => str_replace(
                                                    '{zipcodes}', 
-                                                   sprintf('%s to %s', $query_data[0]['postal'], $highest_postal), 
+                                                   sprintf('%s to %s', $lowest_postal, $highest_postal), 
                                                    $page_info
                                                 ),
 
                      'page_info'     => str_replace(
                                                    '{zipcodes}', 
-                                                   sprintf('%s to %s', $query_data[0]['postal'], $highest_postal), 
+                                                   sprintf('%s to %s', $lowest_postal, $highest_postal), 
                                                    $page_info
                                                 ),
                      'results'       => json_decode(json_encode($query_data)), /* <- convert array into object */
                      'search_q'      => '',
-                     'city_zips'     => sprintf('%s to %s', $query_data[0]['postal'], $highest_postal),
+                     'city_zips'     => sprintf('%s to %s', $lowest_postal, $highest_postal),
                   );
 
       }
