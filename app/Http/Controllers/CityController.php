@@ -121,6 +121,7 @@ class CityController extends Controller
                                                 ),
                      'results'       => json_decode(json_encode($query_data)), /* <- convert array into object */
                      'search_q'      => '',
+                     'city_zips'     => sprintf('%s to %s', $query_data[0]['postal'], $highest_postal),
                   );
 
       }
@@ -135,6 +136,7 @@ class CityController extends Controller
                      'page_info'     => $page_info,
                      'results'       => null,
                      'search_q'      => '',
+                     'city_zips'     => '',
                   );
 
       }
