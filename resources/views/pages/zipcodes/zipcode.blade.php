@@ -33,11 +33,12 @@
 
         <div class="row mb-2">
             <div class="col-xl-12">
-                <h1 class="font-weight-light f-16">{{ $page_info }}</h1>
+                <h1 class="font-weight-light f-14">{{ $page_info }}</h1>
             </div>
         </div>  
 
-        <div class="table-responsive-md">
+        <div class="table-responsive-md" itemscope itemtype="https://schema.org/Table">
+            <h2 itemprop="about">List of zip codes.</h2>
             <table class="table" id="results-table">
                 <thead>
                     <tr style="white-space:nowrap;">
