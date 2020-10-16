@@ -253,12 +253,12 @@ table a:hover {
   font-size: .8125rem;
   line-height: 1.4;
   text-align: left;
-  background-color: rgb(239, 239, 239);
+  /* background-color: rgb(239, 239, 239); */
 }
 
 .mobile-ads {
   display: none;
-  background-color: rgb(3, 3, 3);
+  /* background-color: rgb(3, 3, 3); */
 }
 
 /* #### Mobile Phones Portrait #### */
@@ -293,7 +293,7 @@ table a:hover {
   }
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
   .cardads {
       max-width: 1000px;
       border-radius: 4px;
