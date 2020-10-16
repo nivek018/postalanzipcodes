@@ -13,7 +13,7 @@
 <!-- <script src="{{ asset('js/extention/choices.js') }}"></script> -->
 
 <!-- font awesome kit -->
-<script src="https://kit.fontawesome.com/d234582c9d.js" crossorigin="anonymous"></script>
+<!-- <script src="https://kit.fontawesome.com/d234582c9d.js" crossorigin="anonymous"></script> -->
 
 <!-- global script will run here -->
 <script>
