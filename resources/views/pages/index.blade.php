@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <span class="info font-weight-lighter">e.g. Barangay, City, Region, and Zip Code</span>
+        <span class="info font-weight-light">e.g. Barangay, City, Region, and Zip Code</span>
         
         <!-- ads -->
         @include('ads.ads1')
@@ -67,13 +67,13 @@
         <h1 class="text-center font-weight-light">Zip Codes Search Directory</h1>
         <div class="row">
             <div class="col-md-12 text-center">
-                <p class="font-weight-lighter">
+                <p class="font-weight-light">
                     Our Zip Code Search is easy-to-use and mostly accurate. Give it a quick try and be amazed at how fast you can look for a Zip Code.
                 </p>
             </div>
 
             <div class="col-md-12 mt-5 text-center">
-                <p class="font-weight-lighter">
+                <p class="font-weight-light">
                     The Philippine Zip Code Directory that we maintain is always update-to-date, And as of the moment, we have a total of {{ session('sess_total_zipcodes') ?? 99 }} Zip Codes in our directory.
                 </p>                                                                                                                        
             </div>
