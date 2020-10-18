@@ -115,7 +115,7 @@
 
 <!-- dataTables -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/fc-3.3.1/fh-3.1.7/r-2.2.6/datatables.min.js"></script>
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/datatables.mark.js@2.0.2/dist/datatables.mark.es6.min.js"></script>-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/datatables.mark.js@2.0.2/dist/datatables.mark.es6.min.js"></script>
 
 <script>
 $(function() {
