@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/" title="postalandzipcodes.ph">
-      <img src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1601874637/postalandzipcodes.ph/square-logo.svg" class="img-fluid" width="60px" alt="postalandzipcodes.ph logo">
+      <img src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1601874637/postalandzipcodes.ph/square-logo.svg" class="img-fluid" width="80" height="80" alt="postalandzipcodes.ph logo">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
