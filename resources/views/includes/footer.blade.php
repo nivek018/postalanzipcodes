@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-5 col-sm-4 text-center text-sm-left">
                 <a href="/" class="site-logo" style="text-decoration:none; color:#000;">
-                    <img loading="lazy" src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1601875287/postalandzipcodes.ph/full-logo.svg" class="img-fluid" width="180" height="87" alt="postalandzipcodes.ph logo">
+                    <img loading="lazy" src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto,w_180,h_87/v1601875287/postalandzipcodes.ph/full-logo.svg" class="img-fluid" width="180" height="87" alt="postalandzipcodes.ph logo">
                 </a>
             </div> <!-- END .col-lg-6 -->
 
