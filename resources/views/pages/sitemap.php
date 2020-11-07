@@ -4,7 +4,7 @@
 	// $date = date('m-d-Y h:i A');
 
 	/* google cloud sql */	
-	$servername = '35.187.255.212';
+	$servername = '35.240.197.8';
 	$username 	= 'root';
 	$password 	= '44/66.72+4466272';
 	$database 	= 'postalcodecomph';
