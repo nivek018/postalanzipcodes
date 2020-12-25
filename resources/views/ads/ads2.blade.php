@@ -4,8 +4,6 @@
             
             <!-- Ezoic - bottom_of_page 119 (desktop,tablet) - bottom_of_page -->
             <div id="ezoic-pub-ad-placeholder-119"> 
-            </div>
-            <!-- End Ezoic - bottom_of_page 119 (desktop,tablet) - bottom_of_page -->
                         
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- 2020.responsive.horizontal.ads -->
@@ -19,6 +17,9 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
 
+            </div>
+            <!-- End Ezoic - bottom_of_page 119 (desktop,tablet) - bottom_of_page -->
+
         </div> <!-- [ .cardads ] END -->
 
 
@@ -27,8 +28,6 @@
             
             <!-- Ezoic - top_of_page 120 (mobile) - bottom_of_page -->
             <div id="ezoic-pub-ad-placeholder-120">
-            </div>
-            <!-- End Ezoic - top_of_page 120 (mobile) - bottom_of_page -->
 
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- 2020.mobile.horizontal.ads -->
@@ -40,6 +39,9 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
 
+            </div>
+            <!-- End Ezoic - top_of_page 120 (mobile) - bottom_of_page -->
+            
         </div> <!-- [ .cardads ] END -->
 
     </div>
