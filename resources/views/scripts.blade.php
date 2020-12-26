@@ -100,6 +100,3 @@ function saveSearchLocal(u_search) {
 
   gtag('config', 'G-6ZNGZV1Q47');
 </script>
-
-<!-- Auto Ads -->
-<script data-ad-client="ca-pub-4218246550818096" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
