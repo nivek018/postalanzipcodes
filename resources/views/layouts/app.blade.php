@@ -4,7 +4,8 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <meta name="coinzilla" content="76e4499a6b5acb9bd87ab7235c4c99e6" />
+        
         <title>@yield('title')</title>
         <meta name="description" content="{{ $description ?? '' }}">
         <link rel="canonical" href="{{ $canonical ?? '' }}" />
