@@ -17,7 +17,7 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
 
-            </div>
+            {{-- </div> --}}
             <!-- End Ezoic - top_of_page 117 (deskto,tablet) - top_of_page -->
             
         </div> <!-- [ .cardads ] END -->
@@ -39,7 +39,7 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
 
-            </div>
+            {{-- </div> --}}
             <!-- End Ezoic - top_of_page 118 (mobile) - top_of_page -->
 
         </div> <!-- [ .cardads ] END -->
