@@ -95,3 +95,6 @@ Route::post('/get-geolocation', [GeolocationController::class, 'get_geolocation'
 
 /* handles user submitted zip code,  */
 Route::post('/create-zipcode', [CreateZipcodeController::class, 'create_zip'])->name('create_zip');
+
+
+// sana happy ka pa testing lang
