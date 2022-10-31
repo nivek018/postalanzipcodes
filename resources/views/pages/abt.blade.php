@@ -16,11 +16,11 @@
 
         <div class="row">
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-12 col-lg-12 col-xl-12">                
+            <div class="col-xs-12 col-sm-12 col-md-12 col-12 col-lg-12 col-xl-12">
 
                 <section>
                     <h1>
-                        <strong>About us</strong>    
+                        <strong>About us</strong>
                     </h1>
                     <p>
                         postalandzipcodes.ph
@@ -28,17 +28,17 @@
                     <p>
                         This site is  a directory and information website for Philippines regions, towns, cities, barangay Postal or Zip Codes information, Our goal is to help our fellow citizen get the information they need related to their location's postal and zip codes information as a bonus we also include some city statisics, local phone area code and population information.
                     </p>
-                    
+
                     <p>
-                        We hoped that our little effort will help you of what you are looking for and if you like what we did hear sharing this website to your friends and colleague also free feel to visit our other projects by visiting <a href="https://planetvibration.ph/">https://planetvibration.ph/</a>.
+                        We hoped that our little effort will help you of what you are looking for and if you like what we did hear sharing this website to your friends and colleague also free feel to visit our other projects by visiting <a href="https://aiowireless.ph/">https://aiowireless.ph/</a>.
                     </p>
-                    
+
                     <p>
-                        For inquiry email us at info@planetvibration.ph
+                        For inquiry email us at mark@aiowireless.ph
                     </p>
                 </section>
             </div> <!-- END col-12 -->
-                
+
         </div> <!-- END row -->
 
     </div>

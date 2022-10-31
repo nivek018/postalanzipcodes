@@ -18,12 +18,12 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-12 col-lg-12 col-xl-12">
                 <small class="pull-right">Last updated on September 26, 2020</small>
-                
+
                 <h1>Privacy Policy for Planet Vibration Inc.</h1>
 
                 <p>At postalandzipcodes.ph, accessible from https://postalandzipcodes.ph/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by postalandzipcodes.ph and how we use it.</p>
 
-                <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at info@planetvibration.ph</p>
+                <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at mark@aiowireless.ph</p>
 
                 <h2>General Data Protection Regulation (GDPR)</h2>
                 <p>We are a Data Controller of your information.</p>
@@ -35,14 +35,14 @@
                     <li>Processing your personal information is in Planet Vibration Inc. legitimate interests</li>
                     <li>Planet Vibration Inc. needs to comply with the law</li>
                 </ul>
-                
-                <p>Planet Vibration Inc. will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies. Our Privacy Policy was generated with the help of <a href="https://www.gdprprivacynotice.com/">GDPR Privacy Policy Generator</a>.</p> 
+
+                <p>Planet Vibration Inc. will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies. Our Privacy Policy was generated with the help of <a href="https://www.gdprprivacynotice.com/">GDPR Privacy Policy Generator</a>.</p>
 
                 <p>If you are a resident of the European Economic Area (EEA), you have certain data protection rights. If you wish to be informed what Personal Information we hold about you and if you want it to be removed from our systems, please contact us.</p>
                 <p>In certain circumstances, you have the following data protection rights:</p>
                 <ul>
                     <li>The right to access, update or to delete the information we have on you.</li>
-                    <li>The right of rectification.</li> 
+                    <li>The right of rectification.</li>
                     <li>The right to object.</li>
                     <li>The right of restriction.</li>
                     <li>The right to data portability</li>
@@ -104,7 +104,7 @@
 
                 <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
             </div> <!-- END col-12 -->
-        
+
         </div> <!-- END row -->
 
     </div>
