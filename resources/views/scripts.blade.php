@@ -13,7 +13,7 @@
 <script defer src="https://kit.fontawesome.com/d234582c9d.js" crossorigin="anonymous"></script>
 
 <!-- global script will run here -->
-<script defer>
+<script async>
 /* global xhr */
 var xhr = null;
 
