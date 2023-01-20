@@ -32,6 +32,7 @@ class RegionController extends Controller
             )
             ->get();
 
+
         /*  */
         $page_title    = sprintf('%s Zip Code', ucwords($formatted_region));
         $page_info     = sprintf('%s Zip Code is not yet in our database.', $formatted_region);
@@ -39,8 +40,13 @@ class RegionController extends Controller
         if ( count($sql) > 0 ) {
 
             /* modify page title, info/description */
-            $page_title      = sprintf('%s Zip Codes', $sql[0]->region);
-            $page_info       = sprintf('%s is composed of %s Barangays, having {zipcodes} Zip Code.', $sql[0]->region, count($sql), count($sql));
+            $page_title      = sprintf("%s Zip Codes - Find Your Region's Zip Codes in Philippines", $sql[0]->region);
+            $page_info       = sprintf("Discover the zip codes of %s with our comprehensive directory.
+            Our easy-to-use lookup tool includes %s Zip Code information, with zip codes ranging from {zipcodes}.
+            Get all the essential information you need and explore the unique culture and lifestyle of
+            this dynamic region in Philippines.", $sql[0]->region, count($sql), count($sql));
+
+
 
             /* default values of lowest and highest postal */
             $lowest_postal    = $sql[0]->postal;

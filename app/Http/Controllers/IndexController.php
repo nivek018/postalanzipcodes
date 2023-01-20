@@ -34,9 +34,9 @@ class IndexController extends Controller
 
         //
         $data    = [
-                    'page_title'        => 'Postal and Zip Codes directory of the Philippines',
+                    'page_title'        => "Postal and Zip Codes Philippines - Find Your Location's Postal and Zip Codes",
                     'canonical'         => route('index'),
-                    'description'       => 'Looking for Zip Codes in the Philippines? Use our easy-search of Zip Code using your Street, Barangay, City, Town, or Regions.',
+                    'description'       => "Explore the Philippines with our comprehensive zip code directory. Discover towns, cities and regions with our easy-to-use zip code lookup tool. Find all the essential information you need, from demographics to local statistics, and explore the unique culture and lifestyle of this dynamic country. With a range of zip codes, you'll be able to find what you're looking for quickly and easily.",
                     'subheader_title'   => 'Zip Code Search'
                 ];
 

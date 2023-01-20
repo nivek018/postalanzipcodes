@@ -60,9 +60,9 @@
 
                 <div class="flex flex-col space-y-10 mt-10 h-auto items-center justify-center">
                     <div class="text-gray-50 text-center max-w-lg">
-                        <h1 class="text-center text-gray-50 text-2xl font-semibold">Zip Codes Search Directory</h1>
+                        <h1 class="text-center text-gray-50 text-2xl font-semibold">Zip Code Search Directory</h1>
                         <p class="">
-                            Our Zip Code Search is easy-to-use and mostly accurate. Give it a quick try and be amazed at how fast you can look for a Zip Code.
+                            Explore the Philippines with our comprehensive zip code directory. Discover towns, cities and regions with our easy-to-use zip code lookup tool. Find all the essential information you need, from demographics to local statistics, and explore the unique culture and lifestyle of this dynamic country. With a range of zip codes, you'll be able to find what you're looking for quickly and easily.
                         </p>
                     </div>
 

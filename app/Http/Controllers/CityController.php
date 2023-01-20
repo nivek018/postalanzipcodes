@@ -64,9 +64,19 @@ class CityController extends Controller
 
       if ( count($sql) > 0 ) {
 
+
+
+
          /* modify page title, info/description */
-         $page_title       = sprintf('%s Zip Codes', $sql[0]->city);
-         $page_info        = sprintf('%s is composed of %s Barangays, having {zipcodes} Zip Code and within %s.', $sql[0]->city, count($sql), $sql[0]->region);
+         $page_title       = sprintf("%s Zip Codes - Find Your City's Zip Codes in Philippines", $sql[0]->city);
+         $page_info        = sprintf(
+                                "Discover %s, a vibrant location in the Philippines' %s. Our comprehensive zip code directory includes 10 Barangays, with zip codes ranging from  {zipcodes}. Find all the essential information you need, from demographics to local statistics, and explore the unique culture and lifestyle of this dynamic city.",
+                                $sql[0]->city,
+                                $sql[0]->region,
+                                count($sql)
+                            );
+
+
 
          /* default values of lowest and highest postal */
          $lowest_postal    = $sql[0]->postal;
@@ -108,22 +118,22 @@ class CityController extends Controller
 
          /*  */
          $data    = array(
-                     'page_title'    => $page_title,
-                     'canonical'     => route('url_city', ['city' => $formatted_city]),
-                     'description'   => str_replace(
+                     'page_title'       => $page_title,
+                     'canonical'        => route('url_city', ['city' => $formatted_city]),
+                     'description'      => str_replace(
                                                    '{zipcodes}',
                                                    sprintf('%s to %s', $lowest_postal, $highest_postal),
                                                    $page_info
                                                 ),
                     'subheader_title'   => $page_title,
-                     'page_info'     => str_replace(
+                     'page_info'        => str_replace(
                                                    '{zipcodes}',
                                                    sprintf('%s to %s', $lowest_postal, $highest_postal),
                                                    $page_info
                                                 ),
-                     'results'       => json_decode(json_encode($query_data)), /* <- convert array into object */
-                     'search_q'      => '',
-                     'city_zips'     => sprintf('%s to %s', $lowest_postal, $highest_postal),
+                     'results'          => json_decode(json_encode($query_data)), /* <- convert array into object */
+                     'search_q'         => '',
+                     'city_zips'        => sprintf('%s to %s', $lowest_postal, $highest_postal),
                   );
 
       }

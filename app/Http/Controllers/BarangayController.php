@@ -77,8 +77,17 @@ class BarangayController extends Controller
       if ( count($sql) > 0 ) {
 
          /* change title and info if results were found */
-         $page_title    = sprintf('%s, %s Zip Code', ucwords($formatted_barangay), ucwords($formatted_city));
-         $page_info     = sprintf('The Zip Code of %s, %s is {zipcodes}.', ucwords($formatted_barangay), ucwords($formatted_city));
+         $page_title    = sprintf('Barangay Zip Codes - %s, %s {zipcodes}.',
+                                ucwords($formatted_barangay),
+                                ucwords($formatted_city)
+                            );
+         $page_info     = sprintf("Find the Zip Code of your Barangay with ease! %s, %s has the zip code of {zipcodes}. Our comprehensive directory includes zip codes for other barangays in the Philippines. Look up any location quickly and easily.",
+                                ucwords($formatted_barangay),
+                                ucwords($formatted_city)
+                            );
+
+
+
 
          /*  */
          foreach ($sql as $key => $value) {
@@ -112,14 +121,22 @@ class BarangayController extends Controller
 
 
          $data    = array(
-                     'page_title'       => $page_title,
+                     'page_title'       => str_replace(
+                                                '{zipcodes}',
+                                                sprintf('%s', $query_data[0]['postal']),
+                                                $page_title
+                                            ),
                      'canonical'        => route('url_barangay', ['city' => $formatted_city, 'barangay' => $formatted_barangay]),
                      'description'      => str_replace(
                                                    '{zipcodes}',
                                                    sprintf('%s', $query_data[0]['postal']),
                                                    $page_info
                                                    ),
-                    'subheader_title'   => $page_title,
+                    'subheader_title'   => str_replace(
+                                                '{zipcodes}',
+                                                sprintf('%s', $query_data[0]['postal']),
+                                                $page_title
+                                            ),
                      'page_info'        => str_replace(
                                                    '{zipcodes}',
                                                    sprintf('%s', $query_data[0]['postal']),
