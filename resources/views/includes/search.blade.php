@@ -1,27 +1,28 @@
 <!--                -->
 <!-- Search Module  -->
 <!--                -->
-<div class="s120">
+<div class="px-4 py-4 sm:px-6">
+
     <form name="search-form" autocomplete="off">
 
         @csrf
 
-        <div class="pl-3 mb-2">
-            <div class="d-inline" id="user-searches">&nbsp;</div>
-        </div>
+        <div class="mx-auto w-full md:w-4/5 h-full flex-auto">
+            <div class="relative mt-1 flex items-center">
+                <input class="transition-all ease-in-out duration-300 block w-full rounded-full text-white bg-gray-700 border-gray-600 text-xl py-5 px-8 pr-16 shadow-sm outline-none ring-2 focus:ring-offset-blue-700 focus:ring-offset-2 focus:border-blue-500 focus:ring-blue-500 focus:bg-gray-100 focus:text-gray-900"
+                        maxlength="255"
+                        type="text"
+                        name="q"
+                        id="search"
+                        value="{{ $search_q ?? '' }}"
+                        placeholder="Barangay, City, Zip Code...">
 
-        <div class="inner-form">
-            <div class="input-field first-wrap">
-                <div class="svg-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                    </svg>
+                <div class="absolute right-0 flex py-1.5 pr-8">
+                    <svg aria-hidden="true" class="w-8 h-8 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
-                <input id="search" name="q" type="text" placeholder="Search zip code" value="{{ $search_q ?? '' }}" autocomplete="off" />
             </div>
-            <div class="input-field second-wrap">
-                <button class="btn-search" type="submit">SEARCH</button>
-            </div>
+
+            <div class="mt-3 space-y-2 space-x-2 text-center" id="user-searches">&nbsp;</div>
         </div>
 
     </form>
@@ -30,14 +31,14 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script>
 $(function() {
-                
+
     $(`form[name="search-form"]`).on(`submit`, function(e) {
-            
+
         e.preventDefault();
 
         let this_que = $(this).find(`input[name="q"]`).val().trim();
         let this_btn = $(this).find(`button[type="submit"]`);
-        
+
         if (this_que.length < 1) {
             return false;
         }
@@ -72,8 +73,8 @@ $(function() {
             success: function(data) {
 
                 window.location.replace(data.url);
-                                
-            }, 
+
+            },
 
             error: function() {
 
@@ -89,6 +90,6 @@ $(function() {
 
 
     });
-    
+
 });
 </script>

@@ -6,11 +6,8 @@
 <!-- jQuery Core 3.5.1 -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
-<!-- font awesome kit -->
-<script defer src="https://kit.fontawesome.com/d234582c9d.js" crossorigin="anonymous"></script>
+<!-- app js -->
+<script src="{{ asset('js/app.js') }}"></script>
 
 <!-- global script will run here -->
 <script>
@@ -38,7 +35,16 @@ if ( null !== localStorage.getItem(`searches`) ) {
     /*  */
     user_searches.forEach( function(item) {
 
-        searches_holder += `<span class="badge badge-primary search-badge mr-1"><a class="text-white p-1" href="/search-result?q=` + item + `" title="` + item + `">` + item + `</a></span>`;
+        searches_holder += `<a href="/search-result?q=${item}" title="${item}">
+                                <span class="cursor-pointer opacity-70 hover:opacity-100 inline-flex items-center rounded-md bg-blue-100 px-3.5 py-1.5 text-sm font-medium text-blue-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-1">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                    </svg>
+
+                                    ${item}
+                                </span>
+                            </a>`;
 
     })
 

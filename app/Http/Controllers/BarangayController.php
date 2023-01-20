@@ -23,7 +23,7 @@ class BarangayController extends Controller
                               'city'
                            )
                            ->get();
-      
+
       /*  */
       $filter_records = [];
 
@@ -43,12 +43,12 @@ class BarangayController extends Controller
 
 
       /*  */
-      if ( $this->in_multi_array($city, $filter_records) === false ) 
+      if ( $this->in_multi_array($city, $filter_records) === false )
       {
          $formatted_city      = str_replace('-', ' ', $city);
 
       } else { $formatted_city = $city; }
-      
+
       /*  */
       if ( $this->in_multi_array($barangay, $filter_records) === false )
       {
@@ -73,7 +73,7 @@ class BarangayController extends Controller
       /*  */
       $page_title    = sprintf('%s Zip Code', ucwords($formatted_barangay));
       $page_info     = sprintf('%s Zip Code is not yet in our database.', $formatted_barangay);
-      
+
       if ( count($sql) > 0 ) {
 
          /* change title and info if results were found */
@@ -91,62 +91,62 @@ class BarangayController extends Controller
 
                                     'barangay'      => $value->barangay,
                                     'barangay_url'  => route( 'url_barangay',   [
-                                                                                    'city' => str_replace(' ', '-', strtolower($value->city)), 
+                                                                                    'city' => str_replace(' ', '-', strtolower($value->city)),
                                                                                     'barangay' => str_replace(' ', '-', strtolower($value->barangay))
                                                                               ]),
-                                                
+
                                     'postal'        => $value->postal,
                                     'postal_url'    => route( 'url_zipcode',    [
-                                                                                    'code' => str_replace(' ', '-', strtolower($value->postal)), 
+                                                                                    'code' => str_replace(' ', '-', strtolower($value->postal)),
                                                                               ]),
-                                    
+
                                     'city'          => $value->city,
                                     'city_url'      => route( 'url_city',   [
                                                                               'city' => str_replace(' ', '-', strtolower($value->city))
                                                                            ]),
-                                    
+
                                     'phone_area_code' => $value->phone_area_code
                               ];
 
          }
 
-                        
-         $data    = array(
-                     'page_title'      => $page_title,
-                     'canonical'       => route('url_barangay', ['city' => $formatted_city, 'barangay' => $formatted_barangay]),
-                     'description'   => str_replace(
-                                                   '{zipcodes}', 
-                                                   sprintf('%s', $query_data[0]['postal']), 
-                                                   $page_info
-                                                   ),
 
-                     'page_info'     => str_replace(
-                                                   '{zipcodes}', 
-                                                   sprintf('%s', $query_data[0]['postal']), 
+         $data    = array(
+                     'page_title'       => $page_title,
+                     'canonical'        => route('url_barangay', ['city' => $formatted_city, 'barangay' => $formatted_barangay]),
+                     'description'      => str_replace(
+                                                   '{zipcodes}',
+                                                   sprintf('%s', $query_data[0]['postal']),
                                                    $page_info
                                                    ),
-                     'results'         => json_decode(json_encode($query_data)), /* <- convert array into object */
-                     'search_q'        => '',
+                    'subheader_title'   => $page_title,
+                     'page_info'        => str_replace(
+                                                   '{zipcodes}',
+                                                   sprintf('%s', $query_data[0]['postal']),
+                                                   $page_info
+                                                   ),
+                     'results'          => json_decode(json_encode($query_data)), /* <- convert array into object */
+                     'search_q'         => '',
                   );
 
       }
       else {
-       
+
             /*  */
             $data    = array(
-                        'page_title'    => $page_title,
-                        'canonical'     => null,
-                        'description'   => $page_info,
-
-                        'page_info'     => $page_info,
-                        'results'       => null,
-                        'search_q'      => '',
+                        'page_title'        => $page_title,
+                        'canonical'         => null,
+                        'description'       => $page_info,
+                        'subheader_title'   => $page_title,
+                        'page_info'         => $page_info,
+                        'results'           => null,
+                        'search_q'          => '',
                     );
 
       }
 
       return view('pages.zipcodes.barangay', $data);
-      
+
    }
 
 }

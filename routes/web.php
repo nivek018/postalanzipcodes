@@ -19,32 +19,74 @@ Route::get('/sitemap', [SitemapController::class, 'sitemap'])->name('sitemap');
 
 /* terms of service page */
 Route::get('/terms-of-service', function () {
-    return view('pages.tos');
+    $data    = [
+        'page_title'        => 'About Us',
+        'canonical'         => route('index'),
+        'description'       => 'Learn more about postalandzipcodes.ph terms of service section.',
+        'subheader_title'   => 'Terms of service'
+    ];
+
+    return view('pages.tos', $data);
 })->name('terms-of-service');
 
 /* privacy policy page */
 Route::get('/privacy-policy', function () {
-    return view('pages.pp');
+    $data    = [
+        'page_title'        => 'About Us',
+        'canonical'         => route('index'),
+        'description'       => 'Learn more about postalandzipcodes.ph privacy policy section.',
+        'subheader_title'   => 'Privacy Policy'
+    ];
+
+    return view('pages.pp', $data);
 })->name('privacy-policy');
 
 /* how it works page */
 Route::get('/how-it-works', function () {
-    return view('pages.hiw');
+    $data    = [
+        'page_title'        => 'About Us',
+        'canonical'         => route('index'),
+        'description'       => 'Learn more about postalandzipcodes.ph how it works section.',
+        'subheader_title'   => 'How it Works?'
+    ];
+
+    return view('pages.hiw', $data);
 })->name('how-it-works');
 
 /* about page */
 Route::get('/about-us', function () {
-    return view('pages.abt');
+    $data    = [
+        'page_title'        => 'About Us',
+        'canonical'         => route('index'),
+        'description'       => 'Learn more about postalandzipcodes.ph about us section.',
+        'subheader_title'   => 'About Us'
+    ];
+
+    return view('pages.abt', $data);
 })->name('about-us');
 
 /* what is my postal code | accomodote all page url indexed by google */
 Route::get('/what-is-my-postal-code', function () {
-    return view('pages.what-is-my-zipcode');
+    $data    = [
+        'page_title'        => 'Zip Code Lookup',
+        'canonical'         => route('index'),
+        'description'       => 'Learn more about postalandzipcodes.ph about us section.',
+        'subheader_title'   => 'Zip Code Lookup'
+    ];
+
+    return view('pages.what-is-my-zipcode', $data);
 })->name('what-is-my-postal-code');
 
 /* what is my zip code */
 Route::get('/what-is-my-zip-code', function () {
-    return view('pages.what-is-my-zipcode');
+    $data    = [
+        'page_title'        => 'Zip Code Lookup',
+        'canonical'         => route('index'),
+        'description'       => 'Learn more about postalandzipcodes.ph about us section.',
+        'subheader_title'   => 'Zip Code Lookup'
+    ];
+
+    return view('pages.what-is-my-zipcode', $data);
 })->name('what-is-my-zip-code');
 
 /* submit zip code */

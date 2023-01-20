@@ -16,7 +16,7 @@ class SearchController extends Controller
 
     /*  */
     public function search_q(Request $request) {
-                
+
         $validator = Validator::make($request->all(), [
             'q' => 'required',
         ]);
@@ -36,7 +36,7 @@ class SearchController extends Controller
         else {
 
             /*  */
-            $data = [ 
+            $data = [
                 'url'   => route('search-results', ['q' => $search_q]),
             ];
 
@@ -54,7 +54,7 @@ class SearchController extends Controller
 
         /*  */
         $search_q = $request->q;
-        
+
         /*  */
         $results        = Zipcode::search($search_q)->get();
         $results_cnt    = count($results);
@@ -67,14 +67,14 @@ class SearchController extends Controller
         ]);
 
         /*  */
-        $page_title    = sprintf('%s - Zip Code Search', $search_q);
+        $page_title    = sprintf('%s', $search_q);
         $page_info     = sprintf('Search results for "%s"', $search_q);
 
         /*  */
         if ( $results_cnt > 0 ) {
-            
+
             $page_info     = sprintf('Your search results for "%s" found %s Zip %s.', $search_q, count($results), (count($results) == 1 ? 'Code' : 'Codes'));
-            
+
             /*  */
             foreach ($results as $key => $value) {
 
@@ -86,20 +86,20 @@ class SearchController extends Controller
 
                                         'barangay'      => $value->barangay,
                                         'barangay_url'  => route( 'url_barangay',   [
-                                                                                        'city' => str_replace(' ', '-', strtolower($value->city)), 
+                                                                                        'city' => str_replace(' ', '-', strtolower($value->city)),
                                                                                         'barangay' => str_replace(' ', '-', strtolower($value->barangay))
                                                                                     ]),
-                                                    
+
                                         'postal'        => $value->postal,
                                         'postal_url'    => route( 'url_zipcode',    [
-                                                                                        'code' => str_replace(' ', '-', strtolower($value->postal)), 
+                                                                                        'code' => str_replace(' ', '-', strtolower($value->postal)),
                                                                                     ]),
 
                                         'city'          => $value->city,
                                         'city_url'      => route( 'url_city',   [
                                                                                     'city' => str_replace(' ', '-', strtolower($value->city))
                                                                                 ]),
-                                        
+
                                         'phone_area_code' => $value->phone_area_code
                                     ];
 
@@ -107,27 +107,29 @@ class SearchController extends Controller
 
             /*  */
             $data    = array(
-                        'page_title'    => $page_title,
-                        'canonical'     => route('search-results', ['q' => $search_q]),
-                        'description'   => $page_info,
-                        
-                        'page_info'     => $page_info,
-                        'results'       => json_decode(json_encode($query_data)), /* <- convert array into object */
-                        'search_q'      => $search_q,
+                        'page_title'        => $page_title,
+                        'canonical'         => route('search-results', ['q' => $search_q]),
+                        'description'       => $page_info,
+                        'subheader_title'   => 'Searched for: '. $search_q,
+
+                        'page_info'         => $page_info,
+                        'results'           => json_decode(json_encode($query_data)), /* <- convert array into object */
+                        'search_q'          => $search_q,
                     );
 
         }
-        else { 
+        else {
 
             /*  */
             $data    = array(
-                        'page_title'    => $page_title,
-                        'canonical'     => route('search-results', ['q' => $search_q]),
-                        'description'   => $page_info,
+                        'page_title'        => $page_title,
+                        'canonical'         => route('search-results', ['q' => $search_q]),
+                        'description'       => $page_info,
+                        'subheader_title'   => 'Searched for: '. $search_q,
 
-                        'page_info'     => $page_info,
-                        'results'       => null,
-                        'search_q'      => $search_q,
+                        'page_info'         => $page_info,
+                        'results'           => null,
+                        'search_q'          => $search_q,
                     );
 
          };

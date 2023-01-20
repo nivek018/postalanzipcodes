@@ -21,7 +21,7 @@ class CityController extends Controller
                               'city'
                            )
                            ->get();
-      
+
       /*  */
       $filter_records = [];
 
@@ -40,12 +40,12 @@ class CityController extends Controller
 
 
       /*  */
-      if ( $this->in_multi_array($city, $filter_records) === false ) 
+      if ( $this->in_multi_array($city, $filter_records) === false )
       {
          $formatted_city      = str_replace('-', ' ', $city);
 
       } else { $formatted_city = $city; }
-      
+
       /* search exact city zip code information */
       $sql  = DB::table('postal_codes')
             ->where('city', 'like', "%$formatted_city%")
@@ -67,7 +67,7 @@ class CityController extends Controller
          /* modify page title, info/description */
          $page_title       = sprintf('%s Zip Codes', $sql[0]->city);
          $page_info        = sprintf('%s is composed of %s Barangays, having {zipcodes} Zip Code and within %s.', $sql[0]->city, count($sql), $sql[0]->region);
-      
+
          /* default values of lowest and highest postal */
          $lowest_postal    = $sql[0]->postal;
          $highest_postal   = 0;
@@ -83,20 +83,20 @@ class CityController extends Controller
 
                                     'barangay'      => $value->barangay,
                                     'barangay_url'  => route( 'url_barangay',   [
-                                                                                    'city' => str_replace(' ', '-', strtolower($value->city)), 
+                                                                                    'city' => str_replace(' ', '-', strtolower($value->city)),
                                                                                     'barangay' => str_replace(' ', '-', strtolower($value->barangay))
                                                                               ]),
-                                                
+
                                     'postal'        => $value->postal,
                                     'postal_url'    => route( 'url_zipcode',    [
-                                                                                    'code' => str_replace(' ', '-', strtolower($value->postal)), 
+                                                                                    'code' => str_replace(' ', '-', strtolower($value->postal)),
                                                                               ]),
-                                    
+
                                     'city'          => $value->city,
                                     'city_url'      => route( 'url_city',   [
                                                                               'city' => str_replace(' ', '-', strtolower($value->city))
                                                                            ]),
-                                    
+
                                     'phone_area_code' => $value->phone_area_code
                               ];
 
@@ -105,20 +105,20 @@ class CityController extends Controller
             $highest_postal   = $value->postal > $highest_postal ? $value->postal: $highest_postal;
 
          }
-             
+
          /*  */
          $data    = array(
                      'page_title'    => $page_title,
                      'canonical'     => route('url_city', ['city' => $formatted_city]),
                      'description'   => str_replace(
-                                                   '{zipcodes}', 
-                                                   sprintf('%s to %s', $lowest_postal, $highest_postal), 
+                                                   '{zipcodes}',
+                                                   sprintf('%s to %s', $lowest_postal, $highest_postal),
                                                    $page_info
                                                 ),
-
+                    'subheader_title'   => $page_title,
                      'page_info'     => str_replace(
-                                                   '{zipcodes}', 
-                                                   sprintf('%s to %s', $lowest_postal, $highest_postal), 
+                                                   '{zipcodes}',
+                                                   sprintf('%s to %s', $lowest_postal, $highest_postal),
                                                    $page_info
                                                 ),
                      'results'       => json_decode(json_encode($query_data)), /* <- convert array into object */
@@ -127,24 +127,24 @@ class CityController extends Controller
                   );
 
       }
-      else { 
+      else {
 
          /*  */
          $data    = array(
-                     'page_title'    => $page_title,
-                     'canonical'     => null,
-                     'description'   => $page_info,
-
-                     'page_info'     => $page_info,
-                     'results'       => null,
-                     'search_q'      => '',
-                     'city_zips'     => '',
+                     'page_title'       => $page_title,
+                     'canonical'        => null,
+                     'description'      => $page_info,
+                     'subheader_title'  => $page_title,
+                     'page_info'        => $page_info,
+                     'results'          => null,
+                     'search_q'         => '',
+                     'city_zips'        => '',
                   );
 
       }
 
       return view('pages.zipcodes.city', $data);
-      
+
    }
 
 }

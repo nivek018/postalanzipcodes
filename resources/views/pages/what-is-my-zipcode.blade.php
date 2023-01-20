@@ -1,90 +1,80 @@
 @extends('layouts.app')
-@section('title', 'Your Zip Code')
-
-
+@section('title', $page_title)
+@section('page_styles')
+@endsection
 
 @section('page_styles')
 <!-- Leaflet 1.7.1 -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
   crossorigin=""/>
-
-<style>
-/* Always set the map height explicitly to define the size of the div
-* element that contains the map. */
-#map {
-    height: 100%;
-}
-
-.alert {
-    background: #fff;
-    border-color: #eee;
-    border-left-color: #f6b73c;
-    border-left-width: 3.5pt;
-    color: #000;
-}
-</style>
 @endsection
 
 
 
 @section('content')
-<div>
-    <div class="container mt-3">
+<div class="relative overflow-hidden py-10 md:py-5">
 
-        <div class="row">
-            
-            <div class="col-xl-12">                
-
-                <section>
-                    <h1 class="mb-5">
-                        <strong>Your Zip Code</strong>    
-                    </h1>
-
-                    <p>
-                        We are tracking your current's device location to pinpoint and extract your zip code information as prerequisites to this we are using <code>Geolocation.getCurrentPosition()</code> method to get the current position of your device.
-                    </p>
-
-                    <p>
-                        However this doesn't mean that we can always right in giving you your zip code information, to help you give an idea if we are tracking your correct location we also display your location on the map.
-                    </p>
-
-                </section>
-
-            </div> <!-- [ .col-xl-12 ] END -->
-
-            <div class="col-xl-12">  
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                    <strong>Note:</strong> 
-                    The method <code>Geolocation.getCurrentPosition()</code> is more accurate on a mobile device.
-                </div>
-            </div> <!-- [ .col-xl-12 ] END -->
-
-            <div class="col-xl-12">
-                <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                        <h1 class="display-3">
-                            <span id="visitors-zipcode" class="font-weight-bold">
-                                <div class="spinner-grow text-warning" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                            </span>
-                            <p class="lead no-margin">YOUR ZIP CODE</p>
-                        </h1>
-                        
-                        <small class="text-muted">Your current position is: lat. <span id="lat">?</span>, lon. <span id="lon">?</span> <span id="accuracy">?</span> accuracy.</small>
-                    </div>
-                </div>
-            </div> <!-- [ .col-xl-12 ] END -->
-
-            <div class="col-xl-12" style="height: 50vh;"> 
-                <div id="map"></div>
-            </div>
-             
-        </div> <!-- [ .row ] END -->
+    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 
         <!-- ads -->
         @include('ads.ads1')
+        <!--  -->
+        <!--  -->
+
+        <div class="w-full mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Find your Zip Code using your current location
+            </h5>
+            <p class="mb-3 font-normal dark:text-gray-400">
+                We are tracking your current's device location to pinpoint and extract your zip code information as prerequisites to this we are using <code>Geolocation.getCurrentPosition()</code> method to get the current position of your device.
+            </p>
+            <p class="mb-3 font-normal dark:text-gray-400">
+                However this doesn't mean that we can always right in giving you your zip code information, to help you give an idea if we are tracking your correct location we also display your location on the map.
+            </p>
+        </div>
+
+        <div class="w-full mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <h5 class="mb-2 text-2xl font-bold tracking-tigh dark:text-white">
+                <strong>Note:</strong>
+                    The method <code>Geolocation.getCurrentPosition()</code> is more accurate on a mobile device.
+            </h5>
+
+            <div>
+                <div class="dark:text-white">
+                    <span id="visitors-zipcode" class="font-bold text-3xl">
+
+                        <div role="status" class="animate-pulse">
+                            <div class="h-8 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-[100px]"></div>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+
+                    </span>
+
+                    <p class="lead no-margin">YOUR ZIP CODE</p>
+
+                    <div class="mt-2">
+                        Your current position in lat. long.:
+                        <div class="inline-block" id="lat">
+                            <div class="inline-block h-2 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-[100px]"></div>
+                        </div>,
+                        <div class="inline-block" id="lon">
+                            <div class="inline-block h-2 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-[100px]"></div>
+                        </div>
+                        <div class="mt-2" id="accuracy">
+                            <div class="inline-block h-2 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-[100px]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5 h-[50vh] relative overflow-hidden">
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <!-- ads -->
+        @include('ads.ads2')
         <!--  -->
         <!--  -->
 
@@ -123,12 +113,12 @@ function final_request(latitude, longitude, accuracy) {
         },
 
         success: function(data) {
-                        
+
             $(`#visitors-zipcode`).html(`<a href="${data.zip_code_url}" title="Zip Code Search">${data.zip_code}</a>`);
 
             $(`#lat`).html(`${latitude}`);
             $(`#lon`).html(`${longitude}`);
-            $(`#accuracy`).html(`More or less ${accuracy} meters`);
+            $(`#accuracy`).html(`More or less ${accuracy} meters accuracy.`);
 
             var map = L.map('map', {
                 center: [`${latitude}`, `${longitude}`],
@@ -143,7 +133,7 @@ function final_request(latitude, longitude, accuracy) {
             L.marker([`${latitude}`, `${longitude}`]).addTo(map)
                 .bindPopup(`${data.display_addr}`)
                 .openPopup();
-                    
+
                 }
 
     });

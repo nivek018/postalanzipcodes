@@ -19,7 +19,7 @@ class RegionController extends Controller
         $formatted_region      = str_replace('---', '&&&', $region); /* <- &&& is just temporary */
         $formatted_region      = str_replace('-', ' ', $formatted_region); /* now removing hyphens(-) */
         $formatted_region      = str_replace('&&&', ' - ', $formatted_region); /* last format it where it can be found in our database */
-                
+
         /* search exact city zip code information */
         $sql  = DB::table('postal_codes')
             ->where('region', '=', $formatted_region)
@@ -31,7 +31,7 @@ class RegionController extends Controller
                 'phone_area_code'
             )
             ->get();
-        
+
         /*  */
         $page_title    = sprintf('%s Zip Code', ucwords($formatted_region));
         $page_info     = sprintf('%s Zip Code is not yet in our database.', $formatted_region);
@@ -57,20 +57,20 @@ class RegionController extends Controller
 
                                         'barangay'      => $value->barangay,
                                         'barangay_url'  => route( 'url_barangay',   [
-                                                                                        'city' => str_replace(' ', '-', strtolower($value->city)), 
+                                                                                        'city' => str_replace(' ', '-', strtolower($value->city)),
                                                                                         'barangay' => str_replace(' ', '-', strtolower($value->barangay))
                                                                                     ]),
-                                                    
+
                                         'postal'        => $value->postal,
                                         'postal_url'    => route( 'url_zipcode',    [
-                                                                                        'code' => str_replace(' ', '-', strtolower($value->postal)), 
+                                                                                        'code' => str_replace(' ', '-', strtolower($value->postal)),
                                                                                     ]),
-                                        
+
                                         'city'          => $value->city,
                                         'city_url'      => route( 'url_city',   [
                                                                                     'city' => str_replace(' ', '-', strtolower($value->city))
                                                                                 ]),
-                                        
+
                                         'phone_area_code' => $value->phone_area_code
                                     ];
 
@@ -85,14 +85,14 @@ class RegionController extends Controller
                         'page_title'    => $page_title,
                         'canonical'     => route('url_region', ['region' => urlencode($formatted_region)]),
                         'description'   => str_replace(
-                                                    '{zipcodes}', 
-                                                    sprintf('%s to %s', $lowest_postal, $highest_postal), 
+                                                    '{zipcodes}',
+                                                    sprintf('%s to %s', $lowest_postal, $highest_postal),
                                                     $page_info
                                                     ),
-
+                        'subheader_title'   => $page_title,
                         'page_info'     => str_replace(
-                                                    '{zipcodes}', 
-                                                    sprintf('%s to %s', $lowest_postal, $highest_postal), 
+                                                    '{zipcodes}',
+                                                    sprintf('%s to %s', $lowest_postal, $highest_postal),
                                                     $page_info
                                                     ),
                         'results'       => json_decode(json_encode($query_data)), /* <- convert array into object */
@@ -100,23 +100,24 @@ class RegionController extends Controller
                     );
 
         }
-        else { 
+        else {
 
             /*  */
             $data    = array(
                         'page_title'    => $page_title,
                         'canonical'     => null,
                         'description'   => $page_info,
+                        'subheader_title'   => $page_title,
 
                         'page_info'     => $page_info,
                         'results'       => null,
                         'search_q'      => '',
                     );
-                  
+
         }
 
         return view('pages.zipcodes.region', $data);
-        
+
     }
 
 }

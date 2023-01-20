@@ -15,7 +15,7 @@ class IndexController extends Controller
         if ( null === session('sess_total_zipcodes') ) {
 
             // query updated contributors count also handle session to avoid unnecessary db calls
-            $total_zipcodes     = 
+            $total_zipcodes     =
                                     DB::table('postal_codes')
                                     ->count();
 
@@ -25,19 +25,21 @@ class IndexController extends Controller
                 session([
                         'sess_total_zipcodes' => $total_zipcodes
                 ]);
-                
+
             }
 
         }
 
 
-        
-        // 
-        $data    = array(
-                    'page_title'    => 'Postal and Zip Codes directory of the Philippines',
-                    'canonical'     => route('index'),
-                    'description'   => 'Looking for Zip Codes in the Philippines? Use our easy-search of Zip Code using your Street, Barangay, City, Town, or Regions.',
-                );
+
+        //
+        $data    = [
+                    'page_title'        => 'Postal and Zip Codes directory of the Philippines',
+                    'canonical'         => route('index'),
+                    'description'       => 'Looking for Zip Codes in the Philippines? Use our easy-search of Zip Code using your Street, Barangay, City, Town, or Regions.',
+                    'subheader_title'   => 'Zip Code Search'
+                ];
+
 
         return view('pages.index', $data);
 

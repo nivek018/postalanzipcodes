@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'postalandzipcodes.ph | Philippine Zip Codes')
+@section('title', 'Search Zip Codes')
 
 
 
@@ -12,73 +12,70 @@
 
 
 @section('content')
+<div class="relative overflow-hidden py-10">
 
-@php
-    $bg_arr = [
-        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104613/postalandzipcodes.ph/pexels-marfil-graganza-aquino-2604843.jpg",
-        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104615/postalandzipcodes.ph/pexels-jeff-guab-2407636.jpg",
-        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104614/postalandzipcodes.ph/pexels-leon-macapagal-2467670.jpg",
-        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104613/postalandzipcodes.ph/pexels-roiland-hernandez-2406376.jpg",
-        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104613/postalandzipcodes.ph/pexels-meo-fernando-3214989.jpg",
-        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104613/postalandzipcodes.ph/pexels-marfil-graganza-aquino-2604843.jpg",
-        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104610/postalandzipcodes.ph/pexels-christian-paul-del-rosario-1098322.jpg",
-        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601104608/postalandzipcodes.ph/pexels-nice-guys-757450.jpg",
-        "https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_30/v1601350997/postalandzipcodes.ph/8f82a63ef0e32770e63eff87ce0913eb.jpg",
-    ];
-@endphp
-<div class="s130"
-    style="
-        background: linear-gradient(360deg, rgb(31, 30, 30) 0%, rgba(255,255,255,0.35) 90%), url('{{ $bg_arr[array_rand($bg_arr,1)] }}');
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    "
->
-    <form name="index-search-form" autocomplete="off">
-        
-        @csrf
+    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 
-        <div class="pl-3 mb-2">
-            <div class="d-inline" id="user-searches">&nbsp;</div>
-        </div>
+        <video
+                poster="{{ asset('image/vid_1.svg') }}"
+                autoplay="{true}" loop muted
+                class="absolute z-10 w-auto min-w-full min-h-full max-w-none inset-0">
+            <source src="{{ asset('image/vid_1.webm') }}" type="video/webm">
+            <source src="{{ asset('image/vid_1.mp4') }}" type="video/mp4">
+        </video>
+
+        {{-- <video
+            src="{{ asset('image/vid_1.mp4') }}"
+            autoplay="{true}" loop muted
+            class="absolute z-10 w-auto min-w-full min-h-full max-w-none inset-0">
+        </video> --}}
+
+        <div class="absolute z-10 opacity-90 inset-0 bg-gradient-to-tl from-gray-800 to-gray-900 w-full h-full"></div>
+
+        <div class="flex h-[80vh] z-20 items-center justify-center w-full relative">
+            <form class="w-11/12 md:w-3/4 min-h-fit h-fit" name="index-search-form" autocomplete="off">
+
+                @csrf
 
 
-        <div class="inner-form">
-            <div class="input-field first-wrap">
-                <div class="svg-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                    </svg>
+
+                <div class="mx-auto w-full md:w-4/5 h-full flex-auto">
+                    <label for="search" class="block text-4xl font-extrabold uppercase text-white text-center mb-10">Postal/Zip Code Search</label>
+
+                    <div class="relative mt-1 flex items-center">
+                        <input class="transition-all ease-in-out duration-300 block w-full rounded-full border-gray-300 text-gray-900 font-light text-xl py-5 px-8 pr-16 shadow-sm outline-none ring-2 focus:ring-offset-blue-700 focus:ring-offset-2 focus:border-blue-500 focus:ring-blue-500"
+                                maxlength="255"
+                                type="text"
+                                name="q"
+                                id="search"
+                                placeholder="Barangay, City, Zip Code...">
+
+                        <div class="absolute right-0 flex py-1.5 pr-8">
+                            <svg aria-hidden="true" class="w-8 h-8 text-gray-500 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 space-y-2 space-x-2 text-center" id="user-searches">&nbsp;</div>
                 </div>
-                <input id="search" name="q" type="text" placeholder="Search zip code" value="" autocomplete="off" />
-            </div>
-            <div class="input-field second-wrap">
-                <button class="btn-search" type="submit">SEARCH</button>
-            </div>
+
+                <div class="flex flex-col space-y-10 mt-10 h-auto items-center justify-center">
+                    <div class="text-gray-50 text-center max-w-lg">
+                        <h1 class="text-center text-gray-50 text-2xl font-semibold">Zip Codes Search Directory</h1>
+                        <p class="">
+                            Our Zip Code Search is easy-to-use and mostly accurate. Give it a quick try and be amazed at how fast you can look for a Zip Code.
+                        </p>
+                    </div>
+
+                    <div class="text-gray-50 mt-5 text-center max-w-lg">
+                        <p class="">
+                            The Philippine Zip Code Directory that we maintain is always update-to-date, And as of the moment, we have a total of {{ session('sess_total_zipcodes') ?? 99 }} Zip Codes in our directory.
+                        </p>
+                    </div>
+                </div>
+            </form>
         </div>
+    </div>
 
-        <span class="info font-weight-light">e.g. Barangay, City, Region, and Zip Code</span>
-        
-        <!-- ads -->
-        @include('ads.ads1')
-        <!--  -->
-        <!--  -->
-
-        <h1 class="text-center font-weight-light">Zip Codes Search Directory</h1>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p class="font-weight-light">
-                    Our Zip Code Search is easy-to-use and mostly accurate. Give it a quick try and be amazed at how fast you can look for a Zip Code.
-                </p>
-            </div>
-
-            <div class="col-md-12 mt-5 text-center">
-                <p class="font-weight-light">
-                    The Philippine Zip Code Directory that we maintain is always update-to-date, And as of the moment, we have a total of {{ session('sess_total_zipcodes') ?? 99 }} Zip Codes in our directory.
-                </p>                                                                                                                        
-            </div>
-        </div>
-    </form>    
 </div>
 @endsection
 
@@ -91,12 +88,12 @@ var xhr = null;
 $(function() {
 
     $(`form[name="index-search-form"]`).on(`submit`, function(e) {
-        
+
         e.preventDefault();
-        
+
         let this_que = $(this).find(`input[name="q"]`).val().trim();
         let this_btn = $(this).find(`button[type="submit"]`);
-        
+
         if (this_que.length < 1) {
             return false;
         }
@@ -131,8 +128,8 @@ $(function() {
             success: function(data) {
 
                 window.location.replace(data.url);
-                                
-            }, 
+
+            },
 
             error: function() {
 
@@ -143,7 +140,7 @@ $(function() {
                 }
 
             }
-            
+
         });
 
 
