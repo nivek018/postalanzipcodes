@@ -44,6 +44,11 @@
 
 
 
+<a href="https://shope.ee/8pDVmnJsEG" target="_blank" class="fixed right-0 bottom-0 z-[9999] w-20 mr-4 mb-4 md:w-40 md:mr-8 md:mb-10">
+    <img src="{{ asset('image/shopee-click.gif') }}" alt="" srcset="">
+</a>
+
+
 <!-- Default Modal -->
 <div id="medium-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-[999] hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
     <div class="relative w-full h-full max-w-lg md:h-auto">
