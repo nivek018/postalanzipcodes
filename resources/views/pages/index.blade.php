@@ -16,15 +16,18 @@
 
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 
-        <video
+        {{-- <video
                 poster="{{ asset('image/vid_1.svg') }}"
                 autoplay="{true}" loop muted
                 class="absolute z-10 w-auto min-w-full min-h-full max-w-none inset-0">
             <source src="{{ asset('image/vid_1.webm') }}" type="video/webm">
             <source src="{{ asset('image/vid_1.mp4') }}" type="video/mp4">
-        </video>
+        </video> --}}
 
-        <div class="absolute z-10 opacity-90 inset-0 bg-gradient-to-tl from-gray-800 to-gray-900 w-full h-full"></div>
+        <img class="absolute object-cover z-10 w-full h-full inset-0"
+            src="{{ asset('image/post-office.jpg') }}" alt="" srcset="">
+
+        <div class="absolute z-10 opacity-80 inset-0 bg-gradient-to-tl from-yellow-800 to-green-900 w-full h-full"></div>
 
         <div class="flex h-[80vh] z-20 items-center justify-center w-full relative">
             <form class="w-11/12 md:w-3/4 min-h-fit h-fit" id="index-search-form" autocomplete="off">
@@ -64,17 +67,11 @@
                     <div class="mt-3 space-x-2 text-center justify-center flex overflow-auto touch-pan-x " id="user-searches">&nbsp;</div>
                 </div>
 
-                <div class="flex flex-col space-y-10 mt-10 h-auto items-center justify-center">
-                    <div class="text-gray-50 text-center max-w-lg">
+                <div class="flex flex-col space-y-10 mt-16 h-auto items-center justify-center">
+                    <div class="text-gray-50 text-center max-w-xl">
                         <h1 class="text-center text-gray-50 text-2xl font-semibold">Zip Code Search Directory</h1>
                         <p class="">
                             Explore the Philippines with our comprehensive zip code directory. Discover towns, cities and regions with our easy-to-use zip code lookup tool. Find all the essential information you need, from demographics to local statistics, and explore the unique culture and lifestyle of this dynamic country. With a range of zip codes, you'll be able to find what you're looking for quickly and easily.
-                        </p>
-                    </div>
-
-                    <div class="text-gray-50 mt-5 text-center max-w-lg">
-                        <p class="">
-                            The Philippine Zip Code Directory that we maintain is always update-to-date, And as of the moment, we have a total of {{ session('sess_total_zipcodes') ?? 99 }} Zip Codes in our directory.
                         </p>
                     </div>
                 </div>
@@ -172,71 +169,5 @@ window.addEventListener('load', function() {
 
 
 });
-
-
-// var xhr = null;
-
-// $(function() {
-
-//     $(`form[name="index-search-form"]`).on(`submit`, function(e) {
-
-//         e.preventDefault();
-
-//         let this_que = $(this).find(`input[name="q"]`).val().trim();
-//         let this_btn = $(this).find(`button[type="submit"]`);
-
-//         if (this_que.length < 1) {
-//             return false;
-//         }
-
-//         var formData = new FormData(this);
-
-//         $.ajax({
-//             url:            `{{ route('search_q') }}`,
-//             type:           `POST`,
-//             dataType:       `JSON`,
-//             data:           formData,
-//             processData:    false,
-//             contentType:    false,
-
-//             beforeSend: function() {
-
-//                 /* create loading state of the submit button */
-//                 $(this_btn).html(`<div class="spinner-border" role="status">
-//                                 <span class="sr-only">Loading...</span>
-//                                 </div>`).addClass('cursor-progress');
-
-//                 /* abot on-going ajax request */
-//                 if (xhr != null) {
-//                     xhr.abort();
-//                 }
-
-//                 /* call function to save user searches on localstorage */
-//                 saveSearchLocal( formData.get(`q`) );
-
-//             },
-
-//             success: function(data) {
-
-//                 window.location.replace(data.url);
-
-//             },
-
-//             error: function() {
-
-//                 $(this_btn).text(`SEARCH`);
-
-//                 if (xhr != null) {
-//                     xhr.abort();
-//                 }
-
-//             }
-
-//         });
-
-
-//     });
-
-// });
 </script>
 @endsection
