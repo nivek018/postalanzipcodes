@@ -34,7 +34,7 @@ class CreateZipcodeController extends Controller
         }
         else {
 
-            $insert = 
+            $insert =
                         DB::table('postal_contribution')
                         ->insert([
 
@@ -49,21 +49,23 @@ class CreateZipcodeController extends Controller
 
                 $data = [
                     'success'   => true,
-                    'msg'       => sprintf('You are awesome! <strong>%s</strong> your contribution is much appreciated.', ($request->contributor ?? ''))
+                    'msg'       => sprintf('Thank you %s, your contribution is now pending for review we will published it once fully verified.',
+                                        ($request->contributor ?? 'Boss')
+                                    )
                 ];
 
             }
             else {
-            
+
                 $data = [
                     'success' => false
                 ];
             }
-            
+
             return $data;
-            
+
         }
 
     }
-    
+
 }

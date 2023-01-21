@@ -4,10 +4,10 @@
 <!--                -->
 <!--                -->
 <!-- jQuery Core 3.5.1 -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> --}}
 
 <!-- app js -->
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/app.js') }}" async></script>
 
 <!-- global script will run here -->
 <script>
@@ -33,18 +33,22 @@ if ( null !== localStorage.getItem(`searches`) ) {
     user_searches.reverse();
 
     /*  */
-    user_searches.forEach( function(item) {
+    // loop user_searches with index and value using forEach
+    user_searches.forEach( function(item, index) {
 
-        searches_holder += `<a href="/search-result?q=${item}" title="${item}">
-                                <span class="cursor-pointer opacity-70 hover:opacity-100 inline-flex items-center rounded-md bg-blue-100 px-3.5 py-1.5 text-sm font-medium text-blue-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-1">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                                    </svg>
+        if ( index < 5 ) {
+            searches_holder += `<a href="/search-result?q=${item}" title="${item}">
+                                    <div class="max-w-[120px] truncate cursor-pointer opacity-70 hover:opacity-100 inline-flex items-center rounded-md bg-blue-100 px-3.5 py-1.5 text-sm font-medium text-blue-700">
+                                        <svg class="w-5 h-5 mr-1 shrink-0"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                        </svg>
 
-                                    ${item}
-                                </span>
-                            </a>`;
+                                        <div class="truncate">${item}</div>
+                                    </div>
+                                </a>`;
+        }
 
     })
 

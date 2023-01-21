@@ -1,141 +1,89 @@
 @extends('layouts.app')
-@section('title', 'Submit Zip Code')
-
-
+@section('title', $page_title)
 
 @section('page_styles')
-<style>
-.alert {
-    background: #fff;
-    border-color: #eee;
-    border-left-color: #f6b73c;
-    border-left-width: 3.5pt;
-    color: #000;
-}
-</style>
 @endsection
 
 
 
 @section('content')
-<div>
-    <div class="container mt-3">
+<div class="relative overflow-hidden py-10 md:py-5">
 
-        <div class="row">
-            
-            <div class="col-xl-12">                
+    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 
-                <section>
-                    <h1 class="mb-5">
-                        <strong>Submit Zip Code</strong>    
-                    </h1>
+        <div class="w-full lg:max-w-lg mx-auto mt-4">
 
-                    <p>
-                        You are here on this page to share with us a Zip Code Information, Our team will review your submission and once approved you and others will be able to search it on our "postalandzipcodes.ph" website. We are glad and thankful for your contribution.
-                    </p>
+            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <form id="submit-zip-code-form" autocomplete="off" class="space-y-6">
+                    @csrf()
 
-                </section>
+                    <h5 class="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
+                    <div class="text-gray-200">{{ $description }}</div>
 
-            </div> <!-- [ .col-xl-12 ] END -->
+                    <div id="error-msg"></div>
+                    <div id="success-msg"></div>
 
-            <div class="col-xl-12">  
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                    <strong>Note:</strong> 
-                    Kindly fill-up all the information below.
-                </div>
-            </div> <!-- [ .col-xl-12 ] END -->
-
-            <div class="col-sm-12 col-md-8 col-xl-6">
-                <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-
-                        <form id="submit-zip-code-form" autocomplete="off">
-                            
-                            @csrf()
-                            
-                            <div class="form-group mb-4">
-                                <label for="selectRegion">Region <span class="text-danger">*</span></label>
-                                <select class="form-control" name="region" id="selectRegion" required>
-                                    <option value="">Select Region</option>
-                                    @php
-                                        $select_opt = [
-                                        'Zamboanga Peninsula (Region IX)', 
-                                        'Bangsamoro Autonomous Region in Muslim Mindanao (Region XVI - BARMM)', 
-                                        'Bicol Region (Region V)', 
-                                        'Cagayan Valley (Region II)', 
-                                        'Caraga Region (Region XIII)', 
-                                        'Central Luzon (Region III)', 
-                                        'Central Visayas (Region VII)', 
-                                        'Cordillera Administrative Region (Region XV - CAR)', 
-                                        'Davao Region (Region XI)', 
-                                        'Eastern Visayas (Region VIII)', 
-                                        'Ilocos Region (Region I)', 
-                                        'National Capital Region (Region XIV - NCR)', 
-                                        'Northern Mindanao (Region X)', 
-                                        'Region 18', 
-                                        'SOCCSKSARGEN (Region XII)', 
-                                        'Southern Tagalog Mainland (Region IV A - CALABARZON)', 
-                                        'Southwestern Tagalog Region (Region XVII MIMAROPA Region)', 
-                                        'Western Visayas (Region VI)'];
-                                    @endphp
-                                    @foreach($select_opt as $idx => $value)
-                                        <option value="{{$value}}">{{$value}}</option>
-                                    @endforeach                                  
-                                </select>
-                            </div>
-
-                            <div class="form-group mb-4">
-                                <label for="textareaAddress">Address <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="address" id="textareaAddress" rows="3" placeholder="Street, Barangay, City/Town, or Province" autocomplete="off" required></textarea>
-                            </div>
-
-                            <div class="form-row mb-4">
-                                <div class="form-group col-sm-12 col-md-6">
-                                    <label for="inputZipcode">Zip Code <span class="text-danger">*</span></label>
-                                    <input type="input" class="form-control form-control-lg" name="zipcode" id="inputZipcode" placeholder="1234" autocomplete="off" required>
-                                </div>
-                            </div>
-
-                            <div class="form-row mb-4">
-                                <div class="form-group col-sm-12">
-                                    <label for="inputName">
-                                        Display Name <small class="text-muted">Optional</small>
-                                        <br><small class="text-muted float-right mt-1 pr-2">This will be displayed on the Hall of Contributors.</small>
-                                    </label>
-                                    
-                                    <input type="input" class="form-control form-control-lg" name="contributor" id="inputName" placeholder="Your Name or Alias?" autocomplete="off">
-                                </div>
-                            </div>  
-
-                            <div class="form-row mb-4">
-                                <div class="form-group col-sm-12">
-                                    <label for="inputEmail">
-                                        Email Address <small class="text-muted">Optional</small>
-                                    </label>
-                                    
-                                    <input type="email" class="form-control form-control-lg" name="email" id="inputEmail" placeholder="Your Email?" autocomplete="off">
-                                </div>
-                            </div>  
-
-
-                            <hr />
-                            
-                            <div id="return-msg">
-                            <!--  -->
-                            </div>
-                            
-                            <button type="submit" class="btn btn-lg btn-success">Submit</button>
-
-                        </form>
-
-
+                    <div class="mb-6">
+                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select the Region</label>
+                        <select name="region" id="selectRegion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            <option value=""></option>
+                            @php
+                                $select_opt = [
+                                'Zamboanga Peninsula (Region IX)',
+                                'Bangsamoro Autonomous Region in Muslim Mindanao (Region XVI - BARMM)',
+                                'Bicol Region (Region V)',
+                                'Cagayan Valley (Region II)',
+                                'Caraga Region (Region XIII)',
+                                'Central Luzon (Region III)',
+                                'Central Visayas (Region VII)',
+                                'Cordillera Administrative Region (Region XV - CAR)',
+                                'Davao Region (Region XI)',
+                                'Eastern Visayas (Region VIII)',
+                                'Ilocos Region (Region I)',
+                                'National Capital Region (Region XIV - NCR)',
+                                'Northern Mindanao (Region X)',
+                                'Region 18',
+                                'SOCCSKSARGEN (Region XII)',
+                                'Southern Tagalog Mainland (Region IV A - CALABARZON)',
+                                'Southwestern Tagalog Region (Region XVII MIMAROPA Region)',
+                                'Western Visayas (Region VI)'];
+                            @endphp
+                            @foreach($select_opt as $idx => $value)
+                                <option value="{{$value}}">{{$value}}</option>
+                            @endforeach
+                        </select>
                     </div>
-                </div>
-            </div> <!-- [ .col-xl-12 ] END -->
-             
-        </div> <!-- [ .row ] END -->
 
+                    <div class="mb-6">
+                        <label for="textareaAddress" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
+                        <textarea name="address" id="textareaAddress" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Street, Barangay, City/Town, or Province" autocomplete="off" required></textarea>
+                    </div>
+
+                    <div class="mb-6 w-[50%]">
+                        <label for="inputZipcode" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Zip Code</label>
+                        <input type="text" name="zipcode" id="inputZipcode" minlength="4" maxlength="8" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="inputName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Display Name <small class="text-muted">(Optional)</small></label>
+                        <input type="text" name="contributor" id="inputName" placeholder="Your Name or Alias?" autocomplete="off" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="inputEmail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address <small class="text-muted">(Optional)</small></label>
+                        <input type="email" name="email" id="inputEmail" placeholder="Your Email?" autocomplete="off" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
+
+                    <button type="submit" id="submit-zip-code-btn" class="dark:disabled:bg-gray-700 disabled:text-gray-500 disabled:cursor-wait
+                                                                        text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                </form>
+            </div>
+
+
+
+        </div>
     </div>
+
 </div>
 @endsection
 
@@ -143,81 +91,80 @@
 
 @section('page_scripts')
 <script>
-$(function() {
+// add event listener to load when the page is ready
+window.addEventListener('load', function() {
 
-    $(`#submit-zip-code-form`).on(`submit`, function(e) {
+    const submitBtn = document.getElementById('submit-zip-code-btn');
 
-        e.preventDefault();
+    document.getElementById("submit-zip-code-form").addEventListener("submit", function(event) {
 
-        let this_btn = $(this).find(`button[type="submit"]`);
+        // prevent the default action of submitting the form
+        event.preventDefault();
 
-        var formData = new FormData(this);
+        const formData = new FormData(this);
 
-        xhr = $.ajax({
-            url:            `{{ route('create_zip') }}`,
-            type:           `POST`,
-            dataType:       `JSON`,
-            data:           formData,
-            processData:    false,
-            contentType:    false,
+        // disable the submit button
+        submitBtn.setAttribute('disabled', true);
 
-            beforeSend: function() {
+        // Perform your actions here, such as validating the form or submitting it via AJAX
+        fetch(`{{ route('create_zip') }}`, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
 
-                /* create loading state of the submit button */
-                $(this_btn).html(`<div class="spinner-border" role="status">
-                                <span class="sr-only">Loading...</span>
-                                </div>`).addClass('cursor-progress');
+            setTimeout(() => {
 
-                /* abot on-going ajax request */
-                if (xhr != null) {
-                    xhr.abort();
-                }
-
-            },
-
-            success: function(data) {
-                
                 /* clear errors wrapper */
-                let msg_wrapper = $(`#return-msg`).html(``);                
-                
+                let msg_wrapper = document.getElementById('error-msg');
+                msg_wrapper.innerHTML = '';
+
                 if (data.success === false) {
 
-                    if ( data.errors.region ) msg_wrapper.append(`<div class="alert alert-warning" role="alert">` + data.errors.region + `</div>`);
-                    if ( data.errors.address ) msg_wrapper.append(`<div class="alert alert-warning" role="alert">` + data.errors.address + `</div>`);
-                    if ( data.errors.zipcode) msg_wrapper.append(`<div class="alert alert-warning" role="alert">` + data.errors.zipcode + `</div>`);
-                    if ( data.errors.contributor) msg_wrapper.append(`<div class="alert alert-warning" role="alert">` + data.errors.contributor + `</div>`);
+                    // loop through the data.errors
+                    for (const [key, value] of Object.entries(data.errors)) {
+
+                        // append the error message to the error wrapper
+                        msg_wrapper.innerHTML += `<div class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-gray-900 dark:text-red-400" role="alert">
+                                                    <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                                                    ${value}
+                                                    </div>`;
+                    }
 
                 }
-                
+
                 else if (data.success === true) {
 
-                    /* clear this form */
-                    /* & */
-                    /* display thank msg */
-                    $(`#submit-zip-code-form`).html(``).append(
-                                                        `<div id="return-msg" class="text-center">`+
-                                                            `<img class="img-fluid mb-4" width="350px" src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1601579449/postalandzipcodes.ph/arabica-1172.png" alt="Thank you message!" />`+
-                                                            `<h4 class="font-weight-light mt-3">` + data.msg + `</h4>`+
-                                                            `<small classs="small">We will just review your submission and once confirmed, Our visitors will be able to search for that zip code here.</small>`+
-                                                        `</div>`
-                                                        );
+
+                    // inform the user that the zip code has been submitted
+                    let success_wrapper = document.getElementById('success-msg');
+                    success_wrapper.innerHTML = `<div class="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-gray-900 dark:text-green-400" role="alert">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"  class="flex-shrink-0 inline w-5 h-5 mr-3"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" /></svg>
+                                                    ${data.msg}
+                                                </div>`;
+
+                    // clear the form
+                    document.getElementById("submit-zip-code-form").reset();
+
+                    // smooth scroll to success_wrapper
+                    success_wrapper.scrollIntoView({behavior: 'smooth', block: 'center'});
 
                 }
 
-                $(this_btn).text(`Submit`);    
-                
-            }, 
+                // disable the submit button
+                submitBtn.removeAttribute('disabled');
 
-            error: function() {
+            }, 1500);
 
-                $(this_btn).text(`Submit`);
+        })
+        .catch(error => {
+            console.error(error);
 
-                if (xhr != null) {
-                    xhr.abort();
-                }
-
-            }
-
+            setTimeout(() => {
+                // disable the submit button
+                submitBtn.removeAttribute('disabled');
+            }, 1500);
         });
 
     });

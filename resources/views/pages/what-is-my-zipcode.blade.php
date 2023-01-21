@@ -131,9 +131,9 @@ window.addEventListener('load', function() {
             if (error.code == error.PERMISSION_DENIED) {
 
                 // display the error message
-                $(`#visitors-address`).html(`<span class="text-red-500">Permission denied</span>`);
-                $(`#visitors-lat-long`).html(`<span class="text-red-500">Permission denied</span>`);
-                $(`#visitors-zipcode`).html(`<span class="text-red-500">Permission denied</span>`);
+                document.getElementById('visitors-address').innerHTML = '<span class="text-red-500">Permission denied</span>';
+                document.getElementById('visitors-lat-long').innerHTML = '<span class="text-red-500">Permission denied</span>';
+                document.getElementById('visitors-zipcode').innerHTML = '<span class="text-red-500">Permission denied</span>';
 
             }
 
@@ -142,9 +142,9 @@ window.addEventListener('load', function() {
     } else {
 
         // if the browser doesn't support geolocation
-        $(`#visitors-address`).html(`<span class="text-red-500">Geolocation is not supported by this browser</span>`);
-        $(`#visitors-lat-long`).html(`<span class="text-red-500">Geolocation is not supported by this browser</span>`);
-        $(`#visitors-zipcode`).html(`<span class="text-red-500">Geolocation is not supported by this browser</span>`);
+        document.getElementById('visitors-address').innerHTML = '<span class="text-red-500">Geolocation is not supported by this browser</span>';
+        document.getElementById('visitors-lat-long').innerHTML = '<span class="text-red-500">Geolocation is not supported by this browser</span>';
+        document.getElementById('visitors-zipcode').innerHTML = '<span class="text-red-500">Geolocation is not supported by this browser</span>';
 
     }
 
@@ -154,53 +154,51 @@ window.addEventListener('load', function() {
 
 function final_request(latitude, longitude, accuracy) {
 
-    /* send ajax request  to update user info */
-    xhr = $.ajax({
-        url:        `{{ route('geolocation') }}`,
-        type:       `POST`,
-        data:       {
-                        _token: `{{ csrf_token() }}`,
-                        lat:    latitude,
-                        lon:    longitude
-                    },
-        dataType:   `json`,
-
-        beforeSend: function(data) {
-
-            if (xhr != null) {
-                xhr.abort();
-            }
-
+    // send ajax request to update user info
+    fetch(`{{ route('geolocation') }}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
         },
+        body: JSON.stringify({
+            lat: latitude,
+            lon: longitude
+        })
+    })
+        .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Request failed');
+    })
+    .then(data => {
 
-        success: function(data) {
+        // handle success
+        document.getElementById('visitors-zipcode').innerHTML = `<a class="hover:text-blue-700" href="${data.zip_code_url}" title="Zip Code Search">${data.zip_code}</a>`;
+        document.getElementById('visitors-lat-long').innerHTML = `<a class="hover:text-blue-700" href="https://www.google.com/maps/@${latitude},${longitude},15z" target="_blank">
+                                                                    Lat. ${latitude} Long. ${longitude}
+                                                                </a>`;
+        document.getElementById('visitors-address').innerHTML = data.display_addr;
+        document.getElementById('accuracy').innerHTML =  `More or less ${accuracy} meters accuracy.`;
 
-            $(`#visitors-zipcode`).html(`<a class="hover:text-blue-700" href="${data.zip_code_url}" title="Zip Code Search">${data.zip_code}</a>`);
-            $(`#visitors-lat-long`).html(`<a class="hover:text-blue-700" href="https://www.google.com/maps/@${latitude},${longitude},15z" target="_blank">
-                                            Lat. ${latitude} Long. ${longitude}
-                                        </a>`);
-            $(`#visitors-address`).html(`${data.display_addr}`);
+        var map = L.map('map', {
+            center: [latitude, longitude],
+            zoom: 15,
+            scrollWheelZoom: false,
+        });
 
-            $(`#lat`).html(`${latitude}`);
-            $(`#lon`).html(`${longitude}`);
-            $(`#accuracy`).html(`More or less ${accuracy} meters accuracy.`);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-            var map = L.map('map', {
-                center: [latitude, longitude],
-                zoom: 15,
-                scrollWheelZoom: false,
-            });
+        L.marker([`${latitude}`, `${longitude}`]).addTo(map)
+            .bindPopup(`${data.display_addr}`)
+            .openPopup();
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            L.marker([`${latitude}`, `${longitude}`]).addTo(map)
-                .bindPopup(`${data.display_addr}`)
-                .openPopup();
-
-        },
-
+    })
+    .catch(error => {
+    // handle error
     });
 
 }

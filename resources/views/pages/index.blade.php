@@ -55,7 +55,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-3 space-y-2 space-x-2 text-center" id="user-searches">&nbsp;</div>
+                    <div class="mt-3 space-x-2 text-center justify-center flex overflow-auto touch-pan-x " id="user-searches">&nbsp;</div>
                 </div>
 
                 <div class="flex flex-col space-y-10 mt-10 h-auto items-center justify-center">

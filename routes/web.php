@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Constants;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\SearchController;
@@ -20,8 +21,8 @@ Route::get('/sitemap', [SitemapController::class, 'sitemap'])->name('sitemap');
 /* terms of service page */
 Route::get('/terms-of-service', function () {
     $data    = [
-        'page_title'        => 'About Us',
-        'canonical'         => route('index'),
+        'page_title'        => 'Terms of Service',
+        'canonical'         => route('terms-of-service'),
         'description'       => 'Learn more about postalandzipcodes.ph terms of service section.',
         'subheader_title'   => 'Terms of service'
     ];
@@ -32,8 +33,8 @@ Route::get('/terms-of-service', function () {
 /* privacy policy page */
 Route::get('/privacy-policy', function () {
     $data    = [
-        'page_title'        => 'About Us',
-        'canonical'         => route('index'),
+        'page_title'        => 'Provicy Policy',
+        'canonical'         => route('privacy-policy'),
         'description'       => 'Learn more about postalandzipcodes.ph privacy policy section.',
         'subheader_title'   => 'Privacy Policy'
     ];
@@ -44,8 +45,8 @@ Route::get('/privacy-policy', function () {
 /* how it works page */
 Route::get('/how-it-works', function () {
     $data    = [
-        'page_title'        => 'About Us',
-        'canonical'         => route('index'),
+        'page_title'        => 'How it Works?',
+        'canonical'         => route('how-it-works'),
         'description'       => 'Learn more about postalandzipcodes.ph how it works section.',
         'subheader_title'   => 'How it Works?'
     ];
@@ -57,7 +58,7 @@ Route::get('/how-it-works', function () {
 Route::get('/about-us', function () {
     $data    = [
         'page_title'        => 'About Us',
-        'canonical'         => route('index'),
+        'canonical'         => route('about-us'),
         'description'       => 'Learn more about postalandzipcodes.ph about us section.',
         'subheader_title'   => 'About Us'
     ];
@@ -68,10 +69,10 @@ Route::get('/about-us', function () {
 /* what is my postal code | accomodote all page url indexed by google */
 Route::get('/what-is-my-postal-code', function () {
     $data    = [
-        'page_title'        => 'Zip Code Lookup',
-        'canonical'         => route('index'),
-        'description'       => 'Learn more about postalandzipcodes.ph about us section.',
-        'subheader_title'   => 'Zip Code Lookup'
+        'page_title'        => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
+        'canonical'         => route('what-is-my-postal-code'),
+        'description'       => "Find your Zip Code quickly and easily using your device's GPS location. Our map-based tool uses Geolocation to pinpoint your current location and extract your zip code information. Try it now",
+        'subheader_title'   => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
     ];
 
     return view('pages.what-is-my-zipcode', $data);
@@ -81,9 +82,9 @@ Route::get('/what-is-my-postal-code', function () {
 Route::get('/what-is-my-zip-code', function () {
     $data    = [
         'page_title'        => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
-        'canonical'         => route('index'),
+        'canonical'         => route('what-is-my-zip-code'),
         'description'       => "Find your Zip Code quickly and easily using your device's GPS location. Our map-based tool uses Geolocation to pinpoint your current location and extract your zip code information. Try it now",
-        'subheader_title'   => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code"
+        'subheader_title'   => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
     ];
 
     return view('pages.what-is-my-zipcode', $data);
@@ -91,7 +92,14 @@ Route::get('/what-is-my-zip-code', function () {
 
 /* submit zip code */
 Route::get('/submit-zip-code', function () {
-    return view('pages.submit-zip-code');
+    $data    = [
+        'page_title'        => "Contribute to Zip Code Directory",
+        'canonical'         => route('submit-zip-code'),
+        'description'       => "Contribute to our Zip Code Directory and help keep it up-to-date and accurate for everyone. Share your local knowledge and assist others in finding their desired zip codes easily. Join our community of contributors today and make a difference.",
+        'subheader_title'   => "Contribute to Zip Code Directory",
+    ];
+
+    return view('pages.submit-zip-code', $data);
 })->name('submit-zip-code');
 
 
@@ -137,6 +145,3 @@ Route::post('/get-geolocation', [GeolocationController::class, 'get_geolocation'
 
 /* handles user submitted zip code,  */
 Route::post('/create-zipcode', [CreateZipcodeController::class, 'create_zip'])->name('create_zip');
-
-
-// sana happy ka pa testing lang

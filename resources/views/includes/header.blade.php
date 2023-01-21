@@ -17,12 +17,21 @@
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">
+                <a href="/" class="{{
+                                        request()->routeIs('index')
+                                        ? 'bg-gray-900 text-white'
+                                        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                                    }}
+                                    px-3 py-2 rounded-md text-sm font-medium" aria-current="page">
                     Search
                 </a>
 
-                <a href="/what-is-my-zip-code" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" title="Get your current location's zip code information.">
+                <a href="/what-is-my-zip-code" class="{{
+                                                        (request()->routeIs('what-is-my-postal-code') || request()->routeIs('what-is-my-zip-code'))
+                                                        ? 'bg-gray-900 text-white'
+                                                        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                                                    }}
+                                                    px-3 py-2 rounded-md text-sm font-medium" title="Get your current location's zip code information.">
                     My Zip Code
                 </a>
 
@@ -113,11 +122,21 @@
     <div x-show="menuOpen" class="md:hidden" id="mobile-menu" x-cloak>
       <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="/" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
+        <a href="/" class="{{
+                                request()->routeIs('index')
+                                ? 'bg-gray-900 text-white'
+                                : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                            }}
+                            block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
             Search
         </a>
 
-        <a href="/what-is-my-zip-code" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" title="Get your current location's zip code information.">
+        <a href="/what-is-my-zip-code" class="{{
+                                                    (request()->routeIs('what-is-my-postal-code') || request()->routeIs('what-is-my-zip-code'))
+                                                    ? 'bg-gray-900 text-white'
+                                                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                                                }}
+                                                block px-3 py-2 rounded-md text-base font-medium" title="Get your current location's zip code information.">
             My Zip Code
         </a>
 
