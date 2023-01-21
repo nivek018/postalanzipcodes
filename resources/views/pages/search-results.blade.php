@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="relative overflow-hidden py-10 md:py-5">
+<div class="relative overflow-hidden py-10 md:py-8">
 
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 

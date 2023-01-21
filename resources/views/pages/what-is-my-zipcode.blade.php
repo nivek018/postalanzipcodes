@@ -1,13 +1,9 @@
 @extends('layouts.app')
 @section('title', $page_title)
-@section('page_styles')
-@endsection
 
 @section('page_styles')
-<!-- Leaflet 1.7.1 -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-  crossorigin=""/>
+<!-- Leaflet 1.9.3 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 @endsection
 
 
@@ -34,43 +30,66 @@
             </p>
         </div>
 
-        <div class="w-full mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-2 text-2xl font-bold tracking-tigh dark:text-white">
-                <strong>Note:</strong>
-                    The method <code>Geolocation.getCurrentPosition()</code> is more accurate on a mobile device.
-            </h5>
 
-            <div>
-                <div class="dark:text-white">
-                    <span id="visitors-zipcode" class="font-bold text-3xl">
+        <div class="w-full mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-900 dark:border-gray-700">
 
-                        <div role="status" class="animate-pulse">
-                            <div class="h-8 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-[100px]"></div>
-                            <span class="sr-only">Loading...</span>
-                        </div>
-
-                    </span>
-
-                    <p class="lead no-margin">YOUR ZIP CODE</p>
-
-                    <div class="mt-2">
-                        Your current position in lat. long.:
-                        <div class="inline-block" id="lat">
-                            <div class="inline-block h-2 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-[100px]"></div>
-                        </div>,
-                        <div class="inline-block" id="lon">
-                            <div class="inline-block h-2 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-[100px]"></div>
-                        </div>
-                        <div class="mt-2" id="accuracy">
-                            <div class="inline-block h-2 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-[100px]"></div>
-                        </div>
-                    </div>
+            <div class="flex p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-gray-800 dark:text-blue-400" role="alert">
+                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                <span class="sr-only">Info</span>
+                <div>
+                  <span class="font-medium">Note:</span> The method <code>Geolocation.getCurrentPosition()</code> is more accurate on a mobile device.
                 </div>
             </div>
 
+
+
+            <dl class="max-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                <div class="flex flex-col py-3">
+                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Your device's address</dt>
+                    <dd class="text-lg font-semibold">
+                        <span id="visitors-address" class="font-bold text-3xl">
+
+                            <div role="status" class="animate-pulse">
+                                <div class="h-8 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-xl"></div>
+                                <span class="sr-only">Loading...</span>
+                            </div>
+
+                        </span>
+                    </dd>
+                </div>
+                <div class="flex flex-col py-3">
+                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Your device's location information</dt>
+                    <dd class="text-lg font-semibold">
+                        <span id="visitors-lat-long" class="font-bold text-3xl">
+
+                            <div role="status" class="animate-pulse">
+                                <div class="h-8 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-xl"></div>
+                                <span class="sr-only">Loading...</span>
+                            </div>
+
+                        </span>
+                    </dd>
+                </div>
+                <div class="flex flex-col pt-3">
+                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Zip Code</dt>
+                    <dd class="text-lg font-semibold">
+                        <span id="visitors-zipcode" class="font-bold text-3xl">
+
+                            <div role="status" class="animate-pulse">
+                                <div class="h-8 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-[100px]"></div>
+                                <span class="sr-only">Loading...</span>
+                            </div>
+
+                        </span>
+                    </dd>
+                </div>
+            </dl>
+
             <div class="mt-5 h-[50vh] relative overflow-hidden">
-                <div id="map"></div>
+                <div id="map" class="h-full"></div>
             </div>
+
+            <div class="mt-4 text-gray-400" id="accuracy"></div>
         </div>
 
         <!-- ads -->
@@ -85,12 +104,54 @@
 
 
 @section('page_scripts')
-<!-- Leaflet 1.7.1 -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-  crossorigin=""></script>
+<!-- Leaflet 1.9.3 -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
 <script>
+// add event listener to load when the page is ready
+window.addEventListener('load', function() {
+
+    // check if the browser supports geolocation
+    if (navigator.geolocation) {
+
+        // get the current position of the device
+        navigator.geolocation.getCurrentPosition(function(position) {
+
+            // get the latitude and longitude
+            var latitude  = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            var accuracy  = position.coords.accuracy;
+
+            // call the function to update the user info
+            final_request(latitude, longitude, accuracy);
+
+        }, function(error) {
+
+            // if the user denies the request
+            if (error.code == error.PERMISSION_DENIED) {
+
+                // display the error message
+                $(`#visitors-address`).html(`<span class="text-red-500">Permission denied</span>`);
+                $(`#visitors-lat-long`).html(`<span class="text-red-500">Permission denied</span>`);
+                $(`#visitors-zipcode`).html(`<span class="text-red-500">Permission denied</span>`);
+
+            }
+
+        });
+
+    } else {
+
+        // if the browser doesn't support geolocation
+        $(`#visitors-address`).html(`<span class="text-red-500">Geolocation is not supported by this browser</span>`);
+        $(`#visitors-lat-long`).html(`<span class="text-red-500">Geolocation is not supported by this browser</span>`);
+        $(`#visitors-zipcode`).html(`<span class="text-red-500">Geolocation is not supported by this browser</span>`);
+
+    }
+
+});
+
+
+
 function final_request(latitude, longitude, accuracy) {
 
     /* send ajax request  to update user info */
@@ -114,14 +175,18 @@ function final_request(latitude, longitude, accuracy) {
 
         success: function(data) {
 
-            $(`#visitors-zipcode`).html(`<a href="${data.zip_code_url}" title="Zip Code Search">${data.zip_code}</a>`);
+            $(`#visitors-zipcode`).html(`<a class="hover:text-blue-700" href="${data.zip_code_url}" title="Zip Code Search">${data.zip_code}</a>`);
+            $(`#visitors-lat-long`).html(`<a class="hover:text-blue-700" href="https://www.google.com/maps/@${latitude},${longitude},15z" target="_blank">
+                                            Lat. ${latitude} Long. ${longitude}
+                                        </a>`);
+            $(`#visitors-address`).html(`${data.display_addr}`);
 
             $(`#lat`).html(`${latitude}`);
             $(`#lon`).html(`${longitude}`);
             $(`#accuracy`).html(`More or less ${accuracy} meters accuracy.`);
 
             var map = L.map('map', {
-                center: [`${latitude}`, `${longitude}`],
+                center: [latitude, longitude],
                 zoom: 15,
                 scrollWheelZoom: false,
             });
@@ -134,36 +199,10 @@ function final_request(latitude, longitude, accuracy) {
                 .bindPopup(`${data.display_addr}`)
                 .openPopup();
 
-                }
+        },
 
     });
 
 }
-
-
-
-var options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-};
-
-function success(pos) {
-
-    var crd = pos.coords;
-
-    console.log('Your current position is:');
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
-
-    final_request(crd.latitude, crd.longitude, crd.accuracy);
-}
-
-function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-}
-
-navigator.geolocation.getCurrentPosition(success, error, options);
 </script>
 @endsection

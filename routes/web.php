@@ -80,10 +80,10 @@ Route::get('/what-is-my-postal-code', function () {
 /* what is my zip code */
 Route::get('/what-is-my-zip-code', function () {
     $data    = [
-        'page_title'        => 'Zip Code Lookup',
+        'page_title'        => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
         'canonical'         => route('index'),
-        'description'       => 'Learn more about postalandzipcodes.ph about us section.',
-        'subheader_title'   => 'Zip Code Lookup'
+        'description'       => "Find your Zip Code quickly and easily using your device's GPS location. Our map-based tool uses Geolocation to pinpoint your current location and extract your zip code information. Try it now",
+        'subheader_title'   => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code"
     ];
 
     return view('pages.what-is-my-zipcode', $data);
