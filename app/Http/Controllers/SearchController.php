@@ -37,6 +37,7 @@ class SearchController extends Controller
 
             /*  */
             $data = [
+                'success'   => true,
                 'url'   => route('search-results', ['q' => $search_q]),
             ];
 

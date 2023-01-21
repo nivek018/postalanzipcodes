@@ -24,20 +24,12 @@
             <source src="{{ asset('image/vid_1.mp4') }}" type="video/mp4">
         </video>
 
-        {{-- <video
-            src="{{ asset('image/vid_1.mp4') }}"
-            autoplay="{true}" loop muted
-            class="absolute z-10 w-auto min-w-full min-h-full max-w-none inset-0">
-        </video> --}}
-
         <div class="absolute z-10 opacity-90 inset-0 bg-gradient-to-tl from-gray-800 to-gray-900 w-full h-full"></div>
 
         <div class="flex h-[80vh] z-20 items-center justify-center w-full relative">
-            <form class="w-11/12 md:w-3/4 min-h-fit h-fit" name="index-search-form" autocomplete="off">
+            <form class="w-11/12 md:w-3/4 min-h-fit h-fit" id="index-search-form" autocomplete="off">
 
                 @csrf
-
-
 
                 <div class="mx-auto w-full md:w-4/5 h-full flex-auto">
                     <label for="search" class="block text-4xl font-extrabold uppercase text-white text-center mb-10">Postal/Zip Code Search</label>
@@ -51,7 +43,21 @@
                                 placeholder="Barangay, City, Zip Code...">
 
                         <div class="absolute right-0 flex py-1.5 pr-8">
-                            <svg aria-hidden="true" class="w-8 h-8 text-gray-500 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            <button type="submit">
+                                {{-- loader --}}
+                                <div id="submit-loader" class="hidden">
+                                    <svg aria-hidden="true" class="cursor-wait w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                                        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                                    </svg>
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+
+                                {{-- search icon --}}
+                                <span id="submit-icon" class="">
+                                    <svg aria-hidden="true" class="w-8 h-8 text-gray-500 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                </span>
+                            </button>
                         </div>
                     </div>
 
@@ -83,69 +89,154 @@
 
 @section('page_scripts')
 <script>
-var xhr = null;
+// add event listener to load when the page is ready
+window.addEventListener('load', function() {
 
-$(function() {
+    const submitIcon = document.querySelector("#submit-icon");
+    const submitLoader = document.querySelector("#submit-loader");
+    const submitBtn = document.querySelector("button[type='submit']");
+    const this_que = document.querySelector('input[name="q"]');
 
-    $(`form[name="index-search-form"]`).on(`submit`, function(e) {
+    // add event listener to the form
+    document.getElementById("index-search-form").addEventListener("submit", function(event) {
 
-        e.preventDefault();
+        // prevent the default action
+        event.preventDefault();
 
-        let this_que = $(this).find(`input[name="q"]`).val().trim();
-        let this_btn = $(this).find(`button[type="submit"]`);
-
-        if (this_que.length < 1) {
+        if (this_que.value == "") {
             return false;
         }
 
-        var formData = new FormData(this);
+        // get the form data
+        const formData = new FormData(this);
 
-        $.ajax({
-            url:            `{{ route('search_q') }}`,
-            type:           `POST`,
-            dataType:       `JSON`,
-            data:           formData,
-            processData:    false,
-            contentType:    false,
+        // disable the submit button
+        submitBtn.setAttribute("disabled", true);
 
-            beforeSend: function() {
+        // add the loading class to the submit button
+        submitIcon.classList.add("hidden");
+        submitLoader.classList.remove("hidden");
 
-                /* create loading state of the submit button */
-                $(this_btn).html(`<div class="spinner-border" role="status">
-                                <span class="sr-only">Loading...</span>
-                                </div>`).addClass('cursor-progress');
 
-                /* abot on-going ajax request */
-                if (xhr != null) {
-                    xhr.abort();
+
+        fetch(`{{ route('search_q') }}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({
+                q: this_que.value,
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+
+            setTimeout(() => {
+
+                if (data.success == true) {
+                    window.location.replace(data.url);
                 }
 
                 /* call function to save user searches on localstorage */
                 saveSearchLocal( formData.get(`q`) );
 
-            },
+                submitIcon.classList.remove("hidden");
+                submitLoader.classList.add("hidden");
 
-            success: function(data) {
+                // enable the submit button
+                submitBtn.removeAttribute("disabled");
 
-                window.location.replace(data.url);
+            }, 1000);
 
-            },
+        })
+        .catch(error => {
 
-            error: function() {
+            console.error(error);
 
-                $(this_btn).text(`SEARCH`);
+            setTimeout(() => {
+                submitIcon.classList.remove("hidden");
+                submitLoader.classList.add("hidden");
 
-                if (xhr != null) {
-                    xhr.abort();
-                }
-
-            }
+                // enable the submit button
+                submitBtn.removeAttribute("disabled");
+            }, 1000);
 
         });
 
-
     });
 
+
+
+
+
+
 });
+
+
+// var xhr = null;
+
+// $(function() {
+
+//     $(`form[name="index-search-form"]`).on(`submit`, function(e) {
+
+//         e.preventDefault();
+
+//         let this_que = $(this).find(`input[name="q"]`).val().trim();
+//         let this_btn = $(this).find(`button[type="submit"]`);
+
+//         if (this_que.length < 1) {
+//             return false;
+//         }
+
+//         var formData = new FormData(this);
+
+//         $.ajax({
+//             url:            `{{ route('search_q') }}`,
+//             type:           `POST`,
+//             dataType:       `JSON`,
+//             data:           formData,
+//             processData:    false,
+//             contentType:    false,
+
+//             beforeSend: function() {
+
+//                 /* create loading state of the submit button */
+//                 $(this_btn).html(`<div class="spinner-border" role="status">
+//                                 <span class="sr-only">Loading...</span>
+//                                 </div>`).addClass('cursor-progress');
+
+//                 /* abot on-going ajax request */
+//                 if (xhr != null) {
+//                     xhr.abort();
+//                 }
+
+//                 /* call function to save user searches on localstorage */
+//                 saveSearchLocal( formData.get(`q`) );
+
+//             },
+
+//             success: function(data) {
+
+//                 window.location.replace(data.url);
+
+//             },
+
+//             error: function() {
+
+//                 $(this_btn).text(`SEARCH`);
+
+//                 if (xhr != null) {
+//                     xhr.abort();
+//                 }
+
+//             }
+
+//         });
+
+
+//     });
+
+// });
 </script>
 @endsection
