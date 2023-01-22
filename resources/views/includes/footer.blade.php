@@ -75,13 +75,13 @@
                         <span class="text-xl text-gray-200 font-medium">GCASH</span>
                         <span class="block text-sm text-gray-200 font-light">MARK ANTHONY N..</span>
                         <span class="block text-sm text-gray-200 font-light mb-2">09457743837</span>
-                        <img class="w-full object-contain" src="{{ asset('image/donate-GCASH.png') }}" alt="" srcset="">
+                        <img class="w-full object-contain" src="{{ asset('image/donate-GCASH.webp') }}" alt="" srcset="">
                     </div>
                     <div>
                         <span class="text-xl text-gray-200 font-medium">MAYA</span>
                         <span class="block text-sm text-gray-200 font-light">MARK ANTHONY N..</span>
                         <span class="block text-sm text-gray-200 font-light mb-2">09478451828</span>
-                        <img class="w-full object-contain" src="{{ asset('image/donate-MAYA.png') }}" alt="" srcset="">
+                        <img class="w-full object-contain" src="{{ asset('image/donate-MAYA.webp') }}" alt="" srcset="">
                     </div>
                 </div>
             </div>

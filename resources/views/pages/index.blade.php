@@ -25,7 +25,7 @@
         </video> --}}
 
         <img class="absolute object-cover z-10 w-full h-full inset-0"
-            src="{{ asset('image/post-office.jpg') }}" alt="" srcset="">
+            src="{{ asset('image/post-office.webp') }}" alt="" srcset="">
 
         <div class="absolute z-10 opacity-80 inset-0 bg-gradient-to-tl from-yellow-800 to-green-900 w-full h-full"></div>
 
