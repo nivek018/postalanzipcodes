@@ -69,7 +69,7 @@
 
                 <div class="flex flex-col space-y-10 mt-16 h-auto items-center justify-center">
                     <div class="text-gray-50 text-center max-w-xl">
-                        <h1 class="text-center text-gray-50 text-2xl font-semibold">Zip Code Search Directory</h1>
+                        <h2 class="text-center text-gray-50 text-2xl font-semibold">Zip Code Search Directory</h2>
                         <p class="">
                             Explore the Philippines with our comprehensive zip code directory. Discover towns, cities and regions with our easy-to-use zip code lookup tool. Find all the essential information you need, from demographics to local statistics, and explore the unique culture and lifestyle of this dynamic country. With a range of zip codes, you'll be able to find what you're looking for quickly and easily.
                         </p>
