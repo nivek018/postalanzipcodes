@@ -3,12 +3,6 @@
 <!--                -->
 <!--                -->
 <!--                -->
-<!-- jQuery Core 3.5.1 -->
-{{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> --}}
-
-<!-- app js -->
-<script src="{{ asset('js/app.js') }}" async></script>
-
 <!-- global script will run here -->
 <script>
 /* global xhr */
@@ -99,9 +93,7 @@ function saveSearchLocal(u_search) {
 }
 </script>
 
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZNGZV1Q47"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
