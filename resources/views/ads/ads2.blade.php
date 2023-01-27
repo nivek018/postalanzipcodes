@@ -41,7 +41,7 @@
         },
     }'
     >
-        <!-- Slider main container -->
+        {{-- Slider main container --}}
         <div x-ref="bottomAdSlider" class="swiper block relative group w-full h-auto max-h-[180px] overflow-hidden">
 
             {{--slider items wrapper --}}
