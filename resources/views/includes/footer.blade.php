@@ -45,7 +45,7 @@
 
 
 <a href="https://shope.ee/8pDVmnJsEG" target="_blank" class="fixed right-0 bottom-0 z-[9999] w-20 mr-4 mb-4 md:w-40 md:mr-4 md:mb-10">
-    <img class="lazy w-fit h-fit lg:max-w-[130px] lg:max-h-[130px]" src="{{ asset('image/shopee-click.gif') }}" alt="" srcset="">
+    <img class="w-fit h-fit lg:max-w-[130px] lg:max-h-[130px]" src="{{ asset('image/shopee-click.gif') }}" alt="" srcset="">
 </a>
 
 
