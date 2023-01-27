@@ -35,9 +35,9 @@
                     <a href="https://postalandzipcodes.ph/" class="hover:underline">postalandzipcodes.ph</a>
                 </span>
                 <span>|</span>
-                <a href="javascript:void(0)" data-modal-target="medium-modal" data-modal-toggle="medium-modal" class="hover:text-gray-100 text-white font-medium text-sm" type="button" >
+                <button type="button" role="button" medium-modal" data-modal-toggle="medium-modal" class="hover:text-gray-100 text-white font-medium text-sm">
                     Donate ❤️
-                </a>
+                </button>
         </span>
     </div>
 </footer>
@@ -45,7 +45,7 @@
 
 
 <a href="https://shope.ee/8pDVmnJsEG" target="_blank" class="fixed right-0 bottom-0 z-[9999] w-20 mr-4 mb-4 md:w-40 md:mr-8 md:mb-10">
-    <img src="{{ asset('image/shopee-click.gif') }}" alt="" srcset="">
+    <img class="lazy max-w-[160px] max-h-[160px]" src="{{ asset('image/shopee-click.gif') }}" alt="" srcset="">
 </a>
 
 

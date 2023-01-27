@@ -1,4 +1,5 @@
 import './bootstrap';
+import './lazyImage';
 
 // alpinejs
 import Alpine from 'alpinejs'
