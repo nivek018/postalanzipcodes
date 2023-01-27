@@ -6,8 +6,7 @@
 <!-- global script will run here -->
 <script async>
 // code to be executed when the window has finished loading
-
-
+window.onload = () => {
     // initiate lazy load
     imageLazy();
 
@@ -97,8 +96,7 @@
 
         }
     }
-
-
+}
 </script>
 
 <!-- Google tag (gtag.js) -->

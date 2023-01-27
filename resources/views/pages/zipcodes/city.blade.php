@@ -42,22 +42,4 @@
 
 
 @section('page_scripts')
-<!-- schema -->
-<script type="application/ld+json">{
-      "@context": "https://schema.org",
-      "@graph": [
-          {
-
-              "@type": "PostalAddress",
-              "@id": "{{ $results[0]->city_url }}",
-              "streetAddress": "",
-              "addressLocality": "{{ $results[0]->city }}",
-              "addressRegion": "{{ $results[0]->region }}",
-              "postalCode": "{{ $city_zips }}",
-              "postOfficeBoxNumber": "{{ $city_zips }}",
-              "addressCountry": "PH"
-          }
-      ]
-  }
-</script>
 @endsection
