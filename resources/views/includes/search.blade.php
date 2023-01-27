@@ -39,7 +39,9 @@
                 </div>
             </div>
 
-            <div class="mt-3 space-x-2 text-center justify-center flex overflow-auto touch-pan-x " id="user-searches">&nbsp;</div>
+            <div class="mt-3 relative overflow-auto mx-auto max-w-sm lg:max-w-lg">
+                <div class="space-x-2 flex text-center justify-center w-fit touch-pan-x" id="user-searches"></div>
+            </div>
         </div>
 
     </form>
@@ -49,79 +51,79 @@
 // add event listener to load when the page is ready
 window.addEventListener('load', function() {
 
-const submitIcon = document.querySelector("#submit-icon");
-const submitLoader = document.querySelector("#submit-loader");
-const submitBtn = document.querySelector("button[type='submit']");
-const this_que = document.querySelector('input[name="q"]');
+    const submitIcon = document.querySelector("#submit-icon");
+    const submitLoader = document.querySelector("#submit-loader");
+    const submitBtn = document.querySelector("button[type='submit']");
+    const this_que = document.querySelector('input[name="q"]');
 
-// add event listener to the form
-document.getElementById("search-form").addEventListener("submit", function(event) {
+    // add event listener to the form
+    document.getElementById("search-form").addEventListener("submit", function(event) {
 
-    // prevent the default action
-    event.preventDefault();
+        // prevent the default action
+        event.preventDefault();
 
-    if (this_que.value == "") {
-        return false;
-    }
+        if (this_que.value == "") {
+            return false;
+        }
 
-    // get the form data
-    const formData = new FormData(this);
+        // get the form data
+        const formData = new FormData(this);
 
-    // disable the submit button
-    submitBtn.setAttribute("disabled", true);
+        // disable the submit button
+        submitBtn.setAttribute("disabled", true);
 
-    // add the loading class to the submit button
-    submitIcon.classList.add("hidden");
-    submitLoader.classList.remove("hidden");
+        // add the loading class to the submit button
+        submitIcon.classList.add("hidden");
+        submitLoader.classList.remove("hidden");
 
 
 
-    fetch(`{{ route('search_q') }}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        },
-        body: JSON.stringify({
-            q: this_que.value,
+        fetch(`{{ route('search_q') }}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({
+                q: this_que.value,
+            })
         })
-    })
-    .then(response => response.json())
-    .then(data => {
+        .then(response => response.json())
+        .then(data => {
 
-        setTimeout(() => {
+            setTimeout(() => {
 
-            if (data.success == true) {
-                window.location.replace(data.url);
-            }
+                if (data.success == true) {
+                    window.location.replace(data.url);
+                }
 
-            /* call function to save user searches on localstorage */
-            saveSearchLocal( formData.get(`q`) );
+                /* call function to save user searches on localstorage */
+                saveSearchLocal( formData.get(`q`) );
 
-            submitIcon.classList.remove("hidden");
-            submitLoader.classList.add("hidden");
+                submitIcon.classList.remove("hidden");
+                submitLoader.classList.add("hidden");
 
-            // enable the submit button
-            submitBtn.removeAttribute("disabled");
+                // enable the submit button
+                submitBtn.removeAttribute("disabled");
 
-        }, 1000);
+            }, 1000);
 
-    })
-    .catch(error => {
+        })
+        .catch(error => {
 
-        console.error(error);
+            console.error(error);
 
-        setTimeout(() => {
-            submitIcon.classList.remove("hidden");
-            submitLoader.classList.add("hidden");
+            setTimeout(() => {
+                submitIcon.classList.remove("hidden");
+                submitLoader.classList.add("hidden");
 
-            // enable the submit button
-            submitBtn.removeAttribute("disabled");
-        }, 1000);
+                // enable the submit button
+                submitBtn.removeAttribute("disabled");
+            }, 1000);
+
+        });
 
     });
-
-});
 
 });
 </script>

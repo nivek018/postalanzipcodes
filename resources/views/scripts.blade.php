@@ -6,7 +6,8 @@
 <!-- global script will run here -->
 <script async>
 // code to be executed when the window has finished loading
-window.onload = () => {
+window.addEventListener('load', function() {
+
     // initiate lazy load
     imageLazy();
 
@@ -56,47 +57,7 @@ window.onload = () => {
 
     }
 
-
-
-    /* this function will handle the saving or user's searches into localStorage */
-    function saveSearchLocal(u_search) {
-
-        /* first record of this user search */
-        let q_              = u_search.trim();
-
-        /* only process search with length value */
-        if (q_.length > 0) {
-
-            if ( null !== localStorage.getItem(`searches`) ) {
-
-                /* retrieve existing user's searches */
-                user_searches = JSON.parse(localStorage.getItem(`searches`));
-
-                /* array length is 5 or more remove first item of the array */
-                if ( user_searches.length > 4 ) {
-                    user_searches.shift();
-                }
-
-                /* push user search into array */
-                user_searches.push(q_);
-
-                /* store user search */
-                localStorage.setItem(`searches`, JSON.stringify(user_searches));
-
-            }
-            else {
-
-                /* add user search into array */
-                user_searches = [q_];
-
-                /* store user search */
-                localStorage.setItem(`searches`, JSON.stringify(user_searches));
-
-            }
-
-        }
-    }
-}
+});
 </script>
 
 <!-- Google tag (gtag.js) -->
