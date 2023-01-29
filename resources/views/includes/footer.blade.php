@@ -12,7 +12,7 @@
                 </p>
             </div>
 
-            <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+            <ul class="flex flex-wrap items-center mb-6 text-sm gap-3 sm:mb-0 dark:text-gray-400">
                 <li>
                     <a href="/about-us" class="mr-4 hover:underline md:mr-6">About</a>
                 </li>
@@ -29,22 +29,24 @@
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
 
-        <span class="text-sm text-gray-500 dark:text-gray-400 w-full space-x-2">
-                <span>
+        <span class="text-sm text-gray-500 dark:text-gray-400 w-full">
+                <span class="mr-2">
                     &copy; 2019 - {{ date('Y') }}
                     <a href="https://postalandzipcodes.ph/" class="hover:underline">postalandzipcodes.ph</a>
                 </span>
-                <span>|</span>
-                <button type="button" role="button" medium-modal" data-modal-toggle="medium-modal" class="hover:text-gray-100 text-white font-medium text-sm">
-                    Donate ❤️
-                </button>
+                <div class="mt-2 md:inline-block md:mt-0 md:space-x-2">
+                    <span class="hidden md:inline-block">|</span>
+                    <button type="button" role="button" data-modal-toggle="medium-modal" class="hover:text-gray-100 text-white font-medium text-sm">
+                        Donate ❤️
+                    </button>
+                </div>
         </span>
     </div>
 </footer>
 
 
 
-<a href="https://shope.ee/8pDVmnJsEG" target="_blank" class="fixed right-4 bottom-4 lg:right-8 lg:bottom-8 z-[9999]">
+<a href="https://shope.ee/8pDVmnJsEG" target="_blank" class="fixed right-4 bottom-4 lg:right-8 lg:bottom-8 z-[9999]" title="ShopeePay Promo">
     <img class="w-[80px] h-[80px] lg:w-[130px] lg:h-[130px]" src="{{ asset('image/shopee-click.gif') }}" alt="" srcset="">
 </a>
 

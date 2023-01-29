@@ -4,7 +4,7 @@
 <!--                -->
 <!--                -->
 <!-- global script will run here -->
-<script async>
+<script>
 // code to be executed when the window has finished loading
 window.addEventListener('load', function() {
 
