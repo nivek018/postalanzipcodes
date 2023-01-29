@@ -45,10 +45,21 @@
 </footer>
 
 
-
+@if (rand(1,10) % 2 == 1)
 <a href="https://shope.ee/8pDVmnJsEG" target="_blank" class="fixed right-4 bottom-4 lg:right-8 lg:bottom-8 z-[9999]" title="ShopeePay Promo">
-    <img class="w-[80px] h-[80px] lg:w-[130px] lg:h-[130px]" src="{{ asset('image/shopee-click.gif') }}" alt="" srcset="">
+    <img class="object-fill w-[80px] h-[80px] lg:w-[90px] lg:h-[90px]"
+    src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1674966819/postalandzipcodes.ph/ads-images/shopee-click.gif"
+    alt=""
+    srcset="">
 </a>
+@else
+<a href="https://shope.ee/8pDVmnJsEG" target="_blank" class="fixed right-4 bottom-4 lg:right-8 lg:bottom-8 z-[9999]" title="ShopeePay Promo">
+    <img class="object-fill w-[80px] h-[80px] lg:w-[90px] lg:h-[90px]"
+    src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto/v1674966427/postalandzipcodes.ph/ads-images/ph-50009109-c3e63c811b64fe4b2b234ed9e6ceffd7.gif"
+    alt=""
+    srcset="">
+</a>
+@endif
 
 
 <!-- Default Modal -->
