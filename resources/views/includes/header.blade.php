@@ -5,10 +5,13 @@
             <div class="flex items-center">
                 <div class="flex-shrink-0 truncate">
                     <a href="/">
-                        <div class="flex">
+                        <div class="flex space-x-1.5">
                             <img class="h-12 w-12"
                                 src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto,w_80,h_80/v1601874637/postalandzipcodes.ph/square-logo.svg"
                                 alt="postalandzipcodes.ph">
+                            <span class="font-bold">
+                                PostalAndZipCodes.ph
+                            </span>
                         </div>
                     </a>
                 </div>
