@@ -10,7 +10,7 @@
                                 src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto,w_80,h_80/v1601874637/postalandzipcodes.ph/square-logo.svg"
                                 alt="postalandzipcodes.ph">
                             <span class="font-bold">
-                                PostalAndZipCodes.ph
+                                postalandzipcodes.ph
                             </span>
                         </div>
                     </a>
