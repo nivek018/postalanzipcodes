@@ -5,7 +5,7 @@
             <div class="flex items-center">
                 <div class="flex-shrink-0 truncate">
                     <a href="/">
-                        <div class="flex space-x-1.5">
+                        <div class="flex items-center space-x-1.5 dark:text-gray-50">
                             <img class="h-12 w-12"
                                 src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto,w_80,h_80/v1601874637/postalandzipcodes.ph/square-logo.svg"
                                 alt="postalandzipcodes.ph">
