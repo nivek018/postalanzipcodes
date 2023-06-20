@@ -143,7 +143,7 @@
                 class="{{ request()->routeIs('index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}
                             block px-3 py-2 rounded-md text-base font-medium"
                 aria-current="page">
-                Search
+                Home
             </a>
 
             <a href="/what-is-my-zip-code"
@@ -152,7 +152,7 @@
                     : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}
                                                 block px-3 py-2 rounded-md text-base font-medium"
                 title="Get your current location's zip code information.">
-                My Zip Code
+                What is my zip code?
             </a>
 
         </div>
