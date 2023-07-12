@@ -29,13 +29,12 @@
                     @csrf
 
                     <div class="mx-auto w-full md:w-4/5 h-full flex-auto">
-                        <label for="search"
-                            class="block text-4xl font-extrabold uppercase text-white text-center mb-10">Postal/Zip Code
-                            Search</label>
+                        <h1 class="block text-4xl font-extrabold uppercase text-white text-center mb-10">Search Zip Code
+                        </h1>
 
                         <div class="relative mt-1 flex items-center">
                             <input
-                                class="transition-all ease-in-out duration-300 block w-full rounded-full border-gray-300 text-gray-900 font-light text-xl py-5 px-8 pr-16 shadow-sm outline-none ring-2 focus:ring-offset-blue-700 focus:ring-offset-2 focus:border-blue-500 focus:ring-blue-500"
+                                class="stack-sm transition-all ease-in-out duration-300 block w-full bg-gray-900 border-4 border-amber-400 dark:text-gray-500 text-xl py-5 px-8 pr-16 shadow-sm focus:dark:bg-gray-900 focus:ring-amber-50 focus:border-white focus:dark:text-pink-600"
                                 maxlength="255" type="text" name="q" id="search"
                                 placeholder="Barangay, City, Zip Code...">
 
@@ -69,14 +68,14 @@
                             </div>
                         </div>
 
-                        <div class="mt-3 space-x-2 text-center justify-center flex overflow-auto touch-pan-x "
+                        <div class="mt-6 space-x-2 text-center justify-center flex overflow-auto touch-pan-x "
                             id="user-searches">&nbsp;</div>
                     </div>
 
                     <div class="flex flex-col space-y-10 mt-16 h-auto items-center justify-center">
                         <div class="text-gray-50 text-center max-w-xl">
-                            <h2 class="text-center text-gray-50 text-2xl font-semibold">Zip Code Search Directory</h2>
-                            <p class="">
+                            <h2 class="text-center text-gray-50 text-3xl font-bold mb-4">Search Zip Code Directory</h2>
+                            <p class="font-Caveat text-xl">
                                 Explore the Philippines with our comprehensive zip code directory. Discover towns, cities
                                 and regions with our easy-to-use zip code lookup tool. Find all the essential information
                                 you need, from demographics to local statistics, and explore the unique culture and

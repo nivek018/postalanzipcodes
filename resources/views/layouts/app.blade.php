@@ -30,6 +30,12 @@
     <meta name="msapplication-TileImage" content="{{ asset('image/favicon/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400;500;600;700&family=IBM+Plex+Sans:wght@700&display=swap"
+        rel="stylesheet">
+
     <!-- main resources app -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -40,7 +46,7 @@
 
 </head>
 
-<body class="dark">
+<body class="dark font-IBMPlexSans">
 
     <div class="min-h-screen h-full bg-white dark:bg-gray-900"
         style="font-size: 1rem; font-weight: 40; line-height: 1.5rem;">
@@ -51,7 +57,7 @@
         <!--                                    -->
 
         <main>
-            <div class="h-full">
+            <div class="h-full dark:bg-white">
 
                 {{-- <div class="h-96 rounded-lg border-4 border-dashed border-gray-200"></div> --}}
                 <!--                                    -->

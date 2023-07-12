@@ -5,3 +5,11 @@
 [x-cloak] {
     display: none !important;
 }
+
+.button.button-white {
+    box-shadow: 3px 3px 0 -1px #fff, 3px 3px 0 #fff;
+}
+
+.stack-sm {
+    box-shadow: 10px 10px 0 -1px #fff, 10px 10px 0 #191a1b;
+}

@@ -5,37 +5,34 @@
 @endsection
 
 @section('content')
-    <div class="relative overflow-hidden py-10 md:py-8">
+    <section class="relative overflow-hidden">
 
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <!-- search -->
+        @include('includes.search')
+        <!--  -->
+        <!--  -->
 
-            <!-- search -->
-            @include('includes.search')
+        <!-- ads -->
+        {{-- @include('ads.ads1') --}}
+        <!--  -->
+        <!--  -->
+
+        @if (null !== $results)
+            {{-- zip code list display --}}
+            <x-zip-list :$results :$page_info :$subheader_title />
+        @else
+            <!-- no results -->
+            @include('includes.no-results')
             <!--  -->
             <!--  -->
+        @endif
 
-            <!-- ads -->
-            {{-- @include('ads.ads1') --}}
-            <!--  -->
-            <!--  -->
+        <!-- ads -->
+        {{-- @include('ads.ads2') --}}
+        <!--  -->
+        <!--  -->
 
-            @if (null !== $results)
-                {{-- zip code list display --}}
-                <x-zip-list :$results :$page_info :$subheader_title />
-            @else
-                <!-- no results -->
-                @include('includes.no-results')
-                <!--  -->
-                <!--  -->
-            @endif
-
-            <!-- ads -->
-            {{-- @include('ads.ads2') --}}
-            <!--  -->
-            <!--  -->
-
-        </div>
-    </div>
+    </section>
 @endsection
 
 
