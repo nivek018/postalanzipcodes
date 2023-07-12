@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>postalandzipcodes.ph - @yield('title')</title>
+    <title>@yield('title')</title>
     <meta name="description" content="{{ $description ?? '' }}">
     <link rel="canonical" href="{{ $canonical ?? '' }}" />
     <meta name="robots" content="index">
@@ -29,10 +30,8 @@
     <meta name="msapplication-TileImage" content="{{ asset('image/favicon/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- global css -->
-    @include('head')
-    <!--  -->
-    <!--  -->
+    <!-- main resources app -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- in-page styles -->
     @yield('page_styles')
@@ -40,13 +39,11 @@
     <!--  -->
 
 </head>
+
 <body class="dark">
 
     <div class="min-h-screen h-full bg-white dark:bg-gray-900"
-        style="
-        font-size: 1rem;
-        font-weight: 40;
-        line-height: 1.5rem;">
+        style="font-size: 1rem; font-weight: 40; line-height: 1.5rem;">
 
         <!--                                    -->
         <!--    menus and nagivation            -->
@@ -72,17 +69,18 @@
 
     </div>
 
-        <!--                                    -->
-        <!--    global js scripts               -->
-                @include('scripts')
-        <!--                                    -->
+    <!--                                    -->
+    <!--    global js scripts               -->
+    @include('scripts')
+    <!--                                    -->
 
 
 
-        <!--                                    -->
-        <!--    in-page js scripts              -->
-                @yield('page_scripts')
-        <!--                                    -->
+    <!--                                    -->
+    <!--    in-page js scripts              -->
+    @yield('page_scripts')
+    <!--                                    -->
 
 </body>
+
 </html>

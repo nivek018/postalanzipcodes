@@ -21,7 +21,7 @@
 
             @if (null !== $results)
                 {{-- zip code list display --}}
-                <x-zip-list :results="$results" :page_info="$page_info" />
+                <x-zip-list :$results :$page_info :$subheader_title />
             @else
                 <!-- no results -->
                 @include('includes.no-results')

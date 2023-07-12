@@ -111,25 +111,23 @@ Route::get('/submit-zip-code', function () {
 /* handles displaying of search term results, Search Controller | SearchController */
 Route::get('/search-result', [SearchController::class, 'search_results'])->name('search-results');
 
-/* handles displaying and searching of string url barangay level */
-Route::get('/zip-code-{city}/{barangay}', [BarangayController::class, 'search_barangay']);
-Route::get('/zip-code-{city}/{barangay}', [BarangayController::class, 'search_barangay'])->name('url_barangay');
-Route::get('/postal-code-{city}/{barangay}', [BarangayController::class, 'search_barangay']);
-
-/* handles displaying and searching of string url city/town level */
-Route::get('/zip-code-{city}', [CityController::class, 'search_city']);
-Route::get('/zip-code-{city}', [CityController::class, 'search_city'])->name('url_city');
-Route::get('/postal-code-{city}', [CityController::class, 'search_city']);
+/* handles displaying and searching of string url zip code level */
+Route::get('/zipcode/{code}', [ZipcodeController::class, 'search_zipcode'])->name('url_zipcode');
+Route::get('/postalcode/{code}', [ZipcodeController::class, 'search_zipcode']);
 
 /* handles displaying and searching of string url region level */
-Route::get('/zip-code/{region}', [RegionController::class, 'search_region']);
 Route::get('/zip-code/{region}', [RegionController::class, 'search_region'])->name('url_region');
 Route::get('/postal-code/{region}', [RegionController::class, 'search_region']);
 
-/* handles displaying and searching of string url zip code level */
-Route::get('/zipcode/{code}', [ZipcodeController::class, 'search_zipcode']);
-Route::get('/zipcode/{code}', [ZipcodeController::class, 'search_zipcode'])->name('url_zipcode');
-Route::get('/postalcode/{code}', [ZipcodeController::class, 'search_zipcode']);
+/* handles displaying and searching of string url city/town level */
+Route::get('/zip-code-{city}', [CityController::class, 'search_city'])->name('url_city');
+Route::get('/postal-code-{city}', [CityController::class, 'search_city']);
+
+/* handles displaying and searching of string url barangay level */
+Route::get('/zip-code-{city}/{barangay}', [BarangayController::class, 'search_barangay'])->name('url_barangay');
+Route::get('/postal-code-{city}/{barangay}', [BarangayController::class, 'search_barangay']);
+
+
 
 
 

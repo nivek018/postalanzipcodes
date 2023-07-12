@@ -14,6 +14,7 @@ class RegionController extends Controller
     //
     public function search_region($region)
     {
+        // dd($region);
 
         /* we format the region name with possible --- or triple hyphen so we need to manipulate it before starting a query */
         $formatted_region      = str_replace('---', '&&&', $region); /* <- &&& is just temporary */
@@ -31,7 +32,6 @@ class RegionController extends Controller
                 'phone_area_code'
             )
             ->get();
-
 
         /*  */
         $page_title    = sprintf('%s Zip Code', ucwords($formatted_region));
