@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Iluunimate\Http\Input;
-use Illuminate\Support\Facades\Validator;
 use App\Models\Zipcode;
+use Iluunimate\Http\Input;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 
 class SearchController extends Controller
 {
@@ -53,8 +54,8 @@ class SearchController extends Controller
     /*  */
     public function search_results(Request $request) {
 
-        /*  */
-        $search_q = $request->q;
+        // convert Str::slug to Str::title
+        $search_q = Str::title(Str::slug($request->q, ' '));
 
         /*  */
         $results        = Zipcode::search($search_q)->get();
@@ -74,7 +75,7 @@ class SearchController extends Controller
         /*  */
         if ( $results_cnt > 0 ) {
 
-            $page_info     = sprintf('Your search results for "%s" found %s Zip %s.', $search_q, count($results), (count($results) == 1 ? 'Code' : 'Codes'));
+            $page_info     = sprintf('Search results for %s found %s Zip %s. Also displayed are related zip code information like City, Town, Region and Phone Area Code.', html_entity_decode($search_q), count($results), (count($results) == 1 ? 'Code' : 'Codes'));
 
             /*  */
             foreach ($results as $key => $value) {
@@ -107,36 +108,36 @@ class SearchController extends Controller
             }
 
             /*  */
-            $data    = array(
-                        'page_title'        => $page_title,
-                        'canonical'         => route('search-results', ['q' => $search_q]),
+            $data    = [
+                        'page_title'        => "🔎 Zip Code search: " . ucwords($page_title),
+                        'canonical'         => route('search-results', ['q' => Str::slug($search_q)]),
                         'description'       => $page_info,
-                        'subheader_title'   => 'Searched for: '. $search_q,
+                        'subheader_title'   => "🔎 Zip Code search: " . ucwords($page_title),
 
                         'page_info'         => $page_info,
                         'results'           => json_decode(json_encode($query_data)), /* <- convert array into object */
                         'search_q'          => $search_q,
-                    );
+            ];
 
         }
         else {
 
             /*  */
-            $data    = array(
-                        'page_title'        => $page_title,
-                        'canonical'         => route('search-results', ['q' => $search_q]),
+            $data    = [
+                        'page_title'        => "🔎 Zip Code search: " . ucwords($page_title),
+                        'canonical'         => route('search-results', ['q' => Str::slug($search_q)]),
                         'description'       => $page_info,
-                        'subheader_title'   => 'Searched for: '. $search_q,
+                        'subheader_title'   => "🔎 Zip Code search: " . ucwords($page_title),
 
                         'page_info'         => $page_info,
                         'results'           => null,
                         'search_q'          => $search_q,
-                    );
+            ];
 
          };
 
         /*  */
-        return view('pages.search-results', $data);
+        return view('pages.search-results', compact('data'));
 
     }
 

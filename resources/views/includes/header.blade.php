@@ -1,18 +1,19 @@
 <header class="flex-none w-full">
-    <nav x-data="{ menuOpen: false }" class="z-40 mb-6 lg:mb-20 flex-none w-full mx-auto font-mono dark:bg-gray-900">
+    <nav x-data="{ menuOpen: false }"
+        class="z-40 pb-0 lg:pb-6 flex-none w-full mx-auto font-mono dark:bg-gray-900 pt-0 lg:pt-8">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
-                <div class="flex items-center">
+                <div class="flex items-center justify-between">
                     <div class="flex-shrink-0 truncate">
-                        <a href="/" title="Go to postalandzipcodes.ph">
+                        <a href="/" title="Home">
                             <div class="flex items-center space-x-1.5 dark:text-gray-50">
-                                <img class="h-12 w-12"
+                                <img class="h-14 w-auto"
                                     src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto,w_80,h_80/v1601874637/postalandzipcodes.ph/square-logo.svg"
                                     alt="PostalAndZipCodes Logo">
                             </div>
                         </a>
                     </div>
-                    <div class="hidden md:block">
+                    <div class="hidden md:block bg-">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <a href="/"
                                 class="{{ request()->routeIs('index') ? 'bg-gray-900 text-white' : 'text-gray-200 hover:bg-gray-700 hover:text-white' }}
@@ -44,17 +45,6 @@
                                         </svg>
                                     </button>
                                 </div>
-
-                                <!--
-                      Dropdown menu, show/hide based on menu state.
-
-                      Entering: "transition ease-out duration-100"
-                        From: "transform opacity-0 scale-95"
-                        To: "transform opacity-100 scale-100"
-                      Leaving: "transition ease-in duration-75"
-                        From: "transform opacity-100 scale-100"
-                        To: "transform opacity-0 scale-95"
-                    -->
                                 <div id="dropdown"
                                     class="hidden absolute left-0 z-20 mt-2 w-56 origin-top-right bg-white divide-y border border-gray-600  rounded shadow dark:bg-gray-700 dark:divide-gray-600">
                                     <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 divide-y divide-gray-600"
@@ -80,7 +70,6 @@
                                         </li>
                                     </ul>
                                 </div>
-
                             </div>
 
                         </div>
@@ -89,12 +78,13 @@
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
                         <a href="./submit-zip-code" title="Contribute to Zip Code Directory" type="button"
-                            class="button button-white border-2 border-black flex space-x-1.5 rounded-sm dark:bg-gray-50 dark:text-gray-900 text-sm py-1.5 px-2 font-bold hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                            class="transition-all ease-in-out duration-300 button button-white border-2 border-black flex space-x-1.5 rounded-sm dark:bg-gray-50 dark:text-gray-900 text-sm px-2.5 py-2 font-bold hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span>Contribute</span>
                         </a>
 
                     </div>
                 </div>
+
 
                 <div class="-mr-2 flex md:hidden">
                     <!-- Mobile menu button -->

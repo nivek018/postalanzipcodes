@@ -1,7 +1,8 @@
+@props(['showBackground'])
 <!--                -->
 <!-- Search Module  -->
 <!--                -->
-<section class="dark:bg-gray-900 w-full">
+<section class="@if ($showBackground) dark:bg-gray-900 @endif w-full">
     <div class="max-w-screen-xl mx-auto px-4 lg:px-6 py-10">
         <form id="search-form" autocomplete="off">
 
@@ -10,7 +11,7 @@
             <div class="mx-auto w-full md:w-4/5 h-full flex-auto">
                 <div class="relative mt-1 flex items-center">
                     <input
-                        class="stack-sm transition-all ease-in-out duration-300 block w-full rounded-md bg-gray-900 border-4 border-amber-400 dark:text-gray-500 text-xl py-5 px-8 pr-16 shadow-sm focus:dark:bg-gray-900 focus:ring-amber-50 focus:border-white focus:dark:text-pink-600"
+                        class="font-Caveat stack-gold transition-all ease-in-out duration-300 block w-full rounded-none bg-gray-900 border-4 border-amber-400 dark:text-gray-500 tracking-widest text-3xl py-5 px-8 pr-16 shadow-sm focus:dark:bg-gray-900 focus:ring-amber-50 focus:border-white focus:dark:text-amber-400"
                         maxlength="255" type="text" name="q" id="search" value="{{ $search_q ?? '' }}"
                         placeholder="Barangay, City, Zip Code...">
 
@@ -33,7 +34,7 @@
 
                             {{-- search icon --}}
                             <span id="submit-icon" class="">
-                                <svg aria-hidden="true" class="w-8 h-8 text-gray-500 dark:text-gray-600" fill="none"
+                                <svg aria-hidden="true" class="w-8 h-8 dark:text-amber-400" fill="none"
                                     stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -44,7 +45,9 @@
                 </div>
 
                 <div class="mt-6 relative overflow-auto mx-auto max-w-sm lg:max-w-screen-lg font-mono">
-                    <div class="space-x-2 flex text-center justify-center w-full touch-pan-x" id="user-searches"></div>
+                    <div class="space-x-2 flex text-center justify-center w-full touch-pan-x" id="user-searches">
+                        Loading...
+                    </div>
                 </div>
             </div>
 

@@ -1,9 +1,7 @@
 @extends('layouts.app')
-@section('title', 'Search Zip Codes')
-
-@section('page_styles')
-@endsection
-
+@section('title', $data['page_title'])
+@section('description', $data['description'])
+@section('canonical', $data['canonical'])
 
 @section('content')
     <div class="relative overflow-hidden py-10">
@@ -23,68 +21,55 @@
 
             <div class="absolute opacity-80 inset-0 bg-gradient-to-tl from-yellow-800 to-green-900 w-full h-full"></div>
 
-            <div class="flex h-[80vh] z-20 items-center justify-center w-full relative">
-                <form class="w-11/12 md:w-3/4 min-h-fit h-fit" id="index-search-form" autocomplete="off">
+            <div class="min-h-[calc(100vh-620px)] flex flex-col items-center relative">
 
-                    @csrf
+                <header
+                    class="flex flex-wrap items-center justify-center dark:text-gray-50 mb-4 max-w-screen-lg px-4 text-center">
+                    <h1 class="text-4xl font-bold text-white text-center font-Caveat">
+                        Explore the Complete Collection of <span
+                            class="whitespace-nowrap font-Anton font-normal tracking-wider text-5xl mx-2 text-transparent leading-none py-1 bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-100">Zip
+                            Codes</span> in the <span
+                            class="font-black text-transparent leading-none bg-clip-text bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500 to-red-600">Philippines</span>
+                    </h1>
+                    <p class="text-lg font-mono uppercase">Your Reliable Source for Accurate and Up-to-Date Postal
+                        Information
+                    </p>
+                </header>
 
-                    <div class="mx-auto w-full md:w-4/5 h-full flex-auto">
-                        <h1 class="block text-4xl font-extrabold uppercase text-white text-center mb-10">Search Zip Code
-                        </h1>
+                <!-- search -->
+                <x-search-box :showBackground="false" />
+                <!--  -->
+                <!--  -->
 
-                        <div class="relative mt-1 flex items-center">
-                            <input
-                                class="stack-sm transition-all ease-in-out duration-300 block w-full bg-gray-900 border-4 border-amber-400 dark:text-gray-500 text-xl py-5 px-8 pr-16 shadow-sm focus:dark:bg-gray-900 focus:ring-amber-50 focus:border-white focus:dark:text-pink-600"
-                                maxlength="255" type="text" name="q" id="search"
-                                placeholder="Barangay, City, Zip Code...">
+                <div class="flex flex-col space-y-10 mt-16 h-auto items-center justify-center">
+                    <div class="text-gray-50 text-center max-w-xl">
+                        <h2 class="text-center text-gray-50 text-3xl font-bold mb-4 font-Caveat">Zip Code Directory</h2>
 
-                            <div class="absolute right-0 flex py-1.5 pr-8">
-                                <button type="submit" aria-label="Search">
-                                    {{-- loader --}}
-                                    <div id="submit-loader" class="hidden">
-                                        <svg aria-hidden="true"
-                                            class="cursor-wait w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-                                            viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                                                fill="currentColor" />
-                                            <path
-                                                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                                                fill="currentFill" />
-                                        </svg>
-                                        <span class="sr-only">Loading...</span>
-                                    </div>
+                        <p class="font-mono text-base mb-5">
+                            Discover the Comprehensive Zip Code Directory of the Philippines - Your Source for Accurate and
+                            Up-to-Date Postal Information
+                        </p>
 
-                                    {{-- search icon --}}
-                                    <span id="submit-icon" class="">
-                                        <svg aria-hidden="true" class="w-8 h-8 text-gray-500 dark:text-gray-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                        </svg>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
+                        <p class="font-mono text-base mb-5">
+                            Our website, postalandzipcodes.ph, provides an extensive collection of Zip Code information for
+                            every corner of the Philippines. We diligently maintain and regularly update our records to
+                            ensure their accuracy. Whether you're looking for Barangay, City, Town, or Regional Zip Codes,
+                            we have it all!
+                        </p>
 
-                        <div class="mt-6 space-x-2 text-center justify-center flex overflow-auto touch-pan-x "
-                            id="user-searches">&nbsp;</div>
+                        <p class="font-mono text-base mb-5">
+                            We also value the contributions of our visitors. If you cannot find a specific zip code on our
+                            site, we encourage you to contribute and be part of our growing database. By sharing your
+                            knowledge, you'll help future visitors find the information they need.
+                        </p>
+
+                        <p class="font-mono text-base mb-5">
+                            Stay informed and navigate the Philippine postal system with ease. Explore our comprehensive Zip
+                            Code directory and experience the convenience of having the latest and most reliable postal
+                            codes at your fingertips.
+                        </p>
                     </div>
-
-                    <div class="flex flex-col space-y-10 mt-16 h-auto items-center justify-center">
-                        <div class="text-gray-50 text-center max-w-xl">
-                            <h2 class="text-center text-gray-50 text-3xl font-bold mb-4">Search Zip Code Directory</h2>
-                            <p class="font-Caveat text-xl">
-                                Explore the Philippines with our comprehensive zip code directory. Discover towns, cities
-                                and regions with our easy-to-use zip code lookup tool. Find all the essential information
-                                you need, from demographics to local statistics, and explore the unique culture and
-                                lifestyle of this dynamic country. With a range of zip codes, you'll be able to find what
-                                you're looking for quickly and easily.
-                            </p>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
 

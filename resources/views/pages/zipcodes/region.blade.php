@@ -1,13 +1,13 @@
 @extends('layouts.app')
-@section('title', $page_title)
-@section('page_styles')
-@endsection
+@section('title', $data['page_title'])
+@section('description', $data['description'])
+@section('canonical', $data['canonical'])
 
 @section('content')
     <section class="relative overflow-hidden">
 
         <!-- search -->
-        @include('includes.search')
+        <x-search-box :showBackground="true" />
         <!--  -->
         <!--  -->
 
@@ -16,9 +16,9 @@
         <!--  -->
         <!--  -->
 
-        @if (null !== $results)
+        @if (null !== $data['results'])
             {{-- zip code list display --}}
-            <x-zip-list :$results :$page_info :$subheader_title />
+            <x-zip-list :results="$data['results']" :page_info="$data['page_info']" :subheader_title="$data['subheader_title']" />
         @else
             <!-- no results -->
             @include('includes.no-results')

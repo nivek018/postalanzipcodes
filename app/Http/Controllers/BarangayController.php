@@ -14,6 +14,8 @@ class BarangayController extends Controller
    public function search_barangay($city, $barangay)
    {
 
+
+
       /* query database for `city` and `barangay` that has hyphen(-) into their names */
       $records_to_filter   =  DB::table('postal_codes')
                            ->where('barangay', 'like', '%-%')
@@ -77,11 +79,8 @@ class BarangayController extends Controller
       if ( count($sql) > 0 ) {
 
          /* change title and info if results were found */
-         $page_title    = sprintf('Barangay Zip Codes - %s, %s {zipcodes}.',
-                                ucwords($formatted_barangay),
-                                ucwords($formatted_city)
-                            );
-         $page_info     = sprintf("Find the Zip Code of your Barangay with ease! %s, %s has the zip code of {zipcodes}. Our comprehensive directory includes zip codes for other barangays in the Philippines. Look up any location quickly and easily.",
+         $page_title    = sprintf('📍 Zip Code of Barangay %s.', ucwords($formatted_barangay));
+         $page_info     = sprintf("Here is the Zip Code information of Barangay %s, that is within %s.",
                                 ucwords($formatted_barangay),
                                 ucwords($formatted_city)
                             );
@@ -150,7 +149,7 @@ class BarangayController extends Controller
       else {
 
             /*  */
-            $data    = array(
+            $data    = [
                         'page_title'        => $page_title,
                         'canonical'         => null,
                         'description'       => $page_info,
@@ -158,11 +157,11 @@ class BarangayController extends Controller
                         'page_info'         => $page_info,
                         'results'           => null,
                         'search_q'          => '',
-                    );
+            ];
 
       }
 
-      return view('pages.zipcodes.barangay', $data);
+      return view('pages.zipcodes.barangay', compact('data'));
 
    }
 
