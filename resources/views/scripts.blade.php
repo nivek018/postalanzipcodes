@@ -17,14 +17,14 @@
         /* this will hold an array of user's searches */
         var user_searches = [];
 
+        /*  */
+        let user_search_container = document.getElementById(`user-searches`);
+
         /* this will handle displaying of last searches of user */
         if (null !== localStorage.getItem(`searches`)) {
 
             /* retrieve existing user's searches */
             user_searches = JSON.parse(localStorage.getItem(`searches`));
-
-            /*  */
-            let user_search_container = document.getElementById(`user-searches`);
 
             /*  */
             let searches_holder = '';
@@ -65,10 +65,13 @@
             /*  */
             if (null !== user_search_container) {
                 user_search_container.innerHTML = searches_holder;
+            } else {
+                user_search_container.textContent = 'No searches yet';
             }
 
+        } else {
+            user_search_container.innerHTML = '';
         }
-
     });
 </script>
 
