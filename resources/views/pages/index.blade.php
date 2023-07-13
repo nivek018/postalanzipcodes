@@ -24,7 +24,7 @@
             <div class="min-h-[calc(100vh-620px)] flex flex-col items-center relative">
 
                 <header
-                    class="flex flex-wrap items-center justify-center dark:text-gray-50 mb-4 max-w-screen-lg px-4 text-center">
+                    class="flex flex-wrap items-center justify-center dark:text-gray-50 mt-8 mb-4 max-w-screen-lg px-4 text-center">
                     <h1 class="text-4xl font-bold text-white text-center font-Caveat">
                         Explore the Complete Collection of <span
                             class="whitespace-nowrap font-Anton font-normal tracking-wider text-5xl mx-2 text-transparent leading-none py-1 bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-100">Zip
