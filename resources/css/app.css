@@ -23,7 +23,7 @@
 }
 
 .bg-paper-tear {
-    background: transparent url('https://statamic.com/img/branding/paper-tear.png') top repeat-x;
+    background: transparent url('/public/branding/paper-tear.png') top repeat-x;
     background-size: 1280px;
     height: 182px;
     width: 100%;
@@ -39,4 +39,21 @@
 
 .text-mint {
     color: rgb(184 255 243/var(--tw-text-opacity))!important;
+}
+
+@media (min-width: 1024px) {
+    .lg\:h-16 {
+        height: 4rem!important;
+
+    }
+}
+.bg-amber {
+    --tw-bg-opacity: 1;
+    background-color: rgb(251 191 36 / var(--tw-bg-opacity));
+}
+.bg-mint {
+    background-color: rgb(184 255 243/var(--tw-bg-opacity))!important;
+}
+.bg-grey-lighter, .bg-mint {
+    --tw-bg-opacity: 1!important;
 }

@@ -46,25 +46,25 @@
                     <div class="text-gray-50 text-center max-w-xl">
                         <h2 class="text-center text-gray-50 text-3xl font-bold mb-4 font-Caveat">Zip Code Directory</h2>
 
-                        <p class="font-NanumPenScript text-lg mb-5">
+                        <p class="font-NanumPenScript text-xl mb-5">
                             Discover the Comprehensive Zip Code Directory of the Philippines - Your Source for Accurate and
                             Up-to-Date Postal Information
                         </p>
 
-                        <p class="font-NanumPenScript text-lg mb-5">
+                        <p class="font-NanumPenScript text-xl mb-5">
                             Our website, postalandzipcodes.ph, provides an extensive collection of Zip Code information for
                             every corner of the Philippines. We diligently maintain and regularly update our records to
                             ensure their accuracy. Whether you're looking for Barangay, City, Town, or Regional Zip Codes,
                             we have it all!
                         </p>
 
-                        <p class="font-NanumPenScript text-lg mb-5">
+                        <p class="font-NanumPenScript text-xl mb-5">
                             We also value the contributions of our visitors. If you cannot find a specific zip code on our
                             site, we encourage you to contribute and be part of our growing database. By sharing your
                             knowledge, you'll help future visitors find the information they need.
                         </p>
 
-                        <p class="font-NanumPenScript text-lg mb-5">
+                        <p class="font-NanumPenScript text-xl mb-5">
                             Stay informed and navigate the Philippine postal system with ease. Explore our comprehensive Zip
                             Code directory and experience the convenience of having the latest and most reliable postal
                             codes at your fingertips.
