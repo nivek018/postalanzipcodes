@@ -8,7 +8,7 @@
         </svg>
         <span class="mt-2 block text-lg font-medium text-gray-100">
             No zip codes were found for:<br>
-            <em class="font-bold">"{{ $search_q }}"</em>
+            <em class="font-bold">"{{ $data['search_q'] }}"</em>
         </span>
     </div>
 </div>

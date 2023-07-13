@@ -1,9 +1,13 @@
 @props(['showBackground'])
+
 <!--                -->
 <!-- Search Module  -->
 <!--                -->
 <section class="@if ($showBackground) dark:bg-gray-900 @endif w-full">
     <div class="max-w-screen-xl mx-auto px-4 lg:px-6 py-10">
+        <header>
+            <span class="sr-only">Search Zip Codes</span>
+        </header>
         <form id="search-form" autocomplete="off">
 
             @csrf
@@ -44,11 +48,15 @@
                     </div>
                 </div>
 
-                <div class="mt-6 relative overflow-auto mx-auto max-w-sm lg:max-w-screen-lg font-mono">
-                    <div class="space-x-2 flex text-center justify-center w-full touch-pan-x" id="user-searches">
+                <section class="mt-6 relative overflow-auto mx-auto max-w-sm lg:max-w-screen-lg font-mono">
+                    <header>
+                        <span class="sr-only">Previous Searches</span>
+                    </header>
+                    <div class="space-x-2 flex text-center justify-center w-full touch-pan-x overflow-x-auto relative dark:text-white font-bold min-h-[32px]"
+                        id="user-searches">
                         Loading...
                     </div>
-                </div>
+                </section>
             </div>
 
         </form>
