@@ -13,9 +13,10 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                Anton: ["Anton", "sans-serif"],
+                Inter: ["Inter", "sans-serif"],
                 Caveat: ["Caveat", "cursive"],
                 IBMPlexSans: ["IBM Plex Sans", "sans-serif"],
+                NanumPenScript: ["Nanum Pen Script", "cursive"],
             },
         },
     },

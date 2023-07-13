@@ -42,7 +42,7 @@
 
                     const div1 = document.createElement('div');
                     div1.className =
-                        'max-w-[120px] truncate cursor-pointer inline-flex items-center rounded-full border border-dashed border-amber-500 px-2.5 py-1.5 text-sm font-medium text-amber-400 hover:shadow-lg';
+                        'max-w-[120px] truncate cursor-pointer inline-flex items-center rounded-full border border-dashed border-amber-500 px-2 py-1 my-1.5 text-sm font-medium text-amber-400 hover:shadow-lg';
 
                     const svg = `<svg class="w-5 h-5 mr-1 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />

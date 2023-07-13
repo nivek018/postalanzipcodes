@@ -1,18 +1,23 @@
 @props(['results', 'page_info', 'subheader_title'])
 
-<section class="dark:text-white bg-gradient-to-b from-gray-900 via-gray-800 to-white">
-    <header>
-        <div class="max-w-screen-xl mx-auto px-4 lg:px-6 py-10 pb-96">
-            <h1 class="text-3xl font-bold tracking-tight text-gray-50 max-w-screen-lg">
-                {{ html_entity_decode($subheader_title) }}</h1>
-            <p class="mb-4 py-4 text-xl font-normal dark:text-gray-300 font-Caveat max-w-screen-lg">
+<section class="bg-[#1B1A21] text-white pt-3 md:pt-4 relative">
+    <header class="z-10">
+        <div class="max-w-screen-lg mx-auto px-4 lg:px-6 py-10 pb-96">
+            <h1
+                class="font-black text-center md:text-left leading-relaxed text-4xl md:text-4xl lg:text-5xl tracking-tight md:pr-24">
+                {{ html_entity_decode($subheader_title) }}
+            </h1>
+            <p class="my-16 font-hand text-2xl text-mint antialiased text-center md:text-left font-NanumPenScript">
                 {!! $page_info !!}
             </p>
         </div>
     </header>
+    <img src="https://statamic.com/img/branding/drip-horizontal-multi.png" alt="" width="114"
+        class="absolute top-24 left-0 hidden lg:block">
+    <div class="bg-paper-tear -bottom-24 absolute flip-y"></div>
 </section>
 
-<section class="dark:text-black dark:white -mt-[28rem] lg:-mt-96">
+<section class="dark:text-black dark:white -mt-[28rem] lg:-mt-96 min-h-[50rem]">
     <div class="max-w-screen-xl mx-auto px-0 lg:px-6 py-10">
 
         <div class="px-4 py-5 border border-b-0 dark:border-gray-700 hidden">
@@ -38,8 +43,8 @@
         </div>
 
         <div class="relative overflow-x-auto">
-            <table class="w-full text-base text-left dark:text-gray-400 flex flex-col px-4 font-mono">
-                <thead class="text-lg uppercase font-Anton tracking-widest font-medium">
+            <table class="w-full text-base text-left dark:text-gray-400 flex flex-col px-6 lg:px-4 font-mono">
+                <thead class="text-sm font-black uppercase font-Inter tracking-widest">
                     <tr
                         class="hidden lg:flex lg:flex-row stack-gray border rounded-sm dark:bg-amber-400 dark:text-gray-900 dark:border-gray-700 flex-wrap my-8 lg:my-6">
                         <th scope="col" class="basis-1/5 px-6 py-3">Location</th>

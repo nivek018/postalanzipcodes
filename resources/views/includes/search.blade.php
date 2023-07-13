@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <div class="mt-6 relative overflow-auto mx-auto max-w-sm lg:max-w-screen-lg font-mono">
+                <div class="mt-6 relative overflow-x-auto mx-auto max-w-screen-xl font-mono">
                     <div class="space-x-2 flex text-center justify-center w-full touch-pan-x" id="user-searches"></div>
                 </div>
             </div>

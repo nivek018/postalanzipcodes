@@ -21,3 +21,22 @@
 .stack-gold {
     box-shadow: 10px 10px 0 -1px #866b0a, 10px 10px 0 #191a1b;
 }
+
+.bg-paper-tear {
+    background: transparent url('https://statamic.com/img/branding/paper-tear.png') top repeat-x;
+    background-size: 1280px;
+    height: 182px;
+    width: 100%;
+}
+
+.flip-y {
+    --tw-scale-y: -1;
+}
+
+.flip-x, .flip-y {
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.text-mint {
+    color: rgb(184 255 243/var(--tw-text-opacity))!important;
+}

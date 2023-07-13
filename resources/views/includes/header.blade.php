@@ -1,6 +1,6 @@
 <header class="flex-none w-full">
     <nav x-data="{ menuOpen: false }"
-        class="z-40 pb-0 lg:pb-6 flex-none w-full mx-auto font-mono dark:bg-gray-900 pt-0 lg:pt-8">
+        class="z-40 pb-0 lg:pb-6 flex-none w-full mx-auto font-mono dark:bg-[#1B1A21] pt-0 lg:pt-8">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center justify-between">
@@ -139,4 +139,8 @@
             </div>
         </div>
     </nav>
+    <img src="https://statamic.com/img/branding/drip-vertical-orange.png" alt="" width="69"
+        class="absolute top-0 left-80 hidden lg:block">
+    <img src="https://statamic.com//img/branding/drip-vertical-blue.png" alt="" width="26"
+        class="absolute top-0 right-4 hidden lg:block">
 </header>

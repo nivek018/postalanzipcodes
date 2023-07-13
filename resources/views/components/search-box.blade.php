@@ -3,8 +3,8 @@
 <!--                -->
 <!-- Search Module  -->
 <!--                -->
-<section class="@if ($showBackground) dark:bg-gray-900 @endif w-full">
-    <div class="max-w-screen-xl mx-auto px-4 lg:px-6 py-10">
+<section class="@if ($showBackground) dark:bg-[#1B1A21] @endif w-full">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-4 py-10">
         <header>
             <span class="sr-only">Search Zip Codes</span>
         </header>
@@ -15,7 +15,7 @@
             <div class="mx-auto w-full md:w-4/5 h-full flex-auto">
                 <div class="relative mt-1 flex items-center">
                     <input
-                        class="font-Caveat stack-gold transition-all ease-in-out duration-300 block w-full rounded-none bg-gray-900 border-4 border-amber-400 dark:text-gray-500 tracking-widest text-3xl py-5 px-8 pr-16 shadow-sm focus:dark:bg-gray-900 focus:ring-amber-50 focus:border-white focus:dark:text-amber-400"
+                        class="font-NanumPenScript stack-gold transition-all ease-in-out duration-300 block w-full rounded-none bg-gray-900 border-4 border-amber-400 dark:text-gray-500 tracking-widest text-3xl py-5 px-8 pr-16 shadow-sm focus:dark:bg-gray-900 focus:ring-amber-50 focus:border-white focus:dark:text-white"
                         maxlength="255" type="text" name="q" id="search" value="{{ $search_q ?? '' }}"
                         placeholder="Barangay, City, Zip Code...">
 
@@ -48,11 +48,11 @@
                     </div>
                 </div>
 
-                <section class="mt-6 relative overflow-auto mx-auto max-w-sm lg:max-w-screen-lg font-mono">
+                <section class="mt-6 relative overflow-auto mx-auto max-w-sm lg:max-w-screen-lg">
                     <header>
                         <span class="sr-only">Previous Searches</span>
                     </header>
-                    <div class="space-x-2 flex text-center justify-center w-full touch-pan-x overflow-x-auto relative dark:text-white font-bold min-h-[32px]"
+                    <div class="font-NanumPenScript space-x-2 flex text-center justify-center w-full touch-pan-x overflow-x-auto relative dark:text-white font-bold min-h-[32px]"
                         id="user-searches">
                         Loading...
                     </div>
