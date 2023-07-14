@@ -28,8 +28,8 @@
                     <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Zip Code Directory Submission Form</h2>
                     <div class="text-gray-200 font-NanumPenScript">{{ $data['description'] }}</div>
 
-                    <div id="error-msg"></div>
-                    <div id="success-msg"></div>
+                    <div class="font-bold text-lg" id="error-msg"></div>
+                    <div class="font-bold text-lg" id="success-msg"></div>
 
                     <div class="mb-6">
                         <label for="countries"
