@@ -4,10 +4,24 @@
 @section('canonical', $data['canonical'])
 
 @section('content')
-    <div class="relative overflow-hidden py-10 md:py-5">
+    <div class="relative overflow-hidden pb-10 md:pb-5">
+        <section class="bg-[#1B1A21] text-white pt-3 md:pt-4 relative">
+            <header class="z-10">
+                <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-4 pb-32">
+                    <h1
+                        class="font-black md:text-left leading-relaxed text-4xl md:text-4xl lg:text-5xl tracking-tight md:pr-24">
+                        About Us
+                    </h1>
+                </div>
+            </header>
+            <img src="{{ asset('branding/drip-horizontal-multi.png') }}" alt="" width="114"
+                class="absolute top-24 left-0 hidden lg:block">
+            <div class="bg-paper-tear -bottom-24 absolute flip-y"></div>
+        </section>
 
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="stack-sm font-mono border border-black p-4 flex flex-col space-y-6 py-8">
+        <section class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div
+                class="px-4 py-8 stack-gray font-Caveat text-2xl border dark:bg-white border-black flex flex-col space-y-6 relative">
                 <p>Hey there, I'm <a href="https://twitter.com/mnoquiao" target="_blank"
                         class="font-bold hover:underline font-NanumPenScript text-3xl"
                         title="Visit my twitter profile @mnoquiao">Mark
@@ -21,7 +35,8 @@
                     site and utilize the search functionality to find the accurate zip code you're looking for.
                 </p>
 
-                <p>I hope you'll enjoy using <a href="" title="" class="font-bold hover:underline"></a> and
+                <p class="font-mono text-lg">I hope you'll enjoy using <a href="" title=""
+                        class="font-bold hover:underline"></a> and
                     consider sharing it with
                     your friends and family. If you have any
                     feedback or questions, please feel free to reach out to me through the <a href="#"
@@ -45,7 +60,7 @@
                     zip code information, but we do not claim to be the official source of zip codes in the Philippines.
                 </p>
 
-                <p class="text-sm dark:text-gray-600">
+                <p class="text-sm dark:text-gray-800 font-bold font-Inter">
                     You may also want to check my other projects <a
                         href="https://https://lottopcso.io/results/lotto-result-today" target="_blank"
                         title="Visit LottoPCSO.io for daily lotto results" class="font-bold underline">LottoPCSO.io<svg
@@ -76,7 +91,7 @@
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </p>
             </div>
-        </div>
+        </section>
     </div>
 @endsection
 

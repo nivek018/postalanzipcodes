@@ -1,6 +1,6 @@
 <header class="sticky top-0 z-30">
     <nav class="z-40 pb-0 lg:pb-6 flex-1 w-full mx-auto font-mono dark:bg-[#1B1A21] pt-0 lg:pt-8 sticky top-0">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center justify-between gap-6">
                     <button @click="sidebarOpen = !sidebarOpen" type="button"
