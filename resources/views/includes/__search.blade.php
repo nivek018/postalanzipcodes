@@ -44,7 +44,8 @@
                 </div>
 
                 <div class="mt-6 relative overflow-x-auto mx-auto max-w-screen-xl font-mono">
-                    <div class="space-x-2 flex text-center justify-center w-full touch-pan-x" id="user-searches"></div>
+                    <div class="space-x-2 flex text-center justify-center w-full snap-mandatory touch-pan-x"
+                        id="user-searches"></div>
                 </div>
             </div>
 
