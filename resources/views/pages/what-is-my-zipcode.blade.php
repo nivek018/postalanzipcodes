@@ -196,33 +196,37 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div x-data="{
-                        id: 4,
-                        get expanded() {
-                            return this.active === this.id
-                        },
-                        set expanded(value) {
-                            this.active = value ? this.id : null
-                        },
-                    }" role="region" class="rounded-sm bg-white shadow">
-                        <h2>
-                            <button x-on:click="expanded = !expanded" :aria-expanded="expanded"
-                                class="flex w-full items-center justify-between px-6 py-4 text-xl font-bold">
-                                <span>Why is a zip code important when sending packages and mail?</span>
-                                <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
-                                <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
-                            </button>
-                        </h2>
+                        <div x-data="{
+                            id: 4,
+                            get expanded() {
+                                return this.active === this.id
+                            },
+                            set expanded(value) {
+                                this.active = value ? this.id : null
+                            },
+                        }" role="region" class="rounded-sm bg-white shadow">
+                            <h2>
+                                <button x-on:click="expanded = !expanded" :aria-expanded="expanded"
+                                    class="flex w-full items-center justify-between px-6 py-4 text-xl font-bold">
+                                    <span>Why is a zip code important when sending packages and mail?</span>
+                                    <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
+                                    <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
+                                </button>
+                            </h2>
 
-                        <div x-show="expanded" x-collapse>
-                            <div class="px-6 pb-4 text-xl font-NanumPenScript">Zip codes play a vital role in ensuring the
-                                efficient and timely delivery of packages and mail. When you include the correct zip code on
-                                your mail or package, it helps postal services accurately sort and route the item to its
-                                destination. This helps reduce delivery delays, ensures your package reaches the intended
-                                recipient quickly, and enhances the overall reliability of the mailing system. Including the
-                                zip code is essential for smooth and hassle-free package and mail delivery.
+                            <div x-show="expanded" x-collapse>
+                                <div class="px-6 pb-4 text-xl font-NanumPenScript">Zip codes play a vital role in ensuring
+                                    the
+                                    efficient and timely delivery of packages and mail. When you include the correct zip
+                                    code on
+                                    your mail or package, it helps postal services accurately sort and route the item to its
+                                    destination. This helps reduce delivery delays, ensures your package reaches the
+                                    intended
+                                    recipient quickly, and enhances the overall reliability of the mailing system. Including
+                                    the
+                                    zip code is essential for smooth and hassle-free package and mail delivery.
+                                </div>
                             </div>
                         </div>
                     </div>
