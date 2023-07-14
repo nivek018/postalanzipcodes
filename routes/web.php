@@ -27,7 +27,7 @@ Route::get('/terms-of-service', function () {
         'subheader_title'   => 'Terms of service'
     ];
 
-    return view('pages.tos', $data);
+    return view('pages.tos', compact('data'));
 })->name('terms-of-service');
 
 /* privacy policy page */
@@ -39,7 +39,7 @@ Route::get('/privacy-policy', function () {
         'subheader_title'   => 'Privacy Policy'
     ];
 
-    return view('pages.pp', $data);
+    return view('pages.pp', compact('data'));
 })->name('privacy-policy');
 
 /* how it works page */
@@ -51,7 +51,7 @@ Route::get('/how-it-works', function () {
         'subheader_title'   => 'How it Works?'
     ];
 
-    return view('pages.hiw', $data);
+    return view('pages.hiw', compact('data'));
 })->name('how-it-works');
 
 /* about page */
@@ -63,11 +63,12 @@ Route::get('/about-us', function () {
         'subheader_title'   => 'About Us'
     ];
 
-    return view('pages.abt', $data);
+    return view('pages.abt', compact('data'));
 })->name('about-us');
 
-/* what is my postal code | accomodote all page url indexed by google */
-Route::get('/what-is-my-postal-code', function () {
+
+// Route direct what-is-my-postal-code to my-zip-code
+Route::get('/my-zip-code', function () {
     $data    = [
         'page_title'        => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
         'canonical'         => route('what-is-my-postal-code'),
@@ -75,20 +76,19 @@ Route::get('/what-is-my-postal-code', function () {
         'subheader_title'   => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
     ];
 
-    return view('pages.what-is-my-zipcode', $data);
-})->name('what-is-my-postal-code');
+    return view('pages.what-is-my-zipcode', compact('data'));
+})->name('my-zip-code');
 
 /* what is my zip code */
 Route::get('/what-is-my-zip-code', function () {
-    $data    = [
-        'page_title'        => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
-        'canonical'         => route('what-is-my-zip-code'),
-        'description'       => "Find your Zip Code quickly and easily using your device's GPS location. Our map-based tool uses Geolocation to pinpoint your current location and extract your zip code information. Try it now",
-        'subheader_title'   => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
-    ];
-
-    return view('pages.what-is-my-zipcode', $data);
+    return redirect()->route('my-zip-code');
 })->name('what-is-my-zip-code');
+/* what is my zip code */
+Route::get('/what-is-my-postal-code', function () {
+    return redirect()->route('my-zip-code');
+})->name('what-is-my-postal-code');
+
+
 
 /* submit zip code */
 Route::get('/submit-zip-code', function () {
@@ -99,7 +99,7 @@ Route::get('/submit-zip-code', function () {
         'subheader_title'   => "Contribute to Zip Code Directory",
     ];
 
-    return view('pages.submit-zip-code', $data);
+    return view('pages.submit-zip-code', compact('data'));
 })->name('submit-zip-code');
 
 

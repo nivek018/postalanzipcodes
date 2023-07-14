@@ -6,7 +6,7 @@
                     <img src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto,w_80,h_80/v1601874637/postalandzipcodes.ph/square-logo.svg"
                         class="h-12 mr-3" alt="postalandzipcodes.ph" />
                     <span
-                        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">postalandzipcodes.ph</span>
+                        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PostalAndZipCodes</span>
                 </a>
 
                 <p class="text-sm text-gray-400 mt-2 mb-8 lg:mb-0">

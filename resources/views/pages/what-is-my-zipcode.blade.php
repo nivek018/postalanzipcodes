@@ -1,5 +1,7 @@
 @extends('layouts.app')
-@section('title', $page_title)
+@section('title', $data['page_title'])
+@section('description', $data['description'])
+@section('canonical', $data['canonical'])
 
 @section('page_styles')
     <!-- Leaflet 1.9.3 -->

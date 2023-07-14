@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\View\GlobalComposer;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Register the GlobalComposer to the app layout
+        View::composer("layouts.app", GlobalComposer::class);
     }
 }
