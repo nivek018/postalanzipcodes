@@ -88,10 +88,84 @@ class GlobalComposer
             ],
         ];
 
+        $RegionalZipCodes = [
+            [
+                'region' => 'Region I – Ilocos Region',
+                'slug' => 'ilocos-region-%28region-i%29',
+            ],
+            [
+                'region' => 'Region II – Cagayan Valley',
+                'slug' => 'cagayan-valley-%28region-ii%29',
+            ],
+            [
+                'region' => 'Region III – Central Luzon',
+                'slug' => 'central-luzon-%28region-iii%29',
+            ],
+            [
+                'region' => 'Region IV‑A – CALABARZON',
+                'slug' => 'southern-tagalog-mainland-%28region-iv-a---calabarzon%29',
+            ],
+            [
+                'region' => 'MIMAROPA Region',
+                'slug' => 'southwestern-tagalog-region-%28region-xvii-mimaropa-region%29',
+            ],
+            [
+                'region' => 'Region V – Bicol Region',
+                'slug' => 'bicol-region-%28region-v%29',
+            ],
+            [
+                'region' => 'Region VI – Western Visayas',
+                'slug' => 'western-visayas-%28region-vi%29',
+            ],
+            [
+                'region' => 'Region VII – Central Visayas',
+                'slug' => 'central-visayas-%28region-vii%29',
+            ],
+            [
+                'region' => 'Region VIII – Eastern Visayas',
+                'slug' => 'eastern-visayas-%28region-viii%29',
+            ],
+            [
+                'region' => 'Region IX – Zamboanga Peninsula',
+                'slug' => 'zamboanga-peninsula-%28region-ix%29',
+            ],
+            [
+                'region' => 'Region X – Northern Mindanao',
+                'slug' => 'northern-mindanao-%28region-x%29',
+            ],
+            [
+                'region' => 'Region XI – Davao Region',
+                'slug' => 'davao-region-%28region-xi%29',
+            ],
+            [
+                'region' => 'Region XII – SOCCSKSARGEN',
+                'slug' => 'soccsksargen-%28region-xii%29',
+            ],
+            [
+                'region' => 'Region XIII – Caraga',
+                'slug' => 'caraga-region-%28region-xiii%29',
+            ],
+            [
+                'region' => 'NCR – National Capital Region',
+                'slug' => 'national-capital-region-%28region-xiv---ncr%29',
+            ],
+            [
+                'region' => 'CAR – Cordillera Administrative Region',
+                'slug' => 'cordillera-administrative-region-%28region-xv---car%29',
+            ],
+            [
+                'region' => 'BARMM – Bangsamoro Autonomous Region in Muslim Mindanao',
+                'slug' => 'bangsamoro-autonomous-region-in-muslim-mindanao-%28region-xvi---barmm%29',
+            ],
+        ];
+
         // Pass the data to the view
         $view->with([
             'today' => $today,
             'NCRZipCodes' => $NCRZipCodes,
+            'RegionalZipCodes' => $RegionalZipCodes,
         ]);
     }
 }
+
+
