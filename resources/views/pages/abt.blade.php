@@ -45,7 +45,7 @@
                     zip code information, but we do not claim to be the official source of zip codes in the Philippines.
                 </p>
 
-                <p class="text-sm">
+                <p class="text-sm dark:text-gray-600">
                     You may also want to check my other projects <a
                         href="https://https://lottopcso.io/results/lotto-result-today" target="_blank"
                         title="Visit LottoPCSO.io for daily lotto results" class="font-bold underline">LottoPCSO.io<svg
