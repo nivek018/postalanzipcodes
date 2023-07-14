@@ -73,7 +73,7 @@
                                 class="basis-3/5 lg:basis-1/5 flex items-end lg:items-start pl-6 py-4 font-medium dark:text-gray-900">
                                 <a href="{{ $value->barangay_url }}"
                                     title="zip code information of {{ $value->barangay }}"
-                                    class="hover:underline text-2xl lg:text-3xl font-bold font-NanumPenScript">
+                                    class="hover:underline text-4xl lg:text-3xl font-bold font-NanumPenScript">
                                     {{ $value->barangay }}
                                 </a>
                             </th>
@@ -92,7 +92,7 @@
                             <td
                                 class="basis-full lg:basis-1/5 grow-0 px-6 py-0.5 lg:py-4 font-medium dark:text-gray-900">
                                 <a href="{{ $value->city_url }}" title="zip codes details for {{ $value->city }}"
-                                    class="hover:underline text-2xl font-medium lg:text-base font-Caveat">
+                                    class="hover:underline text-xl font-medium font-Caveat">
                                     <svg class="w-5 h-5 inline-flex dark:text-gray-700" fill="currentColor"
                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                         <path clip-rule="evenodd" fill-rule="evenodd"
@@ -105,7 +105,7 @@
                             <td
                                 class="basis-full lg:basis-1/5 grow-0 px-6 py-0.5 lg:py-4 font-medium dark:text-gray-900">
                                 <a href="{{ $value->url_region }}" title="zip codes details for {{ $value->region }}"
-                                    class="hover:underline text-lg font-medium lg:text-base font-Caveat">
+                                    class="hover:underline text-xl font-medium font-Caveat">
                                     <svg class="w-5 h-5 inline-flex dark:text-gray-700" fill="currentColor"
                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                         <path clip-rule="evenodd" fill-rule="evenodd"
