@@ -1,8 +1,10 @@
 @props(['results', 'page_info', 'subheader_title'])
 
-<div class="mx-auto max-w-screen-xl px-4 lg:px-8 h-full w-full relative min-h-[250px]">
-    <x-ads-square />
-</div>
+<section class="bg-[#1B1A21]">
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-8 h-full w-full relative min-h-[250px]">
+        <x-ads-square />
+    </div>
+</section>
 
 <section class="bg-[#1B1A21] text-white pt-3 md:pt-4 relative">
     <header class="z-10">
@@ -71,14 +73,14 @@
                                 class="basis-3/5 lg:basis-1/5 flex items-end lg:items-start pl-6 py-4 font-medium dark:text-gray-900">
                                 <a href="{{ $value->barangay_url }}"
                                     title="zip code information of {{ $value->barangay }}"
-                                    class="hover:underline text-xl font-bold lg:text-lg">
+                                    class="hover:underline text-2xl lg:text-3xl font-bold font-NanumPenScript">
                                     {{ $value->barangay }}
                                 </a>
                             </th>
                             <td
                                 class="basis-2/5 lg:basis-1/5 grow flex justify-end lg:justify-start px-6 py-4 font-medium dark:text-gray-900">
                                 <a href="{{ $value->postal_url }}" title="{{ $value->postal }} zip code info"
-                                    class="hover:underline text-xl font-bold lg:text-lg">
+                                    class="hover:underline text-xl font-black lg:text-lg font-Inter">
                                     <dl>
                                         <dt class="sr-only">Zip Code</dt>
                                         <dd>
@@ -87,24 +89,38 @@
                                     </dl>
                                 </a>
                             </td>
-                            <td class="basis-full lg:basis-1/5 grow-0 px-6 py-0 lg:py-4 font-medium dark:text-gray-900">
+                            <td
+                                class="basis-full lg:basis-1/5 grow-0 px-6 py-0.5 lg:py-4 font-medium dark:text-gray-900">
                                 <a href="{{ $value->city_url }}" title="zip codes details for {{ $value->city }}"
-                                    class="hover:underline text-lg font-medium lg:text-base">
+                                    class="hover:underline text-2xl font-medium lg:text-base font-Caveat">
+                                    <svg class="w-5 h-5 inline-flex dark:text-gray-700" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path clip-rule="evenodd" fill-rule="evenodd"
+                                            d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z">
+                                        </path>
+                                    </svg>
                                     {{ $value->city }}
                                 </a>
                             </td>
-                            <td class="basis-full lg:basis-1/5 grow-0 px-6 py-0 lg:py-4 font-medium dark:text-gray-900">
+                            <td
+                                class="basis-full lg:basis-1/5 grow-0 px-6 py-0.5 lg:py-4 font-medium dark:text-gray-900">
                                 <a href="{{ $value->url_region }}" title="zip codes details for {{ $value->region }}"
-                                    class="hover:underline text-lg font-medium lg:text-base">
+                                    class="hover:underline text-lg font-medium lg:text-base font-Caveat">
+                                    <svg class="w-5 h-5 inline-flex dark:text-gray-700" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path clip-rule="evenodd" fill-rule="evenodd"
+                                            d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z">
+                                        </path>
+                                    </svg>
                                     {{ $value->region }}
                                 </a>
                             </td>
                             <td
-                                class="basis-full lg:basis-1/5 grow-0 px-6 py-0 lg:py-4 font-medium dark:text-gray-900 mb-4">
+                                class="basis-full lg:basis-1/5 grow-0 px-6 py-0 lg:py-4 font-medium dark:text-gray-600 mb-4">
                                 <dl
                                     class="flex items-center justify-start lg:justify-center gap-2 text-sm font-medium lg:text-base">
                                     <dt class="block lg:hidden">Phone Area Code</dt>
-                                    <dd>
+                                    <dd class="font-Caveat text-3xl">
                                         {{ $value->phone_area_code }}
                                     </dd>
                                 </dl>
