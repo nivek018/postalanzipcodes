@@ -47,7 +47,7 @@
 
 </head>
 
-<body class="dark font-IBMPlexSans">
+<body x-data="{ sidebarOpen: false }" class="dark font-IBMPlexSans">
 
     <div class="min-h-screen h-full bg-white dark:bg-[#1B1A21]"
         style="font-size: 1rem; font-weight: 40; line-height: 1.5rem;">
