@@ -33,7 +33,8 @@
 
             <section class="stack-gray w-full mt-4 p-6 rounded-none shadow-md border dark:bg-gray-900 dark:border-gray-900">
                 <header>
-                    <h2 class="text-2xl font-Inter font-bold dark:text-white mb-4">Extracted Zip Code Information</h2>
+                    <h2 class="text-2xl lg:text-5xl font-NanumPenScript font-bold dark:text-white mb-4">Extracted Zip Code
+                        Information</h2>
                 </header>
 
                 <table class="w-full dark:text-white">
@@ -52,7 +53,7 @@
                                 <dl>
                                     <dt class="sr-only">Zip Code</dt>
                                     <dd>
-                                        <span id="visitors-zipcode" class="text-5xl font-bold font-Caveat">
+                                        <span id="visitors-zipcode" class="text-6xl font-black font-Inter">
                                             <div role="status" class="animate-pulse">
                                                 <div class="h-10 my-1 bg-gray-300 dark:bg-gray-700 max-w-[100px]">
                                                 </div>
@@ -62,11 +63,11 @@
                                     </dd>
                                 </dl>
                             </td>
-                            <td class="basis-full">
+                            <td class="basis-full py-4">
                                 <dl>
                                     <dt class="sr-only">Address</dt>
                                     <dd>
-                                        <span id="visitors-address" class="text-2xl font-Caveat">
+                                        <span id="visitors-address" class="text-2xl font-NanumPenScript">
                                             <div role="status" class="animate-pulse">
                                                 <div class="h-20 my-1 bg-gray-300 dark:bg-gray-700 max-w-xl">
                                                 </div>
@@ -78,9 +79,9 @@
                             </td>
                             <td class="basis-2/4">
                                 <dl>
-                                    <dt class="sr-only">Latitude</dt>
+                                    <dt class="block lg:hidden">Latitude</dt>
                                     <dd title="Latitude">
-                                        <span id="visitors-lat" class="text-2xl font-Caveat">
+                                        <span id="visitors-lat" class="text-2xl font-NanumPenScript">
                                             <div role="status" class="animate-pulse">
                                                 <div class="h-10 my-1 bg-gray-300 dark:bg-gray-700 max-w-xl"></div>
                                                 <span class="sr-only">Loading...</span>
@@ -91,9 +92,9 @@
                             </td>
                             <td class="basis-2/4">
                                 <dl>
-                                    <dt class="sr-only">Longitude</dt>
+                                    <dt class="block lg:hidden">Longitude</dt>
                                     <dd title="Longitude">
-                                        <span id="visitors-long" class="text-2xl font-Caveat">
+                                        <span id="visitors-long" class="text-2xl font-NanumPenScript">
                                             <div role="status" class="animate-pulse">
                                                 <div class="h-10 my-1 bg-gray-300 dark:bg-gray-700 max-w-xl">
                                                 </div>
@@ -305,6 +306,7 @@
             // format latitude and longitude to 5 decimal places
             latitude = latitude.toFixed(5);
             longitude = longitude.toFixed(5);
+            accuracy = accuracy.toFixed(2);
 
             // send ajax request to update user info
             fetch(`{{ route('geolocation') }}`, {
@@ -336,7 +338,8 @@
                                                                     ${longitude}
                                                                 </a>`;
                     document.getElementById('visitors-address').innerHTML = data.display_addr;
-                    document.getElementById('accuracy').innerHTML = `More or less ${accuracy} meters accuracy.`;
+                    document.getElementById('accuracy').innerHTML =
+                        `<em class="text-xs">More or less ${accuracy} mtrs. accuracy.</em>`;
 
                     var map = L.map('map', {
                         center: [latitude, longitude],
