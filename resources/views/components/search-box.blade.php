@@ -52,7 +52,7 @@
                     <header>
                         <span class="sr-only">Previous Searches</span>
                     </header>
-                    <div class="font-NanumPenScript space-x-2 flex flex-nowrap text-center justify-center max-w-sm lg:max-w-screen-lg w-full touch-auto snap-mandatory snap-x dark:text-white font-bold min-h-[32px]"
+                    <div class="font-NanumPenScript space-x-2 flex flex-auto text-center justify-center max-w-sm lg:max-w-screen-lg w-full scroll-smooth touch-auto snap-x relative dark:text-white font-bold min-h-[32px]"
                         id="user-searches">
                         Loading...
                     </div>
