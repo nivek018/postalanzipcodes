@@ -27,6 +27,10 @@
                 </p>
             </section>
 
+            <div class="mx-auto max-w-screen-xl px-4 lg:px-8 h-full w-full relative min-h-[250px]">
+                <x-ads-square />
+            </div>
+
             <section class="stack-gray w-full mt-4 p-6 rounded-none shadow-md border dark:bg-gray-900 dark:border-gray-900">
                 <header>
                     <h2 class="text-2xl font-Inter font-bold dark:text-white mb-4">Extracted Zip Code Information</h2>

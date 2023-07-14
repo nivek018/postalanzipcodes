@@ -17,6 +17,10 @@
     <div class="bg-paper-tear -bottom-24 absolute flip-y"></div>
 </section>
 
+<div class="mx-auto max-w-screen-xl px-4 lg:px-8 h-full w-full relative min-h-[250px]">
+    <x-ads-square />
+</div>
+
 <section class="dark:text-black dark:white -mt-[28rem] lg:-mt-96 min-h-[70rem]">
     <div class="max-w-screen-xl mx-auto px-0 lg:px-6 py-10">
 
@@ -105,6 +109,15 @@
                                 </dl>
                             </td>
                         </tr>
+
+                        {{-- on first loop --}}
+                        @if ($loop->index == 0 || $loop->index % 5 == 0)
+                            <tr class="flex relative items-center h-auto w-auto mb-6">
+                                <td colspan="5" class="flex-auto min-h-[80px] w-0 relative">
+                                    <x-ads-horizontal />
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
