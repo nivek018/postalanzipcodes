@@ -55,7 +55,6 @@
 <script>
     // add event listener to load when the page is ready
     window.addEventListener('load', function() {
-
         const submitIcon = document.querySelector("#submit-icon");
         const submitLoader = document.querySelector("#submit-loader");
         const submitBtn = document.querySelector("button[type='submit']");
@@ -129,6 +128,5 @@
                 });
 
         });
-
     });
 </script>
