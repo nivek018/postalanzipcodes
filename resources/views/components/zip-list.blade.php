@@ -1,5 +1,9 @@
 @props(['results', 'page_info', 'subheader_title'])
 
+<div class="mx-auto max-w-screen-xl px-4 lg:px-8 h-full w-full relative min-h-[250px]">
+    <x-ads-square />
+</div>
+
 <section class="bg-[#1B1A21] text-white pt-3 md:pt-4 relative">
     <header class="z-10">
         <div class="max-w-screen-lg mx-auto px-4 lg:px-6 py-4 pb-96">
@@ -12,14 +16,11 @@
             </p>
         </div>
     </header>
+
     <img src="{{ asset('branding/drip-horizontal-multi.png') }}" alt="" width="114"
         class="absolute top-24 left-0 hidden lg:block">
     <div class="bg-paper-tear -bottom-24 absolute flip-y"></div>
 </section>
-
-<div class="mx-auto max-w-screen-xl px-4 lg:px-8 h-full w-full relative min-h-[250px]">
-    <x-ads-square />
-</div>
 
 <section class="dark:text-black dark:white -mt-[28rem] lg:-mt-96 min-h-[70rem]">
     <div class="max-w-screen-xl mx-auto px-0 lg:px-6 py-10">
