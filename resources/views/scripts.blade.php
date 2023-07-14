@@ -63,11 +63,8 @@
             });
 
             /*  */
-            if (null !== user_search_container) {
-                user_search_container.innerHTML = searches_holder;
-            } else {
-                user_search_container.textContent = 'No searches yet';
-            }
+            user_search_container.innerHTML = searches_holder;
+
 
         } else {
             user_search_container.innerHTML = '';
