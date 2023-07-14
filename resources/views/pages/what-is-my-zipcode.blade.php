@@ -29,7 +29,7 @@
 
             <section class="stack-gray w-full mt-4 p-6 rounded-none shadow-md border dark:bg-gray-900 dark:border-gray-900">
                 <header>
-                    <h2 class="text-xl font-Inter font-bold dark:text-white mb-4">Extracted Zip Code Information</h2>
+                    <h2 class="text-2xl font-Inter font-bold dark:text-white mb-4">Extracted Zip Code Information</h2>
                 </header>
 
                 <table class="w-full dark:text-white">
@@ -112,7 +112,7 @@
                 <div class="mt-4 text-gray-100 text-sm font-mono font-thin" id="accuracy"></div>
             </section>
 
-            <section class="stack-gold border border-black dark:bg-amber-100 p-4 gap-4 flex flex-col">
+            <section class="stack-gold border border-black dark:bg-amber-50 p-4 gap-4 flex flex-col">
                 <h2 class="text-3xl font-Inter font-bold">FAQs</h1>
                     <ul class="font-mono text-sm">
                         <li></li>
@@ -127,7 +127,7 @@
                             set expanded(value) {
                                 this.active = value ? this.id : null
                             },
-                        }" role="region" class="rounded-lg bg-white shadow">
+                        }" role="region" class="rounded-sm bg-white shadow">
                             <h2>
                                 <button x-on:click="expanded = !expanded" :aria-expanded="expanded"
                                     class="flex w-full items-center justify-between px-6 py-4 text-xl font-bold">
@@ -138,12 +138,8 @@
                             </h2>
 
                             <div x-show="expanded" x-collapse>
-                                <div class="px-6 pb-4 text-xl font-NanumPenScript">Finding your zip code is simple with our
-                                    location
-                                    API. Just
-                                    enter
-                                    your address, and our system will provide you with the precise zip code for your
-                                    location.</div>
+                                <div class="px-6 pb-4 text-xl font-NanumPenScript">Finding your zip code is easy just allow
+                                    the browser to access your location and we will do the rest.</div>
                             </div>
                         </div>
 
@@ -155,7 +151,7 @@
                             set expanded(value) {
                                 this.active = value ? this.id : null
                             },
-                        }" role="region" class="rounded-lg bg-white shadow">
+                        }" role="region" class="rounded-sm bg-white shadow">
                             <h2>
                                 <button x-on:click="expanded = !expanded" :aria-expanded="expanded"
                                     class="flex w-full items-center justify-between px-6 py-4 text-xl font-bold">
@@ -181,7 +177,7 @@
                             set expanded(value) {
                                 this.active = value ? this.id : null
                             },
-                        }" role="region" class="rounded-lg bg-white shadow">
+                        }" role="region" class="rounded-sm bg-white shadow">
                             <h2>
                                 <button x-on:click="expanded = !expanded" :aria-expanded="expanded"
                                     class="flex w-full items-center justify-between px-6 py-4 text-xl font-bold">
@@ -201,8 +197,38 @@
                             </div>
                         </div>
                     </div>
-            </section>
+
+                    <div x-data="{
+                        id: 4,
+                        get expanded() {
+                            return this.active === this.id
+                        },
+                        set expanded(value) {
+                            this.active = value ? this.id : null
+                        },
+                    }" role="region" class="rounded-sm bg-white shadow">
+                        <h2>
+                            <button x-on:click="expanded = !expanded" :aria-expanded="expanded"
+                                class="flex w-full items-center justify-between px-6 py-4 text-xl font-bold">
+                                <span>Why is a zip code important when sending packages and mail?</span>
+                                <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
+                                <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
+                            </button>
+                        </h2>
+
+                        <div x-show="expanded" x-collapse>
+                            <div class="px-6 pb-4 text-xl font-NanumPenScript">Zip codes play a vital role in ensuring the
+                                efficient and timely delivery of packages and mail. When you include the correct zip code on
+                                your mail or package, it helps postal services accurately sort and route the item to its
+                                destination. This helps reduce delivery delays, ensures your package reaches the intended
+                                recipient quickly, and enhances the overall reliability of the mailing system. Including the
+                                zip code is essential for smooth and hassle-free package and mail delivery.
+                            </div>
+                        </div>
+                    </div>
         </div>
+        </section>
+    </div>
     </div>
 @endsection
 
