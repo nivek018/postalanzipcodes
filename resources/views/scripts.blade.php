@@ -42,7 +42,7 @@
 
                     const div1 = document.createElement('div');
                     div1.className =
-                        'snap-center max-w-[120px] truncate cursor-pointer inline-flex items-center rounded-full border border-dashed border-amber-500 px-2 py-1 my-1.5 text-sm font-medium text-amber-400 hover:shadow-lg';
+                        'select-none max-w-[120px] cursor-pointer flex items-center rounded-full border border-dashed border-amber-500 px-2 py-1 text-sm font-medium text-amber-400 hover:shadow-lg';
 
                     const svg = `<svg class="w-5 h-5 mr-1 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -51,11 +51,11 @@
 
                     div1.innerHTML = svg;
 
-                    const div2 = document.createElement('div');
-                    div2.classList.add('truncate');
-                    div2.textContent = item;
+                    const span = document.createElement('span');
+                    span.classList.add('truncate');
+                    span.textContent = item;
 
-                    div1.appendChild(div2);
+                    div1.appendChild(span);
                     link.appendChild(div1);
 
                     searches_holder += link.outerHTML;
