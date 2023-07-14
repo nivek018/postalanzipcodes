@@ -20,7 +20,7 @@
                                 <img class="h-11 w-auto"
                                     src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto,w_80,h_80/v1601874637/postalandzipcodes.ph/square-logo.svg"
                                     alt="PostalAndZipCodes Logo">
-                                <span class="text-2xl font-bold truncate">PostalAndZipCodes</span>
+                                <span class="text-3xl font-bold truncate font-NanumPenScript">PostalAndZipCodes</span>
                             </div>
                         </a>
                     </div>

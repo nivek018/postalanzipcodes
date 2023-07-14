@@ -12,106 +12,196 @@
 
 
 @section('content')
-    <div class="relative overflow-hidden py-10 md:py-5">
-
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-
-            <!-- ads -->
-            {{-- @include('ads.ads1') --}}
-            <!--  -->
-            <!--  -->
-
-            <div
-                class="w-full mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Find your Zip Code using your current location
-                </h5>
-                <p class="mb-3 font-normal dark:text-gray-400">
-                    We are tracking your current's device location to pinpoint and extract your zip code information as
-                    prerequisites to this we are using <code>Geolocation.getCurrentPosition()</code> method to get the
-                    current position of your device.
+    <div class="relative overflow-hidden py-10 md:py-16">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col space-y-10">
+            <section class="stack-sm border border-black p-4 gap-4 flex flex-col">
+                <h1 class="text-3xl font-Inter font-bold">Get Your Exact Location's Zip Code</h1>
+                <p class="font-mono text-sm">
+                    Knowing your exact location's zip code can be crucial for various purposes, whether it's for mail
+                    delivery, online registrations, or local services. With our innovative location API, finding your zip
+                    code has never been easier.
                 </p>
-                <p class="mb-3 font-normal dark:text-gray-400">
-                    However this doesn't mean that we can always right in giving you your zip code information, to help you
-                    give an idea if we are tracking your correct location we also display your location on the map.
+                <p class="font-mono text-sm">
+                    Your browser will prompt you to allow the location API to access your location, and once you do, we'll
+                    extract your zip code and display it on the map.
                 </p>
-            </div>
+            </section>
 
+            <section class="stack-gray w-full mt-4 p-6 rounded-none shadow-md border dark:bg-gray-900 dark:border-gray-900">
+                <header>
+                    <h2 class="text-xl font-Inter font-bold dark:text-white mb-4">Extracted Zip Code Information</h2>
+                </header>
 
-            <div
-                class="w-full mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-900 dark:border-gray-700">
+                <table class="w-full dark:text-white">
+                    <thead>
+                        <tr class="hidden">
+                            <th>Zip Code</th>
+                            <th>Address</th>
+                            <th>Latitude</th>
+                            <th>Longitutde</th>
+                        </tr>
+                    </thead>
 
-                <div class="flex p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-gray-800 dark:text-blue-400"
-                    role="alert">
-                    <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor"
-                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="sr-only">Info</span>
-                    <div>
-                        <span class="font-medium">Note:</span> The method <code>Geolocation.getCurrentPosition()</code> is
-                        more accurate on a mobile device.
+                    <tbody>
+                        <tr class="flex flex-wrap">
+                            <td class="basis-full">
+                                <dl>
+                                    <dt class="sr-only">Zip Code</dt>
+                                    <dd>
+                                        <span id="visitors-zipcode" class="text-5xl font-bold font-Caveat">
+                                            <div role="status" class="animate-pulse">
+                                                <div class="h-10 my-1 bg-gray-300 dark:bg-gray-700 max-w-[100px]">
+                                                </div>
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </td>
+                            <td class="basis-full">
+                                <dl>
+                                    <dt class="sr-only">Address</dt>
+                                    <dd>
+                                        <span id="visitors-address" class="text-2xl font-Caveat">
+                                            <div role="status" class="animate-pulse">
+                                                <div class="h-20 my-1 bg-gray-300 dark:bg-gray-700 max-w-xl">
+                                                </div>
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </td>
+                            <td class="basis-2/4">
+                                <dl>
+                                    <dt class="sr-only">Latitude</dt>
+                                    <dd title="Latitude">
+                                        <span id="visitors-lat" class="text-2xl font-Caveat">
+                                            <div role="status" class="animate-pulse">
+                                                <div class="h-10 my-1 bg-gray-300 dark:bg-gray-700 max-w-xl"></div>
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </td>
+                            <td class="basis-2/4">
+                                <dl>
+                                    <dt class="sr-only">Longitude</dt>
+                                    <dd title="Longitude">
+                                        <span id="visitors-long" class="text-2xl font-Caveat">
+                                            <div role="status" class="animate-pulse">
+                                                <div class="h-10 my-1 bg-gray-300 dark:bg-gray-700 max-w-xl">
+                                                </div>
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="mt-5 h-[50vh] relative overflow-hidden z-10">
+                    <div id="map" class="h-full">
+                        <div class="animate-pulse h-full my-1 bg-gray-300 dark:bg-gray-700 w-full"></div>
                     </div>
                 </div>
 
+                <div class="mt-4 text-gray-100 text-sm font-mono font-thin" id="accuracy"></div>
+            </section>
 
+            <section class="stack-gold border border-black dark:bg-amber-100 p-4 gap-4 flex flex-col">
+                <h2 class="text-3xl font-Inter font-bold">FAQs</h1>
+                    <ul class="font-mono text-sm">
+                        <li></li>
+                    </ul>
 
-                <dl class="max-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                    <div class="flex flex-col py-3">
-                        <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Your device's address</dt>
-                        <dd class="text-lg font-semibold">
-                            <span id="visitors-address" class="font-bold text-3xl">
+                    <div x-data="{ active: 1 }" class="mx-auto w-full min-h-[16rem] space-y-4">
+                        <div x-data="{
+                            id: 1,
+                            get expanded() {
+                                return this.active === this.id
+                            },
+                            set expanded(value) {
+                                this.active = value ? this.id : null
+                            },
+                        }" role="region" class="rounded-lg bg-white shadow">
+                            <h2>
+                                <button x-on:click="expanded = !expanded" :aria-expanded="expanded"
+                                    class="flex w-full items-center justify-between px-6 py-4 text-xl font-bold">
+                                    <span>How can I find my zip code?</span>
+                                    <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
+                                    <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
+                                </button>
+                            </h2>
 
-                                <div role="status" class="animate-pulse">
-                                    <div class="h-8 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-xl"></div>
-                                    <span class="sr-only">Loading...</span>
+                            <div x-show="expanded" x-collapse>
+                                <div class="px-6 pb-4 text-xl font-NanumPenScript">Finding your zip code is simple with our
+                                    location
+                                    API. Just
+                                    enter
+                                    your address, and our system will provide you with the precise zip code for your
+                                    location.</div>
+                            </div>
+                        </div>
+
+                        <div x-data="{
+                            id: 2,
+                            get expanded() {
+                                return this.active === this.id
+                            },
+                            set expanded(value) {
+                                this.active = value ? this.id : null
+                            },
+                        }" role="region" class="rounded-lg bg-white shadow">
+                            <h2>
+                                <button x-on:click="expanded = !expanded" :aria-expanded="expanded"
+                                    class="flex w-full items-center justify-between px-6 py-4 text-xl font-bold">
+                                    <span>Can I use the zip code lookup tool for any location?</span>
+                                    <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
+                                    <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
+                                </button>
+                            </h2>
+
+                            <div x-show="expanded" x-collapse>
+                                <div class="px-6 pb-4 text-xl font-NanumPenScript">Your location's zip code enables
+                                    businesses and organizations to provide tailored services, local promotions, and
+                                    customized offers specific to your area. It ensures you don't miss out on location-based
+                                    opportunities and experiences.</div>
+                            </div>
+                        </div>
+
+                        <div x-data="{
+                            id: 3,
+                            get expanded() {
+                                return this.active === this.id
+                            },
+                            set expanded(value) {
+                                this.active = value ? this.id : null
+                            },
+                        }" role="region" class="rounded-lg bg-white shadow">
+                            <h2>
+                                <button x-on:click="expanded = !expanded" :aria-expanded="expanded"
+                                    class="flex w-full items-center justify-between px-6 py-4 text-xl font-bold">
+                                    <span>Why is knowing my location's zip code important?</span>
+                                    <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
+                                    <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
+                                </button>
+                            </h2>
+
+                            <div x-show="expanded" x-collapse>
+                                <div class="px-6 pb-4 text-xl font-NanumPenScript">Your location's zip code enables
+                                    businesses and
+                                    organizations to
+                                    provide tailored services, local promotions, and customized offers specific to your
+                                    area. It ensures you don't miss out on location-based opportunities and experiences.
                                 </div>
-
-                            </span>
-                        </dd>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex flex-col py-3">
-                        <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Your device's location information</dt>
-                        <dd class="text-lg font-semibold">
-                            <span id="visitors-lat-long" class="font-bold text-3xl">
-
-                                <div role="status" class="animate-pulse">
-                                    <div class="h-8 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-xl"></div>
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-
-                            </span>
-                        </dd>
-                    </div>
-                    <div class="flex flex-col pt-3">
-                        <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Zip Code</dt>
-                        <dd class="text-lg font-semibold">
-                            <span id="visitors-zipcode" class="font-bold text-3xl">
-
-                                <div role="status" class="animate-pulse">
-                                    <div class="h-8 bg-gray-300 rounded-lg dark:bg-gray-700 max-w-[100px]"></div>
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-
-                            </span>
-                        </dd>
-                    </div>
-                </dl>
-
-                <div class="mt-5 h-[50vh] relative overflow-hidden">
-                    <div id="map" class="h-full"></div>
-                </div>
-
-                <div class="mt-4 text-gray-400" id="accuracy"></div>
-            </div>
-
-            <!-- ads -->
-            {{-- @include('ads.ads2') --}}
-            <!--  -->
-            <!--  -->
-
+            </section>
         </div>
     </div>
 @endsection
@@ -145,15 +235,15 @@
 
                     // if the user denies the request
                     if (error.code == error.PERMISSION_DENIED) {
-
                         // display the error message
                         document.getElementById('visitors-address').innerHTML =
                             '<span class="text-red-500">Permission denied</span>';
-                        document.getElementById('visitors-lat-long').innerHTML =
+                        document.getElementById('visitors-lat').innerHTML =
+                            '<span class="text-red-500">Permission denied</span>';
+                        document.getElementById('visitors-long').innerHTML =
                             '<span class="text-red-500">Permission denied</span>';
                         document.getElementById('visitors-zipcode').innerHTML =
                             '<span class="text-red-500">Permission denied</span>';
-
                     }
 
                 });
@@ -163,7 +253,9 @@
                 // if the browser doesn't support geolocation
                 document.getElementById('visitors-address').innerHTML =
                     '<span class="text-red-500">Geolocation is not supported by this browser</span>';
-                document.getElementById('visitors-lat-long').innerHTML =
+                document.getElementById('visitors-lat').innerHTML =
+                    '<span class="text-red-500">Geolocation is not supported by this browser</span>';
+                document.getElementById('visitors-long').innerHTML =
                     '<span class="text-red-500">Geolocation is not supported by this browser</span>';
                 document.getElementById('visitors-zipcode').innerHTML =
                     '<span class="text-red-500">Geolocation is not supported by this browser</span>';
@@ -175,6 +267,10 @@
 
 
         function final_request(latitude, longitude, accuracy) {
+
+            // format latitude and longitude to 5 decimal places
+            latitude = latitude.toFixed(5);
+            longitude = longitude.toFixed(5);
 
             // send ajax request to update user info
             fetch(`{{ route('geolocation') }}`, {
@@ -198,9 +294,12 @@
 
                     // handle success
                     document.getElementById('visitors-zipcode').innerHTML =
-                        `<a class="hover:text-blue-700" href="${data.zip_code_url}" title="Zip Code Search">${data.zip_code}</a>`;
-                    document.getElementById('visitors-lat-long').innerHTML = `<a class="hover:text-blue-700" href="https://www.google.com/maps/@${latitude},${longitude},15z" target="_blank">
-                                                                    Lat. ${latitude} Long. ${longitude}
+                        `<a class="hover:text-blue-700" href="${data.zip_code_url}" title="Zip Code ${data.zip_code}">${data.zip_code}</a>`;
+                    document.getElementById('visitors-lat').innerHTML = `<a class="hover:text-blue-700" href="https://www.google.com/maps/@${latitude},${longitude},15z" target="_blank">
+                                                                    ${latitude}
+                                                                </a>`;
+                    document.getElementById('visitors-long').innerHTML = `<a class="hover:text-blue-700" href="https://www.google.com/maps/@${latitude},${longitude},15z" target="_blank">
+                                                                    ${longitude}
                                                                 </a>`;
                     document.getElementById('visitors-address').innerHTML = data.display_addr;
                     document.getElementById('accuracy').innerHTML = `More or less ${accuracy} meters accuracy.`;
