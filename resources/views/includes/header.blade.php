@@ -1,5 +1,5 @@
-<header class="flex-none w-full">
-    <nav class="z-40 pb-0 lg:pb-6 flex-none w-full mx-auto font-mono dark:bg-[#1B1A21] pt-0 lg:pt-8">
+<header class="sticky top-0 z-30">
+    <nav class="z-40 pb-0 lg:pb-6 flex-1 w-full mx-auto font-mono dark:bg-[#1B1A21] pt-0 lg:pt-8 sticky top-0">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center justify-between gap-6">
@@ -39,7 +39,7 @@
     </nav>
 
     {{-- backdrop --}}
-    <div x-show="sidebarOpen" x-cloak class="fixed inset-0 h-screen w-screen dark:bg-opacity-90 dark:bg-gray-900 z-10">
+    <div x-show="sidebarOpen" x-cloak class="fixed inset-0 h-screen w-screen dark:bg-opacity-90 dark:bg-gray-900 z-40">
         <button class="absolute top-3.5 right-0 px-1 py-1 dark:text-white lg:hidden">
             <svg class="w-11 h-11" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true">
@@ -49,6 +49,7 @@
             </svg>
         </button>
     </div>
+
     {{-- sidebar --}}
     <aside x-show="sidebarOpen" @click.outside="sidebarOpen = false" x-cloak
         x-transition:enter="transition ease-in-out transform" x-transition:enter-start="-translate-x-full"
@@ -132,9 +133,6 @@
             </ul>
         </div>
     </aside>
-
-
-
 
     <img src="{{ asset('branding/drip-vertical-orange.png') }}" alt="" width="69"
         class="absolute top-0 left-80 hidden lg:block">
