@@ -22,9 +22,6 @@
         <section class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div
                 class="px-4 py-8 stack-gray font-NanumPenScript text-2xl border dark:bg-white border-black flex flex-col space-y-6 relative">
-
-
-
                 <small class="mb-4">Last updated on July 14, 2023</small>
 
                 <p>At postalandzipcodes.ph, accessible from https://postalandzipcodes.ph/, one of our main priorities is
