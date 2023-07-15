@@ -6,7 +6,7 @@
                     <button @click="sidebarOpen = !sidebarOpen" type="button"
                         class="transition-all ease-in-out duration-300 button button-white border-2 border-black flex rounded-sm dark:bg-gray-50 dark:text-gray-900 text-sm p-2 font-bold hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span class="sr-only">Open sidebar</span>
-                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                        <svg class="w-5 h-5 aspect-square" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path clip-rule="evenodd" fill-rule="evenodd"
                                 d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
@@ -14,10 +14,10 @@
                         </svg>
                     </button>
 
-                    <div class="flex-shrink-0 truncate">
+                    <div class="shrink-0 truncate">
                         <a href="/" title="Home">
                             <div class="flex items-center space-x-1.5 dark:text-gray-50">
-                                <img class="h-11 w-auto"
+                                <img class="h-11 w-auto aspect-square"
                                     src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto,w_80,h_80/v1601874637/postalandzipcodes.ph/square-logo.svg"
                                     alt="PostalAndZipCodes Logo">
                                 <span class="text-3xl font-bold truncate font-NanumPenScript">PostalAndZipCodes</span>
