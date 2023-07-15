@@ -19,8 +19,6 @@
         </div>
     </header>
 
-    <img src="{{ asset('branding/drip-horizontal-multi.png') }}" alt="" width="114"
-        class="absolute top-24 left-0 hidden lg:block">
     <div class="bg-paper-tear -bottom-24 absolute flip-y"></div>
 </section>
 

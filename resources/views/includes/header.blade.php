@@ -149,9 +149,4 @@
             </ul>
         </div>
     </aside>
-
-    <img src="{{ asset('branding/drip-vertical-orange.png') }}" alt="" width="69"
-        class="absolute top-0 left-80 hidden lg:block">
-    <img src="{{ asset('branding/drip-vertical-blue.png') }}" alt="" width="26"
-        class="absolute top-0 right-4 hidden lg:block">
 </header>
