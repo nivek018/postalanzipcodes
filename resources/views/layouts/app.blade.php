@@ -31,11 +31,11 @@
     <meta name="msapplication-TileImage" content="{{ asset('image/favicon/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
 
-    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=IBM+Plex+Sans:wght@700&family=Inter:wght@600;700;800;900&family=Nanum+Pen+Script&display=swap"
-        rel="stylesheet"> --}}
+        rel="stylesheet">
 
     <!-- main resources app -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
