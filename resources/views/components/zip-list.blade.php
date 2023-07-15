@@ -128,7 +128,7 @@
                         </tr>
 
                         {{-- on first loop --}}
-                        @if ($loop->index == 0 || $loop->index % 5 == 0)
+                        @if (($loop->index == 0 || $loop->index % 5 == 0) && $loop->index < 16)
                             <tr class="flex relative items-center h-auto w-auto mb-6">
                                 <td colspan="5" class="flex-auto min-h-[80px] w-0 relative">
                                     <x-ads-horizontal />
