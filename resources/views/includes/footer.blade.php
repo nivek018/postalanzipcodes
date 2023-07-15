@@ -4,7 +4,7 @@
             <div class="md:max-w-lg">
                 <a href="https://postalandzipcodes.ph/" class="flex items-center mb-4 sm:mb-0">
                     <img src="https://res.cloudinary.com/mnoquiao/image/upload/f_auto,q_auto,w_80,h_80/v1601874637/postalandzipcodes.ph/square-logo.svg"
-                        class="h-12 mr-3" alt="postalandzipcodes.ph" />
+                        class="h-12 w-auto mr-3 aspect-square" alt="postalandzipcodes.ph" />
                     <span
                         class="self-center text-3xl font-NanumPenScript font-semibold whitespace-nowrap dark:text-white">PostalAndZipCodes</span>
                 </a>

@@ -34,7 +34,7 @@
         <div class="px-4 py-5 border border-b-0 dark:border-gray-700 hidden">
             <div class="max-w-full md:max-w-md">
                 <form x-data @submit.prevent>
-                    <label for="search"
+                    <label for="fiter-results"
                         class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -44,7 +44,7 @@
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </div>
-                        <input type="search" id="search"
+                        <input type="search" id="fiter-results" name="search"
                             class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Filter Results" required>
                     </div>
