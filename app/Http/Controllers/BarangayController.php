@@ -79,7 +79,7 @@ class BarangayController extends Controller
       if ( count($sql) > 0 ) {
 
          /* change title and info if results were found */
-         $page_title    = sprintf('📍 Zip Code of Barangay %s.', ucwords($formatted_barangay));
+         $page_title    = sprintf('📍 Zip Code of Barangay %s', ucwords($formatted_barangay));
          $page_info     = sprintf("Here is the Zip Code information of Barangay %s, that is within %s.",
                                 ucwords($formatted_barangay),
                                 ucwords($formatted_city)
