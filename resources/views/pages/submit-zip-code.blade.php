@@ -25,7 +25,7 @@
                 <form id="submit-zip-code-form" autocomplete="off" class="space-y-6 font-Inter">
                     @csrf()
 
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Zip Code Directory Submission Form</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Zip Code Contribute Form</h2>
                     <div class="text-gray-200 font-NanumPenScript">{{ $data['description'] }}</div>
 
                     <div class="font-bold text-lg" id="error-msg"></div>
@@ -33,13 +33,12 @@
 
                     <div class="mb-6">
                         <label for="countries"
-                            class="block mb-2 text-sm font-bold text-gray-900 dark:text-white font-Inter">Select
-                            the
-                            Region</label>
+                            class="block mb-2 text-sm font-bold text-gray-900 dark:text-white font-Inter">Select the
+                            Region <span class="text-red-500 text-lg">*</span></label>
                         <select name="region" id="selectRegion"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-500 dark:focus:border-amber-500"
                             required>
-                            <option value=""></option>
+                            <option value="">Select Region</option>
                             @php
                                 $select_opt = ['Zamboanga Peninsula (Region IX)', 'Bangsamoro Autonomous Region in Muslim Mindanao (Region XVI - BARMM)', 'Bicol Region (Region V)', 'Cagayan Valley (Region II)', 'Caraga Region (Region XIII)', 'Central Luzon (Region III)', 'Central Visayas (Region VII)', 'Cordillera Administrative Region (Region XV - CAR)', 'Davao Region (Region XI)', 'Eastern Visayas (Region VIII)', 'Ilocos Region (Region I)', 'National Capital Region (Region XIV - NCR)', 'Northern Mindanao (Region X)', 'Region 18', 'SOCCSKSARGEN (Region XII)', 'Southern Tagalog Mainland (Region IV A - CALABARZON)', 'Southwestern Tagalog Region (Region XVII MIMAROPA Region)', 'Western Visayas (Region VI)'];
                                 usort($select_opt, function ($a, $b) {
@@ -58,18 +57,19 @@
 
                     <div class="mb-6">
                         <label for="textareaAddress"
-                            class="block mb-2 text-sm font-bold text-gray-900 dark:text-white font-Inter">Address</label>
+                            class="block mb-2 text-sm font-bold text-gray-900 dark:text-white font-Inter">Address <span
+                                class="text-red-500 text-lg">*</span></label>
                         <textarea name="address" id="textareaAddress" rows="4"
-                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-sm border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-sm border border-gray-300 focus:ring-amber-500 focus:border-amber-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-500 dark:focus:border-amber-500"
                             placeholder="Street, Barangay, City/Town, or Province" autocomplete="off" required></textarea>
                     </div>
 
                     <div class="mb-6 w-[50%]">
                         <label for="inputZipcode"
                             class="block mb-2 text-sm font-bold text-gray-900 dark:text-white font-Inter">Zip
-                            Code</label>
+                            Code <span class="text-red-500 text-lg">*</span></label>
                         <input type="text" name="zipcode" id="inputZipcode" minlength="4" maxlength="4" x-mask="9999"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-500 dark:focus:border-amber-500"
                             required>
                     </div>
 
@@ -79,7 +79,7 @@
                             Name <small class="text-muted">(Optional)</small></label>
                         <input type="text" name="contributor" id="inputName" placeholder="Your Name or Alias?"
                             autocomplete="off"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-500 dark:focus:border-amber-500">
                     </div>
 
                     <div class="mb-6">
@@ -87,11 +87,11 @@
                             class="block mb-2 text-sm font-bold text-gray-900 dark:text-white font-Inter">Email
                             Address <small class="text-muted">(Optional)</small></label>
                         <input type="email" name="email" id="inputEmail" placeholder="Your Email?" autocomplete="off"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-500 dark:focus:border-amber-500">
                     </div>
 
                     <button type="submit" id="submit-zip-code-btn"
-                        class="dark:disabled:bg-gray-700 disabled:text-gray-500 disabled:cursor-wait text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        class="dark:disabled:bg-gray-700 disabled:text-gray-500 disabled:cursor-wait text-white bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium text-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800">Submit</button>
                 </form>
             </div>
         </section>
