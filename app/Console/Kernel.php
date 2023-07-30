@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('sitemap:generate')
-                ->everyFiveMinutes()
+                ->dailyAt('00:00')
                 ->timezone('Asia/Manila');
     }
 
