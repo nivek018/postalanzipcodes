@@ -15,7 +15,12 @@
     <div class="relative overflow-hidden py-10 md:py-16">
         <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col space-y-10">
             <section class="stack-sm border border-black p-4 gap-4 flex flex-col">
-                <h1 class="text-3xl font-Inter font-bold">Get Your Exact Location's Zip Code</h1>
+                <h1 class="text-3xl font-Inter font-bold">What is my Zip Code?</h1>
+                <p class="font-mono text-sm">
+                    Looking to know your exact zip code? You've come to the right place. We can help you find your zip code
+                    just
+                    by using your browser's location API.
+                </p>
                 <p class="font-mono text-sm">
                     Knowing your exact location's zip code can be crucial for various purposes, whether it's for mail
                     delivery, online registrations, or local services. With our innovative location API, finding your zip
@@ -67,19 +72,19 @@
                                 <dl>
                                     <dt class="sr-only">Address</dt>
                                     <dd>
-                                        <span id="visitors-address" class="text-2xl font-NanumPenScript">
+                                        <div id="visitors-address" class="text-xl font-light max-w-xl">
                                             <div role="status" class="animate-pulse">
                                                 <div class="h-20 my-1 bg-gray-300 dark:bg-gray-700 max-w-xl">
                                                 </div>
                                                 <span class="sr-only">Loading...</span>
                                             </div>
-                                        </span>
+                                        </div>
                                     </dd>
                                 </dl>
                             </td>
                             <td class="basis-2/4">
                                 <dl>
-                                    <dt class="block lg:hidden">Latitude</dt>
+                                    <dt class="block">Latitude</dt>
                                     <dd title="Latitude">
                                         <span id="visitors-lat" class="text-2xl font-NanumPenScript">
                                             <div role="status" class="animate-pulse">
@@ -92,7 +97,7 @@
                             </td>
                             <td class="basis-2/4">
                                 <dl>
-                                    <dt class="block lg:hidden">Longitude</dt>
+                                    <dt class="block">Longitude</dt>
                                     <dd title="Longitude">
                                         <span id="visitors-long" class="text-2xl font-NanumPenScript">
                                             <div role="status" class="animate-pulse">

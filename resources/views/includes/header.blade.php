@@ -59,7 +59,7 @@
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-[#1B1A21]">
             <ul class="space-y-2 font-bold font-mono">
                 <li>
-                    <a href="{{ route('my-zip-code') }}" title="Zip code of my location"
+                    <a href="{{ route('my-zip-code') }}" title="Zip code of my current location"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@
                                 d="M6 3a3 3 0 00-3 3v1.5a.75.75 0 001.5 0V6A1.5 1.5 0 016 4.5h1.5a.75.75 0 000-1.5H6zM16.5 3a.75.75 0 000 1.5H18A1.5 1.5 0 0119.5 6v1.5a.75.75 0 001.5 0V6a3 3 0 00-3-3h-1.5zM12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zM4.5 16.5a.75.75 0 00-1.5 0V18a3 3 0 003 3h1.5a.75.75 0 000-1.5H6A1.5 1.5 0 014.5 18v-1.5zM21 16.5a.75.75 0 00-1.5 0V18a1.5 1.5 0 01-1.5 1.5h-1.5a.75.75 0 000 1.5H18a3 3 0 003-3v-1.5z">
                             </path>
                         </svg>
-                        <span class="ml-3">My Zip code</span>
+                        <span class="ml-3">What is my Zip Code?</span>
                     </a>
                 </li>
                 <li>

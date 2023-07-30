@@ -70,7 +70,7 @@ Route::get('/about-us', function () {
 // Route direct what-is-my-postal-code to my-zip-code
 Route::get('/my-zip-code', function () {
     $data    = [
-        'page_title'        => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
+        'page_title'        => "What is my Zip Code? — Get Your Current Location's Zip Code",
         'canonical'         => route('what-is-my-postal-code'),
         'description'       => "Find your Zip Code quickly and easily using your device's GPS location. Our map-based tool uses Geolocation to pinpoint your current location and extract your zip code information. Try it now",
         'subheader_title'   => "Zip Code Lookup using GPS - Get Your Current Location's Zip Code",
