@@ -66,6 +66,18 @@ Route::get('/about-us', function () {
     return view('pages.abt', compact('data'));
 })->name('about-us');
 
+/* contact page */
+Route::get('/contact-us', function () {
+    $data    = [
+        'page_title'        => 'Contact Us',
+        'canonical'         => route('contact-us'),
+        'description'       => 'Get in touch with PostalAndZipCodes.ph for any inquiries or feedback.',
+        'subheader_title'   => 'Contact Us'
+    ];
+
+    return view('pages.contact', compact('data'));
+})->name('contact-us');
+
 
 // Route direct what-is-my-postal-code to my-zip-code
 Route::get('/my-zip-code', function () {

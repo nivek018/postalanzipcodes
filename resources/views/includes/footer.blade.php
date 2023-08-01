@@ -27,7 +27,10 @@
                     <a href="/privacy-policy" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
                 </li>
                 <li>
-                    <a href="/how-it-works" class="hover:underline">How it works?</a>
+                    <a href="/how-it-works" class="mr-4 hover:underline md:mr-6">How it works?</a>
+                </li>
+                <li>
+                    <a href="/contact-us" class="hover:underline">Contact Us</a>
                 </li>
             </ul>
         </div>
