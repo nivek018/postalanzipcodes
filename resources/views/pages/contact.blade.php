@@ -58,7 +58,7 @@
                         <h2><span itemprop="name">AIO WIRELESS NETWORK AND DATA SOLUTION</span></h2>
                         <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                             <p>
-                                <span itemprop="streetAddress">103 Samson Road</span><br />
+                                <span itemprop="streetAddress">103 Samson Road, Barangay 80</span><br />
                                 <span itemprop="addressLocality">Caloocan City</span>,
                                 <span itemprop="addressRegion">National Capital Region</span><br />
                                 <span itemprop="postalCode">1400</span><br />
