@@ -34,12 +34,12 @@ class ZipcodeController extends Controller
 
             /* Zip Code is belong to more than 1 barangay */
             if ( count($sql) > 1 ) {
-                $page_title     = sprintf('%s Zip Code - %s Location and Information', $code, $sql[0]->city);
-                $page_info      = sprintf('Discover the location and detailed information for zip code %s in %s, %s. Our easy-to-use directory includes the area name, city, and nation for all postal codes in the %s area.', $code, $sql[0]->city, $sql[0]->region, $code);
+                $page_title     = sprintf('📧 %s Zip Code - Location and Information', $code);
+                $page_info      = sprintf('Discover the location and detailed information for zip code %s in %s, %s.', $code, $sql[0]->city, $sql[0]->region, $code);
             }
             else {
-                $page_title     = sprintf('%s Zip Code - %s Location and Information', $code, $sql[0]->city);
-                $page_info      = sprintf('Discover the location and detailed information for zip code %s in %s, %s. Our easy-to-use directory includes the area name, city, and nation for all postal codes in the %s area.', $code, $sql[0]->city, $sql[0]->region, $code);
+                $page_title     = sprintf('📧 %s Zip Code - Location and Information', $code);
+                $page_info      = sprintf('Discover the location and detailed information for zip code %s in %s, %s.', $code, $sql[0]->city, $sql[0]->region, $code);
             }
 
             /*  */
@@ -87,7 +87,7 @@ class ZipcodeController extends Controller
         else {
 
             /*  */
-            $data    = array(
+            $data    = [
                         'page_title'        => $page_title,
                         'canonical'         => null,
                         'description'       => $page_info,
@@ -96,11 +96,11 @@ class ZipcodeController extends Controller
                         'page_info'         => $page_info,
                         'results'           => null,
                         'search_q'          => '',
-                    );
+            ];
 
         }
 
-        return view('pages.zipcodes.zipcode', $data);
+        return view('pages.zipcodes.zipcode', compact('data'));
 
     }
 }

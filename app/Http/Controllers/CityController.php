@@ -65,15 +65,10 @@ class CityController extends Controller
       if ( count($sql) > 0 ) {
 
 
-
-
          /* modify page title, info/description */
-         $page_title       = sprintf("%s Zip Codes - Find Your City's Zip Codes in Philippines", $sql[0]->city);
+         $page_title       = sprintf("🌆 Zip Codes of %s", $sql[0]->city);
          $page_info        = sprintf(
-                                "Discover %s, a vibrant location in the Philippines' %s.
-                                Our comprehensive zip code directory includes %s Barangays,
-                                with zip codes ranging from {zipcodes}. Find all the essential information you need, from demographics to local statistics,
-                                and explore the unique culture and lifestyle of this dynamic city.",
+                                "See the zip codes of %s, located within %s. Our comprehensive zip code directory includes %s Barangays, with zip codes ranging from {zipcodes}.",
                                 $sql[0]->city,
                                 $sql[0]->region,
                                 count($sql)
@@ -143,7 +138,7 @@ class CityController extends Controller
       else {
 
          /*  */
-         $data    = array(
+         $data    = [
                      'page_title'       => $page_title,
                      'canonical'        => null,
                      'description'      => $page_info,
@@ -152,11 +147,11 @@ class CityController extends Controller
                      'results'          => null,
                      'search_q'         => '',
                      'city_zips'        => '',
-                  );
+         ];
 
       }
 
-      return view('pages.zipcodes.city', $data);
+      return view('pages.zipcodes.city', compact('data'));
 
    }
 

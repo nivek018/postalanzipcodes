@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Page Title -->
+    <title>@yield('title')</title>
+    <!-- Page Description -->
+    <meta name="description" content="@yield('description')">
+    <!-- Canonical -->
+    <link rel="canonical" href="@yield('canonical')" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>postalandzipcodes.ph - @yield('title')</title>
-    <meta name="description" content="{{ $description ?? '' }}">
-    <link rel="canonical" href="{{ $canonical ?? '' }}" />
     <meta name="robots" content="index">
     <meta name="googlebot" content="index">
 
@@ -29,10 +33,14 @@
     <meta name="msapplication-TileImage" content="{{ asset('image/favicon/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- global css -->
-    @include('head')
-    <!--  -->
-    <!--  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=IBM+Plex+Sans:wght@700&family=Inter:wght@600;700;800;900&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+
+    <!-- main resources app -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- in-page styles -->
     @yield('page_styles')
@@ -40,13 +48,11 @@
     <!--  -->
 
 </head>
-<body class="dark">
 
-    <div class="min-h-screen h-full bg-white dark:bg-gray-900"
-        style="
-        font-size: 1rem;
-        font-weight: 40;
-        line-height: 1.5rem;">
+<body x-data="{ sidebarOpen: false }" class="dark font-IBMPlexSans">
+
+    <div class="min-h-screen h-full bg-white dark:bg-[#1B1A21]"
+        style="font-size: 1rem; font-weight: 40; line-height: 1.5rem;">
 
         <!--                                    -->
         <!--    menus and nagivation            -->
@@ -54,7 +60,7 @@
         <!--                                    -->
 
         <main>
-            <div class="h-full">
+            <div class="h-full dark:bg-white">
 
                 {{-- <div class="h-96 rounded-lg border-4 border-dashed border-gray-200"></div> --}}
                 <!--                                    -->
@@ -72,17 +78,18 @@
 
     </div>
 
-        <!--                                    -->
-        <!--    global js scripts               -->
-                @include('scripts')
-        <!--                                    -->
+    <!--                                    -->
+    <!--    global js scripts               -->
+    @include('scripts')
+    <!--                                    -->
 
 
 
-        <!--                                    -->
-        <!--    in-page js scripts              -->
-                @yield('page_scripts')
-        <!--                                    -->
+    <!--                                    -->
+    <!--    in-page js scripts              -->
+    @yield('page_scripts')
+    <!--                                    -->
 
 </body>
+
 </html>

@@ -1,41 +1,37 @@
 @extends('layouts.app')
-@section('title', $page_title)
-@section('page_styles')
-
-@endsection
+@section('title', $data['page_title'])
+@section('description', $data['description'])
+@section('canonical', $data['canonical'])
 
 @section('content')
-    <div class="relative overflow-hidden py-10 md:py-5">
+    <section class="relative overflow-hidden">
 
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <!-- search -->
+        <x-search-box :showBackground="true" />
+        <!--  -->
+        <!--  -->
 
-            <!-- search -->
-            @include('includes.search')
+        <!-- ads -->
+        {{-- @include('ads.ads1') --}}
+        <!--  -->
+        <!--  -->
+
+        @if (null !== $data['results'])
+            {{-- zip code list display --}}
+            <x-zip-list :results="$data['results']" :page_info="$data['page_info']" :subheader_title="$data['subheader_title']" />
+        @else
+            <!-- no results -->
+            @include('includes.no-results')
             <!--  -->
             <!--  -->
+        @endif
 
-            <!-- ads -->
-            {{-- @include('ads.ads1') --}}
-            <!--  -->
-            <!--  -->
+        <!-- ads -->
+        {{-- @include('ads.ads2') --}}
+        <!--  -->
+        <!--  -->
 
-            @if (null !== $results)
-                {{-- zip code list display --}}
-                <x-zip-list :results="$results" :page_info="$page_info" />
-            @else
-                <!-- no results -->
-                @include('includes.no-results')
-                <!--  -->
-                <!--  -->
-            @endif
-
-            <!-- ads -->
-            {{-- @include('ads.ads2') --}}
-            <!--  -->
-            <!--  -->
-
-        </div>
-    </div>
+    </section>
 @endsection
 
 
