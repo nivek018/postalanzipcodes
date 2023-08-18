@@ -73,8 +73,8 @@
 </script>
 
 {{-- Adsense --}}
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4218246550818096"
-    crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3980043434451295"
+     crossorigin="anonymous"></script>
 
 {{-- Google tag (gtag.js) --}}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZNGZV1Q47"></script>
