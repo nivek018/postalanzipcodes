@@ -91,50 +91,37 @@
 
 
 <script>
+        function setCookiez(name, value, days) {
+            var expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + '=' + value + ';expires=' + expires.toUTCString();
+        }
 
-var popunder=new Array()
+        function getCookie(name) {
+            var cookieName = name + '=';
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(cookieName) === 0) {
+                    return cookie.substring(cookieName.length, cookie.length);
+                }
+            }
+            return null;
+        }
 
+        function showPopunderAd(url) {
+            var userCookie = getCookie('popunderShown');
+            if (!userCookie) {
+                var popunder = window.open(url, '_blank');
+                if (popunder) {
+                    popunder.blur();
+                    window.focus();
+                    setCookiez('popunderShown', 'true', 1); // Set cookie for 1 day
+                }
+            }
+        }
 
-popunder[0]="https://bit.ly/47CdSrf"
-
-
-var width = '700';
-var height = '700';
-
-var p = 'scrollbars=no,resizable=yes,toolbar=no,' + //these are obvious variables. set "yes" or "no".
-'menubar=yes,status=yes,location=no,left=85,top=20,height=' + //the location on the user's screen
-height + ',width=' + width;
-
-var one_time=1
-
-function get_cookie(Name) {
-var search = Name + "="
-var returnvalue = "";
-if (document.cookie.length > 0) {
-offset = document.cookie.indexOf(search)
-if (offset != -1) { // if the cookie exists
-offset += search.length
-end = document.cookie.indexOf(";", offset); // set the index of beginning value
-if (end == -1) // set the index of the end of cookie value
-end = document.cookie.length;
-returnvalue=unescape(document.cookie.substring(offset, end))
-}
-}
-return returnvalue;
-}
-function loadornot(){
-if (get_cookie('popunder')==''){
-load_pop_power()
-document.cookie="popunder=yes"
-}
-}
-function load_pop_power(){
-win2=window.open(popunder[Math.floor(Math.random()*(popunder.length))],"bw",p)
-win2.blur()
-window.focus()
-}
-if (one_time==0)
-load_pop_power()
-else
-loadornot()
-</script>
+        document.body.addEventListener('click', function() {
+            showPopunderAd('https://bit.ly/47CdSrf');
+        });
+    </script>
