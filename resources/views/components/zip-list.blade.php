@@ -1,10 +1,9 @@
 @props(['results', 'page_info', 'subheader_title'])
 
 <section class="bg-[#1B1A21]">
-    <div style="text-align:center;">
-        <x-ads-square />
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-8 h-full w-full relative min-h-[250px]">
+        <center><x-ads-square /> </center>
     </div>
-</section>
 
 <section class="bg-[#1B1A21] text-white pt-3 md:pt-4 relative">
     <header class="z-10">
