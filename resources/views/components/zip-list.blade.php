@@ -1,7 +1,7 @@
 @props(['results', 'page_info', 'subheader_title'])
 
 <section class="bg-[#1B1A21]">
-    <div class="mx-auto max-w-screen-xl px-4 lg:px-8 h-full relative min-h-[250px]" style="text-align:center;">
+    <div style="text-align:center;">
         <x-ads-square />
     </div>
 </section>
