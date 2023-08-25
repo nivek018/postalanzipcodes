@@ -23,7 +23,7 @@
 
             <div class="min-h-[calc(100vh-620px)] flex flex-col items-center relative">
 
-                <header
+                <header>
                     class="flex flex-wrap items-center justify-center dark:text-gray-50 mt-8 mb-4 max-w-screen-md px-4 text-center">
                     <h1 class="text-4xl font-bold text-white text-center font-Inter">
                         Explore the Complete Collection of <span
