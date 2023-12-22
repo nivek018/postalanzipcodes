@@ -145,7 +145,7 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             max-width: 90%;
-            width: 340px;
+            width: 500px; /* Adjusted width for a better fit */
             text-align: center;
             animation: fadeInUp 0.5s ease-out;
         }
@@ -163,13 +163,6 @@
 
         #popup-modal p {
             margin: 0 0 20px;
-        }
-
-        #popup-modal iframe {
-            width: 100%;
-            height: 300px; /* Adjusted height for a better fit */
-            border: none;
-            margin-bottom: 20px;
         }
 
         #popup-modal button {
@@ -210,7 +203,7 @@
     function showModal() {
         document.getElementById('popup-modal').style.display = 'block';
         document.getElementById('overlay').style.display = 'block';
-        document.cookie = 'modalShown=true; max-age=86400'; // once a day per usr lang magshow
+        document.cookie = 'modalShown=true; max-age=86400'; // once a day per user
     }
 
     function checkModal() {
@@ -226,9 +219,14 @@
 <!-- Modal HTML -->
 <div id="popup-modal">
     <p>Hey there! 👋 We'd love for you to follow us on Facebook!</p>
-    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpostalandzipcodes&tabs=timeline&width=340&height=200&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="340" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-        <button onclick="document.getElementById('popup-modal').style.display='none'; document.getElementById('overlay').style.display='none'">Close</button>
+    <div class="fb-page" data-href="https://www.facebook.com/postalandzipcodes/" data-width="500" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/postalandzipcodes/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/postalandzipcodes/">Postalandzipcodes</a></blockquote>
+    </div>
+    <button onclick="document.getElementById('popup-modal').style.display='none'; document.getElementById('overlay').style.display='none'">Close</button>
 </div>
 
 <!-- Overlay -->
 <div id="overlay"></div>
+
+<!-- Facebook SDK -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0"></script>
