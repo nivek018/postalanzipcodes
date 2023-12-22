@@ -240,8 +240,8 @@
 <!-- Modal HTML -->
 <div id="popup-modal">
     <p>Hey there! 👋 We'd love for you to follow us on Facebook!</p>
-    <div class="fb-page" data-href="https://www.facebook.com/postalandzipcodes/" data-width="280" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-        <blockquote cite="https://www.facebook.com/postalandzipcodes/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/postalandzipcodes/">Postalandzipcodes</a></blockquote>
+    <div class="fb-page" data-href="https://www.facebook.com/postalandzipcodes/" data-width="" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+    <blockquote cite="https://www.facebook.com/postalandzipcodes/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/postalandzipcodes/">Postalandzipcodes</a></blockquote>
     </div>
     <button onclick="document.getElementById('popup-modal').style.display='none'; document.getElementById('overlay').style.display='none'">Close</button>
 </div>
