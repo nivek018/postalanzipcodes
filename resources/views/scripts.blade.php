@@ -144,7 +144,7 @@
         background-color: #fff;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         z-index: 1000;
-        max-width: 90%;
+        max-width: 80%; /* Adjusted max-width for better desktop appearance */
         width: 500px; /* Adjusted width for a better fit */
         text-align: center;
         animation: fadeInUp 0.5s ease-out;
@@ -199,6 +199,12 @@
 
         .fb-page {
             width: 280px; /* Adjusted width for mobile */
+        }
+    }
+
+    @media (min-width: 481px) {
+        #popup-modal {
+            max-width: 60%; /* Adjusted max-width for better desktop appearance */
         }
     }
 </style>
