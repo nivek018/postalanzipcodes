@@ -127,13 +127,6 @@
     </script>
 
 <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
         #popup-modal {
             display: none;
             position: fixed;
@@ -144,7 +137,8 @@
             background-color: #fff;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
             z-index: 1000;
-            max-width: 80%;
+            max-width: 90%;
+            width: 340px;
             text-align: center;
             animation: fadeInUp 0.5s ease-out;
         }
@@ -166,8 +160,9 @@
 
         #popup-modal iframe {
             width: 100%;
-            height: 300px;
+            height: 200px;
             border: none;
+            margin-bottom: 20px;
         }
 
         #popup-modal button {
@@ -194,6 +189,14 @@
                 opacity: 1;
             }
         }
+
+        @media (max-width: 480px) {
+            #popup-modal {
+                max-width: 90%;
+                width: 80%;
+            }
+        }
+    </style>
     </style>
 
 <!-- Modal Trigger -->
