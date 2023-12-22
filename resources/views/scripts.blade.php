@@ -145,7 +145,7 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             max-width: 90%;
-            width: 80%; /* Adjusted width for better visibility on small screens */
+            width: 340px;
             text-align: center;
             animation: fadeInUp 0.5s ease-out;
         }
@@ -167,7 +167,7 @@
 
         #popup-modal iframe {
             width: 100%;
-            height: 150px; /* Adjusted height for a better fit */
+            height: 300px; /* Adjusted height for a better fit */
             border: none;
             margin-bottom: 20px;
         }
