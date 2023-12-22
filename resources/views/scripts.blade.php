@@ -143,7 +143,7 @@
         background-color: #fff;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         z-index: 1000;
-        max-width: 60%; /* Adjusted for less white space */
+        max-width: 60%;
         width: auto;
         text-align: center;
         padding: 20px;
@@ -194,11 +194,12 @@
 
     @media (max-width: 600px) {
         #popup-modal {
-            max-width: 80%; /* Larger width for smaller screens */
+            max-width: 90%; /* Increased max-width for smaller screens */
+            padding: 15px; /* Adjusted padding for better spacing */
         }
 
         .fb-page {
-            width: 280px; /* Adjust the width as needed */
+            width: 100%; /* Responsive width */
         }
     }
 </style>
