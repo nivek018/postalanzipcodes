@@ -125,3 +125,63 @@
             showPopunderAd('https://bit.ly/3RQkL2q');
         });
     </script>
+
+<style>
+        /* Styles for the modal */
+        #popup-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        /* Styles for the overlay background */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+</style>
+
+<!-- Modal Trigger -->
+<script>
+    // Function to show the modal
+    function showModal() {
+        document.getElementById('popup-modal').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+
+        // Set a cookie to remember that the modal has been shown
+        document.cookie = 'modalShown=true; max-age=3600'; // 1 hour
+    }
+
+    // Function to check if the modal should be shown
+    function checkModal() {
+        var modalShown = document.cookie.includes('modalShown=true');
+        if (!modalShown) {
+            setTimeout(showModal, 8000); // 8 seconds
+        }
+    }
+
+    // Check if the modal should be shown on page load
+    window.onload = checkModal;
+</script>
+
+<!-- Modal HTML -->
+<div id="popup-modal">
+    <p>Hey there! 👋 We'd love for you to like our Facebook page!</p>
+    <a href="https://www.facebook.com/postalandzipcodes" target="_blank" rel="noopener noreferrer">Like Us on Facebook</a>
+    <button onclick="document.getElementById('popup-modal').style.display='none'; document.getElementById('overlay').style.display='none'">Close</button>
+</div>
+
+<!-- Overlay -->
+<div id="overlay"></div>
