@@ -127,76 +127,81 @@
     </script>
 
 <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
 
-        #popup-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
+    #popup-modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        max-width: 90%;
+        width: 500px; /* Adjusted width for a better fit */
+        text-align: center;
+        animation: fadeInUp 0.5s ease-out;
+    }
+
+    #overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    #popup-modal p {
+        margin: 0 0 20px;
+    }
+
+    #popup-modal button {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        margin-top: 20px; /* Added spacing from the Facebook plugin */
+    }
+
+    #popup-modal button:hover {
+        background-color: #45a049;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            transform: translate(-50%, -60%);
+            opacity: 0;
+        }
+        to {
             transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 480px) {
+        #popup-modal {
             max-width: 90%;
-            width: 500px; /* Adjusted width for a better fit */
-            text-align: center;
-            animation: fadeInUp 0.5s ease-out;
+            width: 80%;
         }
 
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
+        .fb-page {
+            width: 280px; /* Adjusted width for mobile */
         }
-
-        #popup-modal p {
-            margin: 0 0 20px;
-        }
-
-        #popup-modal button {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        #popup-modal button:hover {
-            background-color: #45a049;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                transform: translate(-50%, -60%);
-                opacity: 0;
-            }
-            to {
-                transform: translate(-50%, -50%);
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #popup-modal {
-                max-width: 90%;
-                width: 80%;
-            }
-        }
-    </style>
+    }
+</style>
 
 <!-- Modal Trigger -->
 <script>
@@ -219,7 +224,7 @@
 <!-- Modal HTML -->
 <div id="popup-modal">
     <p>Hey there! 👋 We'd love for you to follow us on Facebook!</p>
-    <div class="fb-page" data-href="https://www.facebook.com/postalandzipcodes/" data-width="300" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+    <div class="fb-page" data-href="https://www.facebook.com/postalandzipcodes/" data-width="280" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
         <blockquote cite="https://www.facebook.com/postalandzipcodes/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/postalandzipcodes/">Postalandzipcodes</a></blockquote>
     </div>
     <button onclick="document.getElementById('popup-modal').style.display='none'; document.getElementById('overlay').style.display='none'">Close</button>
