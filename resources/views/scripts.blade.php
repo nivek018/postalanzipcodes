@@ -163,7 +163,7 @@
 
     .fb-page {
         margin: 20px 0;
-        width: 100%; /* Responsive width */
+        width: 100%; 
     }
 
     #popup-modal button {
@@ -174,7 +174,7 @@
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.3s;
-        /* margin-top: 20px; */
+        margin-top: 20px;
     }
 
     #popup-modal button:hover {
@@ -194,12 +194,12 @@
 
     @media (max-width: 600px) {
         #popup-modal {
-            max-width: 90%; /* Increased max-width for smaller screens */
-            padding: 15px; /* Adjusted padding for better spacing */
+            max-width: 90%; 
+            padding: 15px; 
         }
 
         .fb-page {
-            width: 100%; /* Responsive width */
+            width: 100%; 
         }
     }
 </style>
