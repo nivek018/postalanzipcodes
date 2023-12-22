@@ -127,7 +127,13 @@
     </script>
 
 <style>
-        /* Styles for the modal */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
         #popup-modal {
             display: none;
             position: fixed;
@@ -136,11 +142,13 @@
             transform: translate(-50%, -50%);
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
             z-index: 1000;
+            max-width: 80%;
+            text-align: center;
+            animation: fadeInUp 0.5s ease-out;
         }
 
-        /* Styles for the overlay background */
         #overlay {
             display: none;
             position: fixed;
@@ -151,35 +159,65 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: 999;
         }
-</style>
+
+        #popup-modal p {
+            margin: 0 0 20px;
+        }
+
+        #popup-modal iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        #popup-modal button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        #popup-modal button:hover {
+            background-color: #45a049;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translate(-50%, -60%);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+    </style>
 
 <!-- Modal Trigger -->
 <script>
-    // Function to show the modal
     function showModal() {
         document.getElementById('popup-modal').style.display = 'block';
         document.getElementById('overlay').style.display = 'block';
-
-        // Set a cookie to remember that the modal has been shown
-        document.cookie = 'modalShown=true; max-age=3600'; // 1 hour
+        document.cookie = 'modalShown=true; max-age=3600';
     }
 
-    // Function to check if the modal should be shown
     function checkModal() {
         var modalShown = document.cookie.includes('modalShown=true');
         if (!modalShown) {
-            setTimeout(showModal, 8000); // 8 seconds
+            setTimeout(showModal, 8000);
         }
     }
 
-    // Check if the modal should be shown on page load
     window.onload = checkModal;
 </script>
 
 <!-- Modal HTML -->
 <div id="popup-modal">
     <p>Hey there! 👋 We'd love for you to like our Facebook page!</p>
-    <a href="https://www.facebook.com/postalandzipcodes" target="_blank" rel="noopener noreferrer">Like Us on Facebook</a>
+    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpostalandzipcodes&tabs=timeline&width=340&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
     <button onclick="document.getElementById('popup-modal').style.display='none'; document.getElementById('overlay').style.display='none'">Close</button>
 </div>
 
