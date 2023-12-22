@@ -174,7 +174,7 @@
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.3s;
-        margin-top: 20px;
+        /* margin-top: 20px; */
     }
 
     #popup-modal button:hover {
