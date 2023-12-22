@@ -144,8 +144,8 @@
         background-color: #fff;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         z-index: 1000;
-        max-width: 80%; /* Adjusted max-width for better desktop appearance */
-        width: 500px; /* Adjusted width for a better fit */
+        max-width: 80%;
+        width: 500px;
         text-align: center;
         animation: fadeInUp 0.5s ease-out;
     }
@@ -165,6 +165,16 @@
         margin: 0 0 20px;
     }
 
+    #popup-modal .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #popup-modal .fb-page {
+        margin-bottom: 20px;
+    }
+
     #popup-modal button {
         background-color: #4CAF50;
         color: #fff;
@@ -173,7 +183,7 @@
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.3s;
-        margin-top: 20px; /* Added spacing from the Facebook plugin */
+        margin-top: 20px;
     }
 
     #popup-modal button:hover {
@@ -198,13 +208,13 @@
         }
 
         .fb-page {
-            width: 280px; /* Adjusted width for mobile */
+            width: 280px;
         }
     }
 
     @media (min-width: 481px) {
         #popup-modal {
-            max-width: 60%; /* Adjusted max-width for better desktop appearance */
+            max-width: 60%;
         }
     }
 </style>
