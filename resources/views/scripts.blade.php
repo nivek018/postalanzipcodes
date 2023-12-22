@@ -167,7 +167,7 @@
 
         #popup-modal iframe {
             width: 100%;
-            height: 60px;
+            height: 150px; /* Adjusted height for a better fit */
             border: none;
             margin-bottom: 20px;
         }
@@ -210,13 +210,13 @@
     function showModal() {
         document.getElementById('popup-modal').style.display = 'block';
         document.getElementById('overlay').style.display = 'block';
-        document.cookie = 'modalShown=true; max-age=3600';
+        document.cookie = 'modalShown=true; max-age=86400'; // once a day per usr lang magshow
     }
 
     function checkModal() {
         var modalShown = document.cookie.includes('modalShown=true');
         if (!modalShown) {
-            setTimeout(showModal, 5000);
+            setTimeout(showModal, 5000); 
         }
     }
 
@@ -226,7 +226,7 @@
 <!-- Modal HTML -->
 <div id="popup-modal">
     <p>Hey there! 👋 We'd love for you to follow us on Facebook!</p>
-    <iframe src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2Fpostalandzipcodes&layout=standard&show_faces=true&colorscheme=light" width="340" height="60" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+    <iframe src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2Fpostalandzipcodes&layout=standard&show_faces=true&colorscheme=light" width="340" height="150" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
     <button onclick="document.getElementById('popup-modal').style.display='none'; document.getElementById('overlay').style.display='none'">Close</button>
 </div>
 
