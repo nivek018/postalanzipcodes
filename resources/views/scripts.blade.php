@@ -145,7 +145,7 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             max-width: 90%;
-            width: 340px;
+            width: 80%; /* Adjusted width for better visibility on small screens */
             text-align: center;
             animation: fadeInUp 0.5s ease-out;
         }
