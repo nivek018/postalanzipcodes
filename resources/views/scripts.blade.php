@@ -215,7 +215,7 @@
     function checkModal() {
         var modalShown = document.cookie.includes('modalShown=true');
         if (!modalShown) {
-            setTimeout(showModal, 5000); 
+            setTimeout(showModal, 3000); 
         }
     }
 
